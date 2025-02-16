@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <title>医维矩阵 (MedX Lab)</title>
+  <meta name="author" content="医维矩阵实验室">
+  <meta name="description" content="医维矩阵实验室 - 国际医信交叉研究平台">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      color: #333;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1000px;
+      width: 100%;
+      padding: 0 1.25rem;
+      box-sizing: border-box;
+    }
+
+    header {
+      margin-bottom: 20px;
+      text-align: center;
+      padding: 20px 0;
+      background-color: #f9f9f9;
+      width: 100%;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      margin: 0;
+      color: #2c3e50;
+    }
+
+    header h3 {
+      font-size: 1.2em;
+      margin: 5px 0;
+      color: #555;
+    }
+
+    .header-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .header-content img {
+      border-radius: 50%;
+      margin: 15px 0;
+    }
+
+    .contact-info {
+      margin: 10px 0;
+    }
+
+    section {
+      padding: 20px 0;
+      width: 100%;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    section:last-of-type {
+      border-bottom: none;
+    }
+
+    h2 {
+      font-family: Georgia, serif;
+      color: #2c3e50;
+      margin: 0;
+      font-size: 2em;
+      border-bottom: 2px solid #e0e0e0;
+      padding-bottom: 5px;
+    }
+
+    h3 {
+      font-family: Georgia, serif;
+      color: #2c3e50;
+      margin: 15px 0 5px;
+      font-size: 1.5em;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+
+    ul {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
+
+    footer {
+      font-family: Georgia, serif;
+      text-align: center;
+      width: 100%;
+      font-style: italic;
+      padding: 15px 0;
+      background-color: #f1f1f1;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 0 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="header-content">
+        <h1>医维矩阵 (MedX Lab)</h1>
+        <h3>国际医信交叉研究平台</h3>
+      </div>
+      <div class="contact-info">
+        <p><strong>Email:</strong> malt [at] pku.edu.cn</p>
+      </div>
+    </header>
+
+    <section id="background">
+      <h2>团队背景</h2>
+      <p>
+        医维矩阵（MedX）由北京大学团队与爱丁堡大学团队的人工智能研究者、医学研究者联合组建，协同北京大学肿瘤医院、北京大学第三医院等高水平三甲医院科室，共同构建高可信、易用的医学人工智能平台。我们的目标是聚焦大语言模型技术，赋能临床诊疗决策与医学科研，打造“临床需求-技术研发-应用落地”的全链条闭环，弥合医学与信息科学领域间的技术鸿沟，从理论探索到临床实践，为医生、患者及公共卫生决策提供创新支持。
+      </p>
+      <p>从北京大学未名湖畔到爱丁堡皇家医学院，医维矩阵实验室致力于站在医工交叉的前沿，坚持“问题从临床中来，成果到临床中去”。我们期待与全球医学研究者共建开放协作生态，让人工智能真正成为医生手中的“超级柳叶刀”与患者的“贴身护卫”。我们为大家提供：团队研发最新医学 AI 工具试用、AI for Science 成果与研究思路分享、国际医信交叉领域新动态跟踪。关注我们，共同见证 AI 如何重新定义医学的未来！</p>
+    </section>
+
+    <section id="research">
+      <h2>核心研究方向：临床驱动的医学人工智能</h2>
+      <p><strong>（1）基于电子病历的精准医疗预测</strong><br>
+        构建临床可验证的高可信、可解释性深度学习框架，开发细粒度决策逻辑可视化平台，缓解黑箱模型临床部署障碍（决策透明度低、医生信任缺失），支持疾病风险预警、诊疗推荐等任务。
+      </p>
+      <p><strong>（2）医疗垂直领域基础大模型</strong><br>
+        构建个体诊疗电子病历数据与医学专家经验双维度知识基座，解决跨模态数据知识的异构性融合问题。
+      </p>
+      <p><strong>（3）大模型驱动的 AI for Science 科研平台</strong><br>
+        突破医学研究者 AI 技术应用壁垒，提升临床数据挖掘研究效率，推动解决深度学习临床落地“最后一公里”。
+      </p>
+    </section>
+
+    <section id="achievements">
+      <h2>研究成果</h2>
+      <h3>科研项目主持</h3>
+      <ul>
+        <li>国际项目：国际R语言联合体-R语言基础设施建设督导项目（全球每年10项，2016年以来中国科研机构首次获批）、OpenAI Research基金</li>
+        <li>国家级项目：国家自然科学基金重点项目、国家自然科学基金专项</li>
+        <li>省部级项目：北京市自然基金委项目</li>
+      </ul>
+      <h3>团队项目与获奖</h3>
+      <ul>
+        <li>国家博士后科学基金特别站前资助、国家博士后科学基金面上资助</li>
+        <li>百度奖学金（全球每年不超过10位）</li>
+        <li>Citadel Datathon 全球冠军</li>
+        <li>“挑战杯”全国大学生科技竞赛“揭榜挂帅”决赛特等奖，全国冠军</li>
+      </ul>
+      <h3>学术成果</h3>
+      <ul>
+        <li>Cell Patterns 首页封面文章、Nature 子刊、NEJM AI 社论、计算机学会 CCF-A类最高级国际学术会议长文（包括 SIGKDD、WWW、AAAI 等）30余篇</li>
+        <li>研究成果作为大数据应用典型成果获得中央电视台 CCTV-1 7 分钟专题报道，入选世界智能大会展示，获国家卫健委《健康报》采访</li>
+      </ul>
+    </section>
+
+    <section id="services">
+      <h2>学术服务</h2>
+      <p><strong>会议组织：</strong>主持举办 CCF-A类国际会议 KDD Workshop、自然语言处理知名会议 ICLR Workshop。</p>
+      <p><strong>学术评审：</strong>担任 CCF-A类国际会议 KDD Best Reviewer；获 Science 合作期刊 Health Data Science 年度审稿人奖及长期客座编辑；美国医学信息学会 AMIA 审稿人奖；长期受邀担任《柳叶刀》、《自然》、《新英格兰医学杂志》等顶刊审稿。</p>
+      <p><strong>受邀报告：</strong>受英国皇家学会院士/英国医学科学院院士邀请报告、首届国家产科质控大会、Health Data Science 期刊、美国国家新冠合作组织 N3C、ML4H 会议等多场受邀报告。</p>
+    </section>
+
+    <section id="lab-head">
+      <h2>团队负责人：马连韬</h2>
+      <p>
+        马连韬，北京大学软件工程国家工程研究中心研究型助理教授（Research Assistant Professor，助理研究员），北京大学计算机软件与理论博士毕业，北京大学计算机系博雅博士后（已出站）。他长期从事医信交叉、电子病历数据深度学习可解释分析研究工作，其研究成果已服务于智慧医疗领域，包括终末期慢性肾病、淋巴瘤以及新冠肺炎重症患者的诊疗辅助等。
+      </p>
+      <p><strong>研究兴趣：</strong></p>
+      <ul>
+        <li>医信交叉，智慧医疗，预后预测，诊疗辅助</li>
+        <li>多变量时间序列电子病历数据分析</li>
+        <li>可解释深度学习</li>
+        <li>临床应用：终末期慢性肾病、淋巴瘤、产科</li>
+      </ul>
+    </section>
+  </div>
+
+  <footer>
+    <p>© 2025 医维矩阵 (MedX Lab), Last Updated: 2025年02月16日</p>
+  </footer>
+</body>
+
+</html>
