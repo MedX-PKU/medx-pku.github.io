@@ -1,0 +1,84 @@
+{
+  "nav": {
+    "labName": "医维矩阵 (MedX Lab)",
+    "subtitle": "国际医信交叉研究平台",
+    "home": "首页",
+    "people": "团队成员",
+    "publications": "学术成果"
+  },
+  "home": {
+    "hero": {
+      "title": "医维矩阵实验室",
+      "subtitle": "构建高可信、易用的医学人工智能，聚焦大语言模型技术，赋能临床诊疗决策与医学科研",
+      "cta1": "查看研究成果",
+      "cta2": "了解团队"
+    },
+    "about": {
+      "title": "关于实验室",
+      "description1": "医维矩阵（MedX）由北京大学团队与爱丁堡大学团队的人工智能研究者、医学研究者联合组建，协同北京大学肿瘤医院、北京大学第三医院等高水平三甲医院科室，构建高可信、易用的医学人工智能。",
+      "description2": "我们聚焦大语言模型技术，赋能临床诊疗决策与医学科研。打造“临床需求-技术研发-应用落地”的全链条闭环，弥合医学与信息科学领域间的技术鸿沟，推动医疗AI从理论探索走向临床实践。"
+    },
+    "research": {
+      "title": "核心研究方向",
+      "areas": {
+        "ehr": "基于电子病历的精准医疗预测",
+        "ehrDesc": "构建临床可验证的高可信、可解释性深度学习框架",
+        "llm": "医疗垂直领域基础大模型",
+        "llmDesc": "构建个体诊疗电子病历数据与医学专家经验双维度知识基座",
+        "platform": "大模型驱动的AI for Science科研平台",
+        "platformDesc": "突破医学研究者AI技术应用壁垒，提升临床数据挖掘研究效率"
+      }
+    },
+    "director": {
+      "name": "马连韬",
+      "title": "实验室负责人",
+      "description": "北京大学软件工程国家工程研究中心研究型助理教授，硕士生导师。长期从事医信交叉、电子病历数据深度学习可解释分析研究工作。",
+      "email": "malt@pku.edu.cn"
+    },
+    "news": {
+      "title": "最新动态"
+    },
+    "publications": {
+      "title": "代表性成果"
+    },
+    "contact": {
+      "title": "联系我们",
+      "subtitle": "与我们团队联系，探讨合作与机会",
+      "lab_info": "实验室信息",
+      "join_us": "加入我们",
+      "recruitment": "我们一直在寻找有才华的研究人员和学生加入我们的团队。查看我们的开放职位和合作机会。",
+      "learn_more": "了解更多",
+      "address": "北京市海淀区颐和园路5号 北京大学",
+      "email": "malt@pku.edu.cn",
+      "phone": "+86-10-12345678",
+      "wechat": "微信公众号：医维矩阵实验室（MedX-PKU）"
+    }
+  },
+  "people": {
+    "title": "团队成员",
+    "director": "实验室负责人",
+    "members": "团队成员"
+  },
+  "publications": {
+    "title": "学术成果",
+    "subtitle": "探索我们最新的研究发现和学术贡献",
+    "filter": {
+      "all": "全部",
+      "conference": "会议论文",
+      "journal": "期刊论文",
+      "featured": "精选论文"
+    },
+    "search": "搜索论文...",
+    "year": "年份",
+    "view_all": "查看全部论文"
+  },
+  "common": {
+    "readMore": "阅读更多",
+    "viewAll": "查看全部",
+    "contact": "联系方式",
+    "paper": "论文",
+    "code": "代码",
+    "demo": "演示",
+    "slides": "幻灯片"
+  }
+}

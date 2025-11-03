@@ -1,0 +1,84 @@
+{
+  "nav": {
+    "labName": "MedX Lab",
+    "subtitle": "International Medical Informatics Research Platform",
+    "home": "Home",
+    "people": "People",
+    "publications": "Publications"
+  },
+  "home": {
+    "hero": {
+      "title": "MedX Laboratory",
+      "subtitle": "Building trustworthy and accessible medical AI, focusing on large language model technologies to empower clinical decision-making and medical research",
+      "cta1": "View Research",
+      "cta2": "Meet Our Team"
+    },
+    "about": {
+      "title": "About the Lab",
+      "description1": "MedX is jointly established by AI researchers and medical researchers from Peking University and the University of Edinburgh, collaborating with top-tier hospitals including Peking University Cancer Hospital and Peking University Third Hospital.",
+      "description2": "We focus on large language model technologies to empower clinical decision-making and medical research, creating a complete loop from clinical needs to technology development to practical applications."
+    },
+    "research": {
+      "title": "Core Research Areas",
+      "areas": {
+        "ehr": "Precision Medicine Prediction Based on EHR",
+        "ehrDesc": "Building clinically verifiable, highly trustworthy, and interpretable deep learning frameworks",
+        "llm": "Medical Domain Foundation Models",
+        "llmDesc": "Constructing knowledge bases with both individual clinical EHR data and medical expert experience",
+        "platform": "LLM-Driven AI for Science Research Platform",
+        "platformDesc": "Breaking down barriers for medical researchers in AI technology applications"
+      }
+    },
+    "director": {
+      "name": "Liantao Ma",
+      "title": "Lab Director",
+      "description": "Research Assistant Professor at the National Engineering Research Center for Software Engineering, Peking University. Long-term engagement in medical informatics and interpretable deep learning analysis of electronic health record data.",
+      "email": "malt@pku.edu.cn"
+    },
+    "news": {
+      "title": "Latest News"
+    },
+    "publications": {
+      "title": "Featured Publications"
+    },
+    "contact": {
+      "title": "Contact Us",
+      "subtitle": "Get in touch with our team for collaborations and opportunities",
+      "lab_info": "Laboratory Information",
+      "join_us": "Join Our Team",
+      "recruitment": "We are always looking for talented researchers and students to join our team. Check out our open positions and collaboration opportunities.",
+      "learn_more": "Learn More",
+      "address": "5 Yiheyuan Road, Haidian District, Beijing, Peking University",
+      "email": "malt@pku.edu.cn",
+      "phone": "+86-10-12345678",
+      "wechat": "WeChat: MedX-PKU"
+    }
+  },
+  "people": {
+    "title": "Our Team",
+    "director": "Lab Director",
+    "members": "Team Members"
+  },
+  "publications": {
+    "title": "Publications",
+    "subtitle": "Explore our latest research findings and academic contributions",
+    "filter": {
+      "all": "All",
+      "conference": "Conference",
+      "journal": "Journal",
+      "featured": "Featured"
+    },
+    "search": "Search publications...",
+    "year": "Year",
+    "view_all": "View All Publications"
+  },
+  "common": {
+    "readMore": "Read More",
+    "viewAll": "View All",
+    "contact": "Contact",
+    "paper": "Paper",
+    "code": "Code",
+    "demo": "Demo",
+    "slides": "Slides"
+  }
+}
