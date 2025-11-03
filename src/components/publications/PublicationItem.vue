@@ -21,6 +21,16 @@
       {{ publication.abstract }}
     </p>
 
+    <div v-if="publication.tags && publication.tags.length > 0" class="flex flex-wrap gap-2 mt-2">
+      <span
+        v-for="tag in publication.tags"
+        :key="tag"
+        class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800 border border-gray-200"
+      >
+        {{ tag }}
+      </span>
+    </div>
+
     <div class="flex flex-wrap gap-2 mt-3 pt-3 border-t border-gray-100">
       <a
         v-if="publication.links?.paper"

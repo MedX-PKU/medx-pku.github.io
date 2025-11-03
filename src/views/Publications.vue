@@ -11,15 +11,17 @@
       </div>
 
       <!-- Filters -->
-      <PublicationFilter
-        v-model:search="searchQuery"
-        v-model:year="selectedYear"
-        v-model:type="selectedType"
-        v-model:tag="selectedTag"
-        :years="availableYears"
-        :types="availableTypes"
-        :tags="availableTags"
-      />
+      <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+        <PublicationFilter
+          v-model:search="searchQuery"
+          v-model:year="selectedYear"
+          v-model:type="selectedType"
+          v-model:tag="selectedTag"
+          :years="availableYears"
+          :types="availableTypes"
+          :tags="availableTags"
+        />
+      </div>
 
       <!-- Publications List -->
       <div class="mt-8">
