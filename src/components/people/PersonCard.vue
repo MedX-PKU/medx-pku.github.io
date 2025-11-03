@@ -6,9 +6,15 @@
         :alt="person.name"
         class="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
       >
-      <h3 class="text-lg font-semibold text-gray-900 mb-1">{{ person.name }}</h3>
-      <p class="text-blue-600 font-medium text-sm mb-2">{{ person.title }}</p>
-      <p class="text-gray-600 text-sm">{{ person.department }}</p>
+      <h3 class="text-lg font-semibold text-gray-900 mb-1">
+        {{ person.name }}
+      </h3>
+      <p class="text-blue-600 font-medium text-sm mb-2">
+        {{ person.title }}
+      </p>
+      <p class="text-gray-600 text-sm">
+        {{ person.department }}
+      </p>
 
       <div v-if="person.email" class="mt-4">
         <a
@@ -20,7 +26,9 @@
       </div>
 
       <div v-if="person.research" class="mt-3">
-        <p class="text-gray-700 text-xs leading-relaxed">{{ person.research }}</p>
+        <p class="text-gray-700 text-xs leading-relaxed">
+          {{ person.research }}
+        </p>
       </div>
     </div>
   </div>

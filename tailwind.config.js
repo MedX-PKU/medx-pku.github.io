@@ -1,8 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    "./index.html",
-    "./src/**/*.{vue,js,ts,jsx,tsx}",
+    './index.html',
+    './src/**/*.{vue,js,ts,jsx,tsx}'
   ],
   theme: {
     extend: {
@@ -14,7 +14,7 @@ export default {
           600: '#0284c7',
           700: '#0369a1',
           800: '#075985',
-          900: '#0c4a6e',
+          900: '#0c4a6e'
         },
         medical: {
           blue: '#1e40af',
@@ -22,17 +22,17 @@ export default {
           'blue-dark': '#1e3a8a',
           green: '#059669',
           gray: '#6b7280',
-          'gray-light': '#9ca3af',
+          'gray-light': '#9ca3af'
         }
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
-        serif: ['Georgia', 'serif'],
+        serif: ['Georgia', 'serif']
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-in-out',
         'slide-up': 'slideUp 0.6s ease-out',
-        'scale-in': 'scaleIn 0.4s ease-out',
+        'scale-in': 'scaleIn 0.4s ease-out'
       },
       keyframes: {
         fadeIn: {
@@ -48,7 +48,7 @@ export default {
           '100%': { transform: 'scale(1)', opacity: '1' }
         }
       }
-    },
+    }
   },
-  plugins: [],
+  plugins: []
 }

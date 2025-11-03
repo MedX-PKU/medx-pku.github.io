@@ -4,11 +4,11 @@
     <main class="flex-1">
       <router-view />
     </main>
-    <Footer />
+    <AppFooter />
   </div>
 </template>
 
 <script setup>
 import Header from '@/components/common/Header.vue'
-import Footer from '@/components/common/Footer.vue'
+import AppFooter from '@/components/common/Footer.vue'
 </script>

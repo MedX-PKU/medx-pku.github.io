@@ -2,7 +2,9 @@
   <div class="people-page">
     <div class="bg-gradient-to-br from-blue-700 to-blue-900 text-white py-16">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">{{ $t('people.title') }}</h1>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">
+          {{ $t('people.title') }}
+        </h1>
         <p class="text-xl text-blue-100 max-w-3xl mx-auto">
           {{ $t('publications.subtitle') }}
         </p>
@@ -12,7 +14,9 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <!-- Lab Director -->
       <div class="mb-16">
-        <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">{{ $t('people.director') }}</h2>
+        <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">
+          {{ $t('people.director') }}
+        </h2>
         <div class="flex justify-center">
           <PersonCard :person="director" />
         </div>
@@ -20,7 +24,9 @@
 
       <!-- Team Members -->
       <div>
-        <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">{{ $t('people.members') }}</h2>
+        <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">
+          {{ $t('people.members') }}
+        </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <PersonCard
             v-for="member in teamMembers"

@@ -1,8 +1,8 @@
 <template>
   <div class="relative">
     <button
-      @click="isOpen = !isOpen"
       class="flex items-center space-x-1 px-3 py-2 rounded-md bg-gray-100 hover:bg-gray-200 transition-colors duration-200"
+      @click="isOpen = !isOpen"
     >
       <GlobeAltIcon class="h-4 w-4" />
       <span class="text-sm font-medium">{{ currentLanguage.label }}</span>
@@ -16,9 +16,9 @@
       <button
         v-for="lang in languages"
         :key="lang.code"
-        @click="changeLanguage(lang.code)"
         class="block w-full text-left px-4 py-2 text-sm hover:bg-gray-50 transition-colors duration-200"
         :class="{ 'bg-blue-600 text-white': locale === lang.code }"
+        @click="changeLanguage(lang.code)"
       >
         {{ lang.label }}
       </button>

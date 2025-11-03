@@ -37,8 +37,8 @@
 
         <!-- Mobile Menu Button -->
         <button
-          @click="mobileMenuOpen = !mobileMenuOpen"
           class="md:hidden p-2 rounded-md text-gray-600 hover:text-blue-600"
+          @click="mobileMenuOpen = !mobileMenuOpen"
         >
           <Bars3Icon v-if="!mobileMenuOpen" class="h-6 w-6" />
           <XMarkIcon v-else class="h-6 w-6" />
@@ -76,7 +76,7 @@ const mobileMenuOpen = ref(false)
 const navigationItems = [
   { name: 'home', path: '/', label: 'nav.home' },
   { name: 'people', path: '/people', label: 'nav.people' },
-  { name: 'publications', path: '/publications', label: 'nav.publications' },
+  { name: 'publications', path: '/publications', label: 'nav.publications' }
 ]
 </script>
 

@@ -6,16 +6,16 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [
     vue(),
-    tailwindcss(),
+    tailwindcss()
   ],
   resolve: {
     alias: {
-      '@': resolve(__dirname, 'src'),
-    },
+      '@': resolve(__dirname, 'src')
+    }
   },
   server: {
     port: 3000,
-    open: true,
+    open: true
   },
   build: {
     outDir: 'dist',
@@ -24,9 +24,9 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          vendor: ['vue', 'vue-router', 'vue-i18n', 'pinia'],
-        },
-      },
-    },
-  },
+          vendor: ['vue', 'vue-router', 'vue-i18n', 'pinia']
+        }
+      }
+    }
+  }
 })

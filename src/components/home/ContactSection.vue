@@ -18,21 +18,27 @@
           <div class="space-y-3">
             <div class="flex items-center">
               <div class="flex-shrink-0">
-                <div class="w-5 h-5 bg-blue-600 rounded-full"></div>
+                <div class="w-5 h-5 bg-blue-600 rounded-full" />
               </div>
-              <p class="ml-3 text-gray-700">{{ $t('home.contact.address') }}</p>
+              <p class="ml-3 text-gray-700">
+                {{ $t('home.contact.address') }}
+              </p>
             </div>
             <div class="flex items-center">
               <div class="flex-shrink-0">
-                <div class="w-5 h-5 bg-blue-600 rounded-full"></div>
+                <div class="w-5 h-5 bg-blue-600 rounded-full" />
               </div>
-              <p class="ml-3 text-gray-700">{{ $t('home.contact.email') }}</p>
+              <p class="ml-3 text-gray-700">
+                {{ $t('home.contact.email') }}
+              </p>
             </div>
             <div class="flex items-center">
               <div class="flex-shrink-0">
-                <div class="w-5 h-5 bg-blue-600 rounded-full"></div>
+                <div class="w-5 h-5 bg-blue-600 rounded-full" />
               </div>
-              <p class="ml-3 text-gray-700">{{ $t('home.contact.phone') }}</p>
+              <p class="ml-3 text-gray-700">
+                {{ $t('home.contact.phone') }}
+              </p>
             </div>
           </div>
         </div>

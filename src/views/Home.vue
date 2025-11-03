@@ -33,10 +33,14 @@
                   :key="area.id"
                   class="flex items-start space-x-3"
                 >
-                  <div class="flex-shrink-0 w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
+                  <div class="flex-shrink-0 w-2 h-2 bg-blue-600 rounded-full mt-2" />
                   <div>
-                    <h4 class="font-semibold text-gray-900">{{ $t(area.title) }}</h4>
-                    <p class="text-gray-600 text-sm">{{ $t(area.description) }}</p>
+                    <h4 class="font-semibold text-gray-900">
+                      {{ $t(area.title) }}
+                    </h4>
+                    <p class="text-gray-600 text-sm">
+                      {{ $t(area.description) }}
+                    </p>
                   </div>
                 </div>
               </div>

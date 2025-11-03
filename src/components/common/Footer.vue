@@ -3,8 +3,12 @@
     <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row justify-between items-center">
         <div class="mb-4 md:mb-0">
-          <h3 class="text-lg font-semibold text-gray-900">MEDx Laboratory</h3>
-          <p class="text-sm text-gray-600 mt-1">Peking University</p>
+          <h3 class="text-lg font-semibold text-gray-900">
+            MEDx Laboratory
+          </h3>
+          <p class="text-sm text-gray-600 mt-1">
+            Peking University
+          </p>
         </div>
         <div class="flex space-x-6">
           <a href="#" class="text-gray-400 hover:text-gray-500">
@@ -26,6 +30,6 @@
 
 <script>
 export default {
-  name: 'Footer'
+  name: 'AppFooter'
 }
 </script>
