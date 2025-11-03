@@ -36,6 +36,7 @@
 <script>
 import { ref, onMounted } from 'vue'
 import PersonCard from '@/components/people/PersonCard.vue'
+import { teamData } from '@/data/team.js'
 
 export default {
   name: 'People',
@@ -46,20 +47,26 @@ export default {
     const director = ref({})
     const teamMembers = ref([])
 
-    onMounted(async () => {
+    onMounted(() => {
       try {
-        // Load team data
-        const teamModule = await import('@/data/team.js')
-        const teamData = teamModule.default || teamModule.team || []
-
         // Set director
-        const directorData = teamData.find(member => member.role === 'director')
+        const directorData = teamData.find(member => member.isDirector)
         if (directorData) {
-          director.value = directorData
+          director.value = {
+            name: directorData.name.zh || directorData.name.en,
+            title: directorData.position.zh || directorData.position.en,
+            email: directorData.email,
+            image: directorData.image
+          }
         }
 
         // Set team members (excluding director)
-        teamMembers.value = teamData.filter(member => member.role !== 'director')
+        teamMembers.value = teamData.filter(member => !member.isDirector).map(member => ({
+          name: member.name.zh || member.name.en,
+          title: member.position.zh || member.position.en,
+          email: member.email,
+          image: member.image
+        }))
       } catch (error) {
         console.warn('Could not load team data:', error)
 
@@ -67,9 +74,7 @@ export default {
         director.value = {
           name: 'Liantao Ma',
           title: 'Lab Director',
-          department: 'National Engineering Research Center for Software Engineering',
           email: 'malt@pku.edu.cn',
-          research: 'Medical informatics and interpretable deep learning analysis of electronic health record data.',
           image: '/images/team/ma-liantao.svg'
         }
       }

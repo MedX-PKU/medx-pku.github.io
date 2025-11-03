@@ -87,9 +87,9 @@
 
 <script setup>
 import HeroSection from '@/components/home/HeroSection.vue'
-import NewsSection from '@/components/home/NewsSection.vue'
-import PublicationsSection from '@/components/home/PublicationsSection.vue'
-import ContactSection from '@/components/home/ContactSection.vue'
+// import NewsSection from '@/components/home/NewsSection.vue'
+// import PublicationsSection from '@/components/home/PublicationsSection.vue'
+// import ContactSection from '@/components/home/ContactSection.vue'
 
 const researchAreas = [
   {

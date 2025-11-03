@@ -43,6 +43,7 @@
 import { ref, onMounted } from 'vue'
 import PublicationItem from '@/components/publications/PublicationItem.vue'
 import PublicationFilter from '@/components/publications/PublicationFilter.vue'
+import { publicationsData } from '@/data/publications.js'
 
 export default {
   name: 'PublicationsSection',
@@ -53,12 +54,10 @@ export default {
   setup() {
     const featuredPublications = ref([])
 
-    onMounted(async () => {
+    onMounted(() => {
       // Load featured publications
       try {
-        const publicationsModule = await import('@/data/publications.js')
-        const allPublications = publicationsModule.publicationsData || []
-        featuredPublications.value = allPublications.slice(0, 6) // Show first 6 publications
+        featuredPublications.value = publicationsData.slice(0, 6) // Show first 6 publications
       } catch (error) {
         console.warn('Could not load publications:', error)
         featuredPublications.value = []

@@ -11,7 +11,7 @@ import zh from './locales/zh.json'
 
 const i18n = createI18n({
   legacy: false,
-  locale: localStorage.getItem('language') || 'zh',
+  locale: typeof localStorage !== 'undefined' ? localStorage.getItem('language') || 'zh' : 'zh',
   fallbackLocale: 'en',
   messages: {
     en,

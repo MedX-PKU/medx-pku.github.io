@@ -45,7 +45,9 @@ const currentLanguage = computed(() => {
 
 const changeLanguage = (langCode) => {
   locale.value = langCode
-  localStorage.setItem('language', langCode)
+  if (typeof localStorage !== 'undefined') {
+    localStorage.setItem('language', langCode)
+  }
   isOpen.value = false
 }
 </script>
