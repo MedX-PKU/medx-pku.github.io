@@ -69,7 +69,7 @@
                   href="mailto:malt@pku.edu.cn"
                   class="text-blue-600 hover:text-blue-700 transition-colors duration-200"
                 >
-                  {{ $t('home.director.email') }}
+                  malt@pku.edu.cn
                 </a>
               </div>
             </div>
