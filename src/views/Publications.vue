@@ -1,61 +1,30 @@
 <template>
-  <div class="publications-page py-12 bg-gray-50 min-h-screen">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-          {{ $t('publications.title') }}
-        </h1>
-        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-          {{ $t('publications.subtitle') }}
-        </p>
-      </div>
+  <div class="academic-card rounded-lg flex-1 overflow-hidden flex flex-col animate-scale-in">
+    <!-- Filter Section -->
+    <PublicationFilter
+      v-model:search-query="searchQuery"
+      v-model:selected-year="selectedYear"
+      v-model:selected-tag="selectedTag"
+      :available-years="availableYears"
+      :publication-tags="publicationTags"
+      :featured-count="featuredPublications.length"
+      :all-count="allPublications.length"
+    />
 
-      <!-- Filters -->
-      <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-        <PublicationFilter
-          v-model:search="searchQuery"
-          v-model:year="selectedYear"
-          v-model:type="selectedType"
-          v-model:tag="selectedTag"
-          :years="availableYears"
-          :types="availableTypes"
-          :tags="availableTags"
+    <!-- Publication List -->
+    <div class="flex-1 overflow-y-auto scrollable-container p-6 lg:p-8 pt-1 lg:pt-1">
+      <div v-if="filteredPublications.length > 0" class="space-y-2">
+        <PublicationItem
+          v-for="pub in filteredPublications"
+          :key="pub.id"
+          :publication="pub"
+          :authors="buildAuthors(pub.authors, pub.firstAuthors, pub.correspondingAuthors)"
         />
       </div>
-
-      <!-- Publications List -->
-      <div class="mt-8">
-        <div
-          v-if="filteredPublications.length === 0"
-          class="text-center py-16 bg-white rounded-lg shadow-sm"
-        >
-          <svg
-            class="mx-auto h-12 w-12 text-gray-400 mb-4"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-            />
-          </svg>
-          <p class="text-gray-500 text-lg">
-            {{ $t('publications.noResults') || '未找到匹配的论文' }}
-          </p>
-        </div>
-
-        <div class="grid gap-6 md:grid-cols-1 lg:grid-cols-1">
-          <div
-            v-for="publication in filteredPublications"
-            :key="publication.id"
-            class="bg-white p-6 rounded-lg shadow-sm hover:shadow-lg transition-all duration-200 border border-gray-100 hover:border-blue-200"
-          >
-            <PublicationItem :publication="publication" />
-          </div>
-        </div>
+      <div v-else class="text-center py-16">
+        <p class="text-gray-500 text-lg">
+          No matching publications found.
+        </p>
       </div>
     </div>
   </div>
@@ -65,38 +34,138 @@
 import { ref, computed } from 'vue'
 import PublicationFilter from '@/components/publications/PublicationFilter.vue'
 import PublicationItem from '@/components/publications/PublicationItem.vue'
-import { publicationsData } from '@/data/publications.js'
+import { allPublications, authorLinks } from '@/data/publications.js'
 
 const searchQuery = ref('')
 const selectedYear = ref('')
-const selectedType = ref('')
 const selectedTag = ref('')
 
+const featuredPublications = computed(() => {
+  return allPublications.filter(pub => pub.featured)
+})
+
 const availableYears = computed(() => {
-  const years = [...new Set(publicationsData.map(p => p.year))].sort().reverse()
-  return years
+  const years = [...new Set(allPublications.map(p => p.year).filter(Boolean))]
+  return years.sort((a, b) => b.localeCompare(a))
 })
 
-const availableTypes = computed(() => {
-  return [...new Set(publicationsData.map(p => p.type))]
-})
+const publicationTags = computed(() => {
+  const tagCounts = {}
+  allPublications.forEach(pub => {
+    if (pub.tag) tagCounts[pub.tag] = (tagCounts[pub.tag] || 0) + 1
+  })
 
-const availableTags = computed(() => {
-  const tags = publicationsData.flatMap(p => p.tags || [])
-  return [...new Set(tags)]
+  const tags = Object.entries(tagCounts).map(([name, count]) => ({ name, count }))
+
+  const sortOrder = ['LLM Agents for Healthcare', 'LLM for Healthcare', 'Healthcare Benchmark', 'Healthcare Modeling', 'Trustworthy AI', 'Toolkits & Platforms']
+  const otherTopicsTag = 'Other Topics'
+
+  return tags.sort((a, b) => {
+    if (a.name === otherTopicsTag) return 1
+    if (b.name === otherTopicsTag) return -1
+    const indexA = sortOrder.indexOf(a.name)
+    const indexB = sortOrder.indexOf(b.name)
+    if (indexA !== -1 && indexB !== -1) return indexA - indexB
+    if (indexA !== -1) return -1
+    if (indexB !== -1) return 1
+    return b.count - a.count
+  })
 })
 
 const filteredPublications = computed(() => {
-  return publicationsData.filter(pub => {
-    const matchesSearch = !searchQuery.value ||
-      pub.title.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
-      pub.authors.some(author => author.name.toLowerCase().includes(searchQuery.value.toLowerCase()))
+  let publications
+  if (selectedTag.value === 'All') {
+    publications = allPublications
+  } else if (selectedTag.value === '') {
+    publications = featuredPublications.value
+  } else {
+    publications = allPublications.filter(pub => pub.tag === selectedTag.value)
+  }
 
+  publications = publications.filter(pub => {
+    const searchContent = `${pub.title} ${pub.authors} ${pub.venue}`.toLowerCase()
+    const matchesSearch = !searchQuery.value || searchContent.includes(searchQuery.value.toLowerCase())
     const matchesYear = !selectedYear.value || pub.year === selectedYear.value
-    const matchesType = !selectedType.value || pub.type === selectedType.value
-    const matchesTag = !selectedTag.value || (pub.tags && pub.tags.includes(selectedTag.value))
+    return matchesSearch && matchesYear
+  })
 
-    return matchesSearch && matchesYear && matchesType && matchesTag
-  }).sort((a, b) => b.year.localeCompare(a.year))
+  return publications.sort((a, b) => {
+    if (a.year !== b.year) return b.year.localeCompare(a.year)
+    const aPublished = isPublished(a.venue)
+    const bPublished = isPublished(b.venue)
+    if (aPublished !== bPublished) return aPublished ? -1 : 1
+    const aPriority = getVenueTypePriority(a.venue)
+    const bPriority = getVenueTypePriority(b.venue)
+    if (aPriority !== bPriority) return aPriority - bPriority
+    return a.title.localeCompare(b.title)
+  })
 })
+
+const getVenueTypePriority = (venue) => {
+  if (!venue) return 4
+  const venueLower = venue.toLowerCase()
+  if (venueLower.includes('arxiv') || venueLower.includes('preprint')) return 4
+  if (venueLower.includes('abstract') || venueLower.includes('poster') || venueLower.includes('demo') || venueLower.includes('nominee')) return 3
+  if (venueLower.includes('workshop') || venueLower.includes('symposium') || venueLower.includes('summit')) return 2
+  return 1
+}
+
+const isPublished = (venue) => {
+  if (!venue) return false
+  const venueLower = venue.toLowerCase()
+  return !venueLower.includes('arxiv') && !venueLower.includes('preprint')
+}
+
+const buildAuthors = (authorString, firstAuthorsStr = '', correspondingAuthorsStr = '') => {
+  if (!authorString) return []
+  const names = authorString.split(/,\s*/)
+  const firstAuthors = firstAuthorsStr ? firstAuthorsStr.split(',').map(s => s.trim()) : []
+  const correspondingAuthors = correspondingAuthorsStr ? correspondingAuthorsStr.split(',').map(s => s.trim()) : []
+
+  return names.map(rawName => {
+    const name = rawName.trim()
+    return {
+      name,
+      url: authorLinks[name] || '',
+      isFirst: firstAuthors.includes(name),
+      isCorresponding: correspondingAuthors.includes(name)
+    }
+  })
+}
 </script>
+
+<style scoped>
+.academic-card {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(30, 64, 175, 0.08);
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.3s ease-out;
+}
+
+@keyframes scaleIn {
+  0% { transform: scale(0.98); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.scrollable-container {
+  scrollbar-width: thin;
+  scrollbar-color: #d1d5db transparent;
+}
+.scrollable-container::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.scrollable-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollable-container::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+.scrollable-container::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+</style>

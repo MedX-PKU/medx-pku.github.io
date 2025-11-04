@@ -39,3 +39,16 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #a8a8a8;
 }
+
+.author-highlight {
+  font-weight: 600;
+  color: #1e3a8a; /* primary-blue-dark */
+}
+.author-link {
+  transition: color 0.2s ease-out, border-bottom-color 0.2s ease-out;
+  border-bottom: 1px dotted rgba(30, 64, 175, 0.4);
+}
+.author-link:hover {
+  border-bottom-color: #1e3a8a;
+  border-bottom-style: solid;
+}

@@ -7,11 +7,23 @@
         <h4 class="font-semibold text-text-gray text-sm mb-1 leading-tight">
           {{ publication.title }}
         </h4>
-        <!-- Use v-html to render formatted author strings with links and highlights -->
-        <p
-          class="text-xs text-text-gray-light mb-1"
-        >
-          {{ formattedAuthors }}
+        <p class="text-xs text-text-gray-light mb-1">
+          <template v-for="(a, idx) in authors" :key="a.name">
+            <template v-if="a.url">
+              <a
+                :href="a.url"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="author-link"
+              >{{ a.name }}</a>
+            </template>
+            <template v-else>
+              <span>{{ a.name }}</span>
+            </template>
+            <sup v-if="a.isFirst" class="text-text-gray font-bold">*</sup>
+            <sup v-if="a.isCorresponding" class="text-text-gray font-bold">†</sup>
+            <span v-if="idx < authors.length - 1">, </span>
+          </template>
         </p>
         <p class="text-xs text-primary-blue italic mb-2">
           {{ publication.venue }}
@@ -50,8 +62,8 @@ defineProps({
     type: Object,
     required: true
   },
-  formattedAuthors: {
-    type: String,
+  authors: {
+    type: Array,
     required: true
   }
 })
