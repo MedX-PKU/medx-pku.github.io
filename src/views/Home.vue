@@ -65,12 +65,25 @@
                 {{ $t('home.director.description') }}
               </p>
               <div class="flex justify-center space-x-4">
-                <a
-                  href="mailto:malt@pku.edu.cn"
-                  class="text-blue-600 hover:text-blue-700 transition-colors duration-200"
-                >
-                  malt@pku.edu.cn
-                </a>
+                <div class="relative">
+                  <div
+                    @click="copyEmail('malt@pku.edu.cn')"
+                    class="text-blue-600 hover:text-blue-700 cursor-pointer transition-colors duration-200 flex items-center space-x-2"
+                    title="点击复制邮箱地址"
+                  >
+                    <span>malt@pku.edu.cn</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                    </svg>
+                  </div>
+                  <!-- Copy success tooltip -->
+                  <div
+                    v-if="copySuccess"
+                    class="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-green-600 text-white text-xs px-2 py-1 rounded whitespace-nowrap"
+                  >
+                    已复制！
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -90,10 +103,13 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
 import HeroSection from '@/components/home/HeroSection.vue'
 import NewsSection from '@/components/home/NewsSection.vue'
 import PublicationsSection from '@/components/home/PublicationsSection.vue'
 import ContactSection from '@/components/home/ContactSection.vue'
+
+const copySuccess = ref(false)
 
 const researchAreas = [
   {
@@ -112,4 +128,26 @@ const researchAreas = [
     description: 'home.research.areas.platformDesc'
   }
 ]
+
+const copyEmail = async (email) => {
+  try {
+    await navigator.clipboard.writeText(email)
+    copySuccess.value = true
+    setTimeout(() => {
+      copySuccess.value = false
+    }, 2000)
+  } catch (err) {
+    // Fallback for older browsers
+    const textArea = document.createElement('textarea')
+    textArea.value = email
+    document.body.appendChild(textArea)
+    textArea.select()
+    document.execCommand('copy')
+    document.body.removeChild(textArea)
+    copySuccess.value = true
+    setTimeout(() => {
+      copySuccess.value = false
+    }, 2000)
+  }
+}
 </script>
