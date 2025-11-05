@@ -1,4 +1,4 @@
-# MedX Laboratory (医维矩阵实验室)
+# MedX Lab (医维矩阵实验室)
 
 [![Deploy to GitHub Pages](https://github.com/MedX-PKU/medx-pku.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/MedX-PKU/medx-pku.github.io/actions/workflows/deploy.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -24,7 +24,7 @@ Medical AI Laboratory at Peking University
 
 ## 🎯 About
 
-MedX Laboratory (医维矩阵实验室) is a laboratory supported by the National Engineering Research Center for Software Engineering (NERC) at Peking University, led by Professor Yasha Wang and managed by Research Assistant Professor Liantao Ma. The lab collaborates extensively with the University of Hong Kong, the University of Edinburgh, and other institutions. Our collaborating hospitals include Peking University Third Hospital, Peking University Cancer Hospital, and others.
+MedX Lab (医维矩阵实验室) is a laboratory supported by the National Engineering Research Center for Software Engineering (NERC) at Peking University, led by Professor Yasha Wang and managed by Research Assistant Professor Liantao Ma. The lab collaborates extensively with the University of Hong Kong, the University of Edinburgh, and other institutions. Our collaborating hospitals include Peking University Third Hospital, Peking University Cancer Hospital, and others.
 
 Our research focuses on:
 - 🧠 **Large Language Models** for medical applications

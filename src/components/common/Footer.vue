@@ -4,7 +4,7 @@
       <div class="flex flex-col md:flex-row justify-between items-center">
         <div class="mb-4 md:mb-0">
           <h3 class="text-lg font-semibold text-gray-900">
-            MEDx Laboratory
+            MedX Lab
           </h3>
           <p class="text-sm text-gray-600 mt-1">
             Peking University
@@ -21,7 +21,7 @@
       </div>
       <div class="mt-8 pt-8 border-t border-gray-200 text-center">
         <p class="text-sm text-gray-400">
-          © 2024 MEDx Laboratory, Peking University. All rights reserved.
+          © 2024 MedX Lab, Peking University. All rights reserved.
         </p>
       </div>
     </div>
