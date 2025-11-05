@@ -80,7 +80,7 @@ export default {
         director.value = {
           name: 'Liantao Ma',
           title: 'Lab Director',
-          email: 'malt@pku.edu.cn',
+          email: 'malt[at]pku.edu.cn',
           image: '/images/team/ma-liantao.svg'
         }
       }

@@ -35,7 +35,7 @@
       "name": "Liantao Ma",
       "title": "Lab Director",
       "description": "Research Assistant Professor at the National Engineering Research Center for Software Engineering, Peking University. Long-term engagement in medical informatics and interpretable deep learning analysis of electronic health record data.",
-      "email": "malt@pku.edu.cn"
+      "email": "malt[at]pku.edu.cn"
     },
     "news": {
       "title": "Latest News"
@@ -51,7 +51,7 @@
       "recruitment": "We are always looking for talented researchers and students to join our team. Check out our open positions and collaboration opportunities.",
       "learn_more": "Learn More",
       "address": "5 Yiheyuan Road, Haidian District, Beijing, Peking University",
-      "email": "malt@pku.edu.cn",
+      "email": "malt[at]pku.edu.cn",
       "phone": "+86-10-12345678",
       "wechat": "WeChat: MedX-PKU"
     }
@@ -111,7 +111,7 @@
         "summary": "MedX Lab expands with new research facilities dedicated to medical AI development and clinical applications."
       }
     },
-    "noNews": "No news items found",
+        "noNews": "No news items found",
     "noNewsDescription": "There are no news items in this category at the moment. Please check back later.",
     "loadMore": "Load More News",
     "backToNews": "Back to News",
@@ -125,37 +125,39 @@
   "join": {
     "title": "Join Us",
     "subtitle": "Build the future of medical AI with us. We're looking for talented researchers, engineers, and students to join our interdisciplinary team.",
-    "email": "malt@pku.edu.cn",
+    "email": "malt[at]pku.edu.cn",
     "applyNow": "Apply Now",
     "apply": "Apply",
     "viewDetails": "View Details",
     "requirements": "Requirements",
     "responsibilities": "Responsibilities",
     "whyJoin": {
-      "title": "Why Join MedX Lab?",
+      "title": "Why Join MedX Lab?"
+    },
+    "reasons": {
       "research": {
-        "title": "join.reasons.research.title",
-        "description": "join.reasons.research.description"
+        "title": "Cutting-edge Research",
+        "description": "Work on groundbreaking medical AI research that directly impacts healthcare and saves lives."
       },
       "team": {
-        "title": "join.reasons.team.title",
-        "description": "join.reasons.team.description"
+        "title": "Expert Team",
+        "description": "Collaborate with leading researchers from PKU, University of Edinburgh, and top medical institutions."
       },
       "innovation": {
-        "title": "join.reasons.innovation.title",
-        "description": "join.reasons.innovation.description"
+        "title": "Innovation Environment",
+        "description": "Thrive in a culture that encourages creativity, experimentation, and pushing boundaries."
       },
       "impact": {
-        "title": "join.reasons.impact.title",
-        "description": "join.reasons.impact.description"
+        "title": "Real-world Impact",
+        "description": "See your work translate into practical applications that help doctors and patients worldwide."
       },
       "resources": {
-        "title": "join.reasons.resources.title",
-        "description": "join.reasons.resources.description"
+        "title": "Abundant Resources",
+        "description": "Access state-of-the-art computing resources, extensive datasets, and modern lab facilities."
       },
       "growth": {
-        "title": "join.reasons.growth.title",
-        "description": "join.reasons.growth.description"
+        "title": "Career Growth",
+        "description": "Develop valuable skills in AI, healthcare, and research with excellent career advancement opportunities."
       }
     },
     "positions": {
@@ -268,33 +270,7 @@
     "noPositionsDescription": "We're always looking for talented individuals. Feel free to reach out with spontaneous applications.",
     "spontaneousApplication": "Send Spontaneous Application"
   },
-  "reasons": {
-    "research": {
-      "title": "Cutting-edge Research",
-      "description": "Work on groundbreaking medical AI research that directly impacts healthcare and saves lives."
-    },
-    "team": {
-      "title": "Expert Team",
-      "description": "Collaborate with leading researchers from PKU, University of Edinburgh, and top medical institutions."
-    },
-    "innovation": {
-      "title": "Innovation Environment",
-      "description": "Thrive in a culture that encourages creativity, experimentation, and pushing boundaries."
-    },
-    "impact": {
-      "title": "Real-world Impact",
-      "description": "See your work translate into practical applications that help doctors and patients worldwide."
-    },
-    "resources": {
-      "title": "Abundant Resources",
-      "description": "Access state-of-the-art computing resources, extensive datasets, and modern lab facilities."
-    },
-    "growth": {
-      "title": "Career Growth",
-      "description": "Develop valuable skills in AI, healthcare, and research with excellent career advancement opportunities."
-    }
-  },
-  "postdoc_ai": {
+    "postdoc_ai": {
     "title": "Postdoctoral Researcher in Medical AI and NLP",
     "description": "We're seeking a postdoctoral researcher to work on cutting-edge medical AI projects, focusing on natural language processing of clinical text and medical large language models.",
     "reqs": {
@@ -373,5 +349,11 @@
     "code": "Code",
     "demo": "Demo",
     "slides": "Slides"
-  }
+  },
+  "北大NeurIPS 2025 | MedAgentBoard：AI智能体\"组团会诊\"，效果一定更好吗？": "PKU NeurIPS 2025 | MedAgentBoard: AI Agents Collaborative Consultation - Are They Really Better?",
+  "我们提出了一个名为MedAgentBoard的综合性评测基准，旨在系统性地回答一个关键问题：在复杂的医疗任务中，当前流行的\"AI多智能体协作\"是否真的比单个大模型或成熟的传统AI方法更胜一筹？": "We propose MedAgentBoard, a comprehensive benchmark designed to systematically answer a key question: In complex medical tasks, are current popular \"AI multi-agent collaboration\" approaches truly superior to single large models or mature traditional AI methods?",
+  "北大WWW2025 | 让DeepSeek和DeepSeek像人类医生一样进行会诊预测患者病情": "PKU WWW2025 | Enabling DeepSeek and DeepSeek to Collaborate Like Human Doctors for Patient Condition Prediction",
+  "北京大学王亚沙教授、马连韬研究助理教授团队在 CCF-A 类国际顶级会议 WWW 上发表了题为\"ColaCare\"的研究论文。": "Professor Yasha Wang and Research Assistant Professor Liantao Ma's team from Peking University published a research paper titled \"ColaCare\" at the CCF-A class top international conference WWW.",
+  "Cell Patterns主编访问北京大学进行学术交流": "Cell Patterns Editor-in-Chief Visits Peking University for Academic Exchange",
+  "Cell Patterns主编 Andrew Hufton博士、Cell Matter/iScience编辑林宇卿博士，应马连韬邀请前往北京大学进行学术交流访问。": "Dr. Andrew Hufton, Editor-in-Chief of Cell Patterns, and Dr. Yuqing Lin, Editor of Cell Matter/iScience, visited Peking University for academic exchange at the invitation of Liantao Ma."
 }

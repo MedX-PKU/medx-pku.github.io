@@ -35,7 +35,7 @@
       "name": "马连韬",
       "title": "实验室负责人",
       "description": "北京大学软件工程国家工程研究中心研究型助理教授，硕士生导师。长期从事医信交叉、电子病历数据深度学习可解释分析研究工作。",
-      "email": "malt@pku.edu.cn"
+      "email": "malt[at]pku.edu.cn"
     },
     "news": {
       "title": "最新动态"
@@ -51,7 +51,7 @@
       "recruitment": "我们一直在寻找有才华的研究人员和学生加入我们的团队。查看我们的开放职位和合作机会。",
       "learn_more": "了解更多",
       "address": "北京市海淀区颐和园路5号 北京大学",
-      "email": "malt@pku.edu.cn",
+      "email": "malt[at]pku.edu.cn",
       "phone": "+86-10-12345678",
       "wechat": "微信公众号：医维矩阵实验室（MedX-PKU）"
     }
@@ -111,7 +111,7 @@
         "summary": "MedX实验室扩建了专门用于医学AI开发和临床应用的新研究设施。"
       }
     },
-    "noNews": "暂无新闻",
+        "noNews": "暂无新闻",
     "noNewsDescription": "该分类下目前没有新闻项目，请稍后再来查看。",
     "loadMore": "加载更多新闻",
     "backToNews": "返回新闻",
@@ -125,37 +125,39 @@
   "join": {
     "title": "加入我们",
     "subtitle": "与我们一起构建医学AI的未来。我们正在寻找才华横溢的研究人员、工程师和学生加入我们的跨学科团队。",
-    "email": "malt@pku.edu.cn",
+    "email": "malt[at]pku.edu.cn",
     "applyNow": "立即申请",
     "apply": "申请职位",
     "viewDetails": "查看详情",
     "requirements": "任职要求",
     "responsibilities": "工作职责",
     "whyJoin": {
-      "title": "为什么选择MedX实验室？",
+      "title": "为什么选择MedX实验室？"
+    },
+    "reasons": {
       "research": {
-        "title": "join.reasons.research.title",
-        "description": "join.reasons.research.description"
+        "title": "前沿研究",
+        "description": "从事直接影响医疗保健、拯救生命的突破性医学AI研究。"
       },
       "team": {
-        "title": "join.reasons.team.title",
-        "description": "join.reasons.team.description"
+        "title": "专业团队",
+        "description": "与来自北京大学、爱丁堡大学和顶级医疗机构的研究人员合作。"
       },
       "innovation": {
-        "title": "join.reasons.innovation.title",
-        "description": "join.reasons.innovation.description"
+        "title": "创新环境",
+        "description": "在鼓励创造力、实验和突破界限的文化中茁壮成长。"
       },
       "impact": {
-        "title": "join.reasons.impact.title",
-        "description": "join.reasons.impact.description"
+        "title": "实际影响",
+        "description": "看到您的工作转化为帮助全世界医生和患者的实际应用。"
       },
       "resources": {
-        "title": "join.reasons.resources.title",
-        "description": "join.reasons.resources.description"
+        "title": "丰富资源",
+        "description": "访问最先进的计算资源、大量数据集和现代化实验室设施。"
       },
       "growth": {
-        "title": "join.reasons.growth.title",
-        "description": "join.reasons.growth.description"
+        "title": "职业发展",
+        "description": "在AI、医疗保健和研究方面发展宝贵技能，拥有良好的职业发展机会。"
       }
     },
     "positions": {
@@ -268,33 +270,7 @@
     "noPositionsDescription": "我们一直在寻找优秀的人才。欢迎随时发送自荐申请。",
     "spontaneousApplication": "发送自荐申请"
   },
-  "reasons": {
-    "research": {
-      "title": "前沿研究",
-      "description": "从事直接影响医疗保健、拯救生命的突破性医学AI研究。"
-    },
-    "team": {
-      "title": "专业团队",
-      "description": "与来自北京大学、爱丁堡大学和顶级医疗机构的研究人员合作。"
-    },
-    "innovation": {
-      "title": "创新环境",
-      "description": "在鼓励创造力、实验和突破界限的文化中茁壮成长。"
-    },
-    "impact": {
-      "title": "实际影响",
-      "description": "看到您的工作转化为帮助全世界医生和患者的实际应用。"
-    },
-    "resources": {
-      "title": "丰富资源",
-      "description": "访问最先进的计算资源、大量数据集和现代化实验室设施。"
-    },
-    "growth": {
-      "title": "职业发展",
-      "description": "在AI、医疗保健和研究方面发展宝贵技能，拥有良好的职业发展机会。"
-    }
-  },
-  "postdoc_ai": {
+    "postdoc_ai": {
     "title": "医学AI与自然语言处理博士后研究员",
     "description": "我们寻求博士后研究员从事前沿医学AI项目，专注于临床文本的自然语言处理和医学大语言模型。",
     "reqs": {
@@ -373,5 +349,11 @@
     "code": "代码",
     "demo": "演示",
     "slides": "幻灯片"
-  }
+  },
+  "北大NeurIPS 2025 | MedAgentBoard：AI智能体\"组团会诊\"，效果一定更好吗？": "北大NeurIPS 2025 | MedAgentBoard：AI智能体\"组团会诊\"，效果一定更好吗？",
+  "我们提出了一个名为MedAgentBoard的综合性评测基准，旨在系统性地回答一个关键问题：在复杂的医疗任务中，当前流行的\"AI多智能体协作\"是否真的比单个大模型或成熟的传统AI方法更胜一筹？": "我们提出了一个名为MedAgentBoard的综合性评测基准，旨在系统性地回答一个关键问题：在复杂的医疗任务中，当前流行的\"AI多智能体协作\"是否真的比单个大模型或成熟的传统AI方法更胜一筹？",
+  "北大WWW2025 | 让DeepSeek和DeepSeek像人类医生一样进行会诊预测患者病情": "北大WWW2025 | 让DeepSeek和DeepSeek像人类医生一样进行会诊预测患者病情",
+  "北京大学王亚沙教授、马连韬研究助理教授团队在 CCF-A 类国际顶级会议 WWW 上发表了题为\"ColaCare\"的研究论文。": "北京大学王亚沙教授、马连韬研究助理教授团队在 CCF-A 类国际顶级会议 WWW 上发表了题为\"ColaCare\"的研究论文。",
+  "Cell Patterns主编访问北京大学进行学术交流": "Cell Patterns主编访问北京大学进行学术交流",
+  "Cell Patterns主编 Andrew Hufton博士、Cell Matter/iScience编辑林宇卿博士，应马连韬邀请前往北京大学进行学术交流访问。": "Cell Patterns主编 Andrew Hufton博士、Cell Matter/iScience编辑林宇卿博士，应马连韬邀请前往北京大学进行学术交流访问。"
 }
