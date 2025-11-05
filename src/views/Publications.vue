@@ -1,32 +1,53 @@
 <template>
-  <div class="academic-card rounded-lg flex-1 overflow-hidden flex flex-col animate-scale-in">
-    <!-- Filter Section -->
-    <PublicationFilter
-      v-model:search-query="searchQuery"
-      v-model:selected-year="selectedYear"
-      v-model:selected-tag="selectedTag"
-      :available-years="availableYears"
-      :publication-tags="publicationTags"
-      :featured-count="featuredPublications.length"
-      :all-count="allPublications.length"
-    />
+  <div class="publications">
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h1 class="text-4xl md:text-5xl font-bold mb-4">
+            {{ $t('publications.title') }}
+          </h1>
+          <p class="text-xl text-blue-100 max-w-3xl mx-auto">
+            {{ $t('publications.subtitle') }}
+          </p>
+        </div>
+      </div>
+    </section>
 
-    <!-- Publication List -->
-    <div class="flex-1 overflow-y-auto scrollable-container p-6 lg:p-8 pt-1 lg:pt-1">
-      <div v-if="filteredPublications.length > 0" class="space-y-2">
-        <PublicationItem
-          v-for="pub in filteredPublications"
-          :key="pub.id"
-          :publication="pub"
-          :authors="buildAuthors(pub.authors, pub.firstAuthors, pub.correspondingAuthors)"
-        />
+    <!-- Publications Content -->
+    <section class="py-16 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="academic-card rounded-lg flex-1 overflow-hidden flex flex-col animate-scale-in">
+          <!-- Filter Section -->
+          <PublicationFilter
+            v-model:search-query="searchQuery"
+            v-model:selected-year="selectedYear"
+            v-model:selected-tag="selectedTag"
+            :available-years="availableYears"
+            :publication-tags="publicationTags"
+            :featured-count="featuredPublications.length"
+            :all-count="allPublications.length"
+          />
+
+          <!-- Publication List -->
+          <div class="flex-1 overflow-y-auto scrollable-container p-6 lg:p-8 pt-1 lg:pt-1">
+            <div v-if="filteredPublications.length > 0" class="space-y-2">
+              <PublicationItem
+                v-for="pub in filteredPublications"
+                :key="pub.id"
+                :publication="pub"
+                :authors="buildAuthors(pub.authors, pub.firstAuthors, pub.correspondingAuthors)"
+              />
+            </div>
+            <div v-else class="text-center py-16">
+              <p class="text-gray-500 text-lg">
+                {{ $t('publications.noResults') || 'No matching publications found.' }}
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div v-else class="text-center py-16">
-        <p class="text-gray-500 text-lg">
-          No matching publications found.
-        </p>
-      </div>
-    </div>
+    </section>
   </div>
 </template>
 

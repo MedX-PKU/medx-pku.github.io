@@ -72,7 +72,8 @@
     },
     "search": "Search publications...",
     "year": "Year",
-    "view_all": "View All Publications"
+    "view_all": "View All Publications",
+    "noResults": "No matching publications found."
   },
   "news": {
     "title": "News & Updates",
