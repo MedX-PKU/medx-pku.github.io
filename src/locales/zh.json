@@ -120,7 +120,10 @@
     "checkBackLater": "请稍后查看完整文章。",
     "newsNotFound": "新闻文章未找到",
     "newsNotFoundDescription": "您要查找的新闻文章不存在或已被删除。",
-    "backToAllNews": "查看所有新闻"
+    "backToAllNews": "查看所有新闻",
+    "previous": "上一篇",
+    "next": "下一篇",
+    "fullContent": "新闻详情"
   },
   "join": {
     "title": "加入我们",

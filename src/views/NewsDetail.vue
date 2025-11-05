@@ -46,8 +46,12 @@
               {{ newsItem.excerpt }}
             </p>
 
-            <div v-if="newsItem.content" class="text-base">
-              <div v-html="newsItem.content"></div>
+            <div v-if="newsItem.content && newsItem.content !== '详细内容...'" class="text-base">
+              <div v-for="(paragraph, index) in getContentParagraphs(newsItem.content)" :key="index" class="mb-6">
+                <p v-if="paragraph.trim()" class="text-gray-700 leading-relaxed">
+                  {{ paragraph.trim() }}
+                </p>
+              </div>
             </div>
 
             <div v-else class="text-center py-12 bg-gray-50 rounded-lg">
@@ -60,6 +64,39 @@
               </p>
             </div>
           </div>
+
+          <!-- Navigation between news items -->
+          <nav v-if="newsItem" class="mt-12 pt-8 border-t border-gray-200">
+            <div class="flex justify-between items-center">
+              <!-- Previous News -->
+              <router-link
+                v-if="previousNews"
+                :to="`/news/${previousNews.id}`"
+                class="flex items-center text-blue-600 hover:text-blue-800 font-medium group"
+              >
+                <ChevronLeftIcon class="h-5 w-5 mr-2 group-hover:-translate-x-1 transition-transform duration-200" />
+                {{ $t('news.previous') || 'Previous' }}
+                <span class="block text-sm text-gray-500 group-hover:text-gray-700 ml-2">
+                  {{ previousNews.title.substring(0, 50) }}...
+                </span>
+              </router-link>
+              <div v-else></div>
+
+              <!-- Next News -->
+              <router-link
+                v-if="nextNews"
+                :to="`/news/${nextNews.id}`"
+                class="flex items-center text-blue-600 hover:text-blue-800 font-medium group"
+              >
+                <span class="block text-sm text-gray-500 group-hover:text-gray-700 mr-2 text-right">
+                  {{ nextNews.title.substring(0, 50) }}...
+                </span>
+                {{ $t('news.next') || 'Next' }}
+                <ChevronRightIcon class="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
+              </router-link>
+              <div v-else></div>
+            </div>
+          </nav>
 
           <!-- Tags -->
           <div v-if="newsItem.tags && newsItem.tags.length > 0" class="mt-8 pt-6 border-t border-gray-200">
@@ -99,13 +136,28 @@
 
 <script setup>
 import { ref, onMounted, computed } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
-import { ArrowLeftIcon } from '@heroicons/vue/24/outline'
+import { useRoute } from 'vue-router'
+import { ArrowLeftIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/vue/24/outline'
 import { newsData } from '@/data/news.js'
 
 const route = useRoute()
-const router = useRouter()
 const newsItem = ref(null)
+
+// Computed properties for navigation
+const newsIndex = computed(() => {
+  if (!newsItem.value) return -1
+  return processedNewsData.findIndex(item => item.id === newsItem.value.id)
+})
+
+const previousNews = computed(() => {
+  const index = newsIndex.value
+  return index > 0 ? processedNewsData[index - 1] : null
+})
+
+const nextNews = computed(() => {
+  const index = newsIndex.value
+  return index < processedNewsData.length - 1 ? processedNewsData[index + 1] : null
+})
 
 // Process news data to add categories
 const processedNewsData = newsData.map((item) => ({
@@ -134,6 +186,11 @@ const getCategoryColor = (categoryId) => {
 const formatDate = (dateString) => {
   const options = { year: 'numeric', month: 'long', day: 'numeric' }
   return new Date(dateString).toLocaleDateString(undefined, options)
+}
+
+const getContentParagraphs = (content) => {
+  // Split content by double newlines and filter out empty paragraphs
+  return content.split('\n\n').filter(paragraph => paragraph.trim())
 }
 
 // Lifecycle

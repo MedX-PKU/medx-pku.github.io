@@ -39,7 +39,7 @@ const routes = [
     name: 'NewsDetail',
     component: () => import('@/views/NewsDetail.vue'),
     meta: {
-      title: 'news.title'
+      title: 'news.fullContent'
     }
   },
   {

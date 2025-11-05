@@ -21,10 +21,11 @@
 
       <!-- News Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div
+        <router-link
           v-for="news in latestNews"
           :key="news.id"
-          class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100/50 hover:border-blue-200/50 transform hover:-translate-y-1"
+          :to="`/news/${news.id}`"
+          class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100/50 hover:border-blue-200/50 transform hover:-translate-y-1 cursor-pointer block"
         >
           <!-- News Header -->
           <div class="p-6 pb-4">
@@ -48,18 +49,18 @@
               {{ news.excerpt }}
             </p>
 
-            <!-- Read More Button -->
-            <button class="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold text-sm transition-all duration-300 group-hover:translate-x-1">
+            <!-- Read More Indicator -->
+            <div class="inline-flex items-center text-blue-600 group-hover:text-blue-700 font-semibold text-sm transition-all duration-300">
               {{ $t('common.readMore') }}
               <svg class="w-4 h-4 ml-1 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
               </svg>
-            </button>
+            </div>
           </div>
 
           <!-- Decorative bottom gradient -->
           <div class="h-1 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-        </div>
+        </router-link>
       </div>
 
       <!-- View All Button -->

@@ -42,10 +42,11 @@
 
         <!-- News Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <article
+          <router-link
             v-for="item in filteredNews"
             :key="item.id"
-            class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden"
+            :to="`/news/${item.id}`"
+            class="group bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer transform hover:scale-105"
           >
             <!-- News Image -->
             <div class="aspect-w-16 aspect-h-9 bg-gray-200">
@@ -103,17 +104,13 @@
                 </span>
               </div>
 
-              <!-- Read More Button -->
-              <router-link
-                v-if="item.details"
-                :to="`/news/${item.id}`"
-                class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
-              >
+              <!-- Read More Indicator -->
+              <div class="flex items-center text-blue-600 group-hover:text-blue-800 font-medium">
                 {{ $t('common.readMore') }}
-                <ArrowRightIcon class="ml-1 h-4 w-4" />
-              </router-link>
+                <ArrowRightIcon class="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
+              </div>
             </div>
-          </article>
+          </router-link>
         </div>
 
         <!-- Empty State -->
