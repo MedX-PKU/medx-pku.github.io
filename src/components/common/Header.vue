@@ -78,6 +78,7 @@ const navigationItems = [
   { name: 'people', path: '/people', label: 'nav.people' },
   { name: 'publications', path: '/publications', label: 'nav.publications' },
   { name: 'news', path: '/news', label: 'nav.news' },
+  { name: 'projects', path: '/projects', label: 'nav.projects' },
   { name: 'join', path: '/join', label: 'nav.join' }
 ]
 </script>

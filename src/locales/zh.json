@@ -6,6 +6,7 @@
     "people": "团队成员",
     "publications": "学术成果",
     "news": "新闻动态",
+    "projects": "团队项目",
     "join": "加入我们"
   },
   "home": {
@@ -344,6 +345,26 @@
       "title": "最终决定",
       "description": "我们做出最终决定并向成功候选人发出录用通知。"
     }
+  },
+  "projects": {
+    "title": "团队项目",
+    "subtitle": "探索我们开发的软件工具、开源包和网站，了解MedX团队的技术成果和创新实践",
+    "categories": {
+      "all": "全部项目",
+      "software": "软件工具",
+      "package": "开源包",
+      "website": "网站应用"
+    },
+    "github": "GitHub 仓库",
+    "demo": "在线演示",
+    "documentation": "技术文档",
+    "status": {
+      "active": "活跃开发",
+      "maintenance": "维护中",
+      "development": "开发中"
+    },
+    "noProjects": "暂无项目",
+    "noProjectsDescription": "该分类下目前没有项目，请稍后再来查看。"
   },
   "common": {
     "readMore": "阅读更多",

@@ -6,6 +6,7 @@
     "people": "People",
     "publications": "Publications",
     "news": "News",
+    "projects": "Projects",
     "join": "Join Us"
   },
   "home": {
@@ -344,6 +345,26 @@
       "title": "Final Decision",
       "description": "We make final decisions and extend offers to successful candidates."
     }
+  },
+  "projects": {
+    "title": "Team Projects",
+    "subtitle": "Explore our software tools, open-source packages, and websites to understand the technical achievements and innovative practices of the MedX team",
+    "categories": {
+      "all": "All Projects",
+      "software": "Software Tools",
+      "package": "Open Source Packages",
+      "website": "Web Applications"
+    },
+    "github": "GitHub Repository",
+    "demo": "Live Demo",
+    "documentation": "Documentation",
+    "status": {
+      "active": "Active Development",
+      "maintenance": "Maintenance",
+      "development": "In Development"
+    },
+    "noProjects": "No Projects Found",
+    "noProjectsDescription": "There are no projects in this category at the moment. Please check back later."
   },
   "common": {
     "readMore": "Read More",
