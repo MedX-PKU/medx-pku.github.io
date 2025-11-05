@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
@@ -7,23 +7,25 @@
     <title>MEDX Lab - PKU</title>
     <meta name="description" content="Medical Imaging and Deep Learning Lab at Peking University" />
     <script>
-      // Simple redirect for hash-based routing
-      // This handles 404s by redirecting to the root with the path as hash
+      // Handle GitHub Pages SPA routing with clean URLs
+      // This script preserves the requested path and lets Vue Router handle it
       (function() {
         var path = window.location.pathname;
         var search = window.location.search;
         var hash = window.location.hash;
 
-        // Build the hash URL (root + path + query + original hash)
-        var hashUrl = '/#' + path + search + hash;
-        window.location.replace(hashUrl);
+        // Only redirect if we're not at the root
+        if (path !== '/') {
+          // Use sessionStorage to store the original path
+          sessionStorage.setItem('redirect', path + search + hash);
+          // Redirect to root
+          window.location.replace('/');
+        }
       })();
     </script>
   </head>
   <body>
-    <div style="text-align: center; padding: 50px; font-family: Arial, sans-serif;">
-      <h1>Redirecting...</h1>
-      <p>If you are not redirected automatically, <a href="/">click here</a>.</p>
-    </div>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>
