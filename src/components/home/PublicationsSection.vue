@@ -22,24 +22,7 @@
         <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-blue-400 mx-auto rounded-full"></div>
       </div>
 
-      <!-- Publication Filter -->
-      <div class="mb-12">
-        <div class="bg-white rounded-2xl shadow-lg border border-gray-100/50 overflow-hidden">
-          <PublicationFilter
-            :search-query="searchQuery"
-            :selected-year="selectedYear"
-            :selected-tag="selectedTag"
-            :available-years="availableYears"
-            :publication-tags="publicationTags"
-            :featured-count="featuredCount"
-            :all-count="allCount"
-            @update:search-query="searchQuery = $event"
-            @update:selected-year="selectedYear = $event"
-            @update:selected-tag="selectedTag = $event"
-          />
-        </div>
-      </div>
-
+  
       <!-- Publications Grid -->
       <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-12">
         <div
@@ -115,52 +98,20 @@
 </template>
 
 <script>
-import { ref, computed, onMounted } from 'vue'
-import PublicationItem from '@/components/publications/PublicationItem.vue'
-import PublicationFilter from '@/components/publications/PublicationFilter.vue'
+import { ref, onMounted } from 'vue'
 import { allPublications } from '@/data/publications.js'
 
 export default {
   name: 'PublicationsSection',
-  components: {
-    PublicationItem,
-    PublicationFilter
-  },
   setup() {
     const featuredPublications = ref([])
-    const searchQuery = ref('')
-    const selectedYear = ref('')
-    const selectedTag = ref('')
-
-    // Calculate available years from publications
-    const availableYears = computed(() => {
-      const years = [...new Set(allPublications.map(pub => pub.year.toString()))]
-      return years.sort((a, b) => b - a) // Sort by most recent first
-    })
-
-    // Calculate publication tags
-    const publicationTags = computed(() => {
-      const tagCounts = {}
-      allPublications.forEach(pub => {
-        if (pub.tag) {
-          tagCounts[pub.tag] = (tagCounts[pub.tag] || 0) + 1
-        }
-      })
-      return Object.entries(tagCounts).map(([name, count]) => ({ name, count }))
-    })
-
-    const featuredCount = computed(() => {
-      return allPublications.filter(pub => pub.featured).length
-    })
-
-    const allCount = computed(() => {
-      return allPublications.length
-    })
 
     onMounted(() => {
-      // Load featured publications
+      // Load top 6 featured publications
       try {
-        featuredPublications.value = allPublications.slice(0, 6) // Show first 6 publications
+        featuredPublications.value = allPublications
+          .filter(pub => pub.featured) // Only get featured publications
+          .slice(0, 6) // Take first 6 featured publications
       } catch (error) {
         console.warn('Could not load publications:', error)
         featuredPublications.value = []
@@ -168,14 +119,7 @@ export default {
     })
 
     return {
-      featuredPublications,
-      searchQuery,
-      selectedYear,
-      selectedTag,
-      availableYears,
-      publicationTags,
-      featuredCount,
-      allCount
+      featuredPublications
     }
   }
 }
