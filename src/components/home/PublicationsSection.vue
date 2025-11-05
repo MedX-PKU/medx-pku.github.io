@@ -25,7 +25,18 @@
       <!-- Publication Filter -->
       <div class="mb-12">
         <div class="bg-white rounded-2xl shadow-lg border border-gray-100/50 overflow-hidden">
-          <PublicationFilter />
+          <PublicationFilter
+            :search-query="searchQuery"
+            :selected-year="selectedYear"
+            :selected-tag="selectedTag"
+            :available-years="availableYears"
+            :publication-tags="publicationTags"
+            :featured-count="featuredCount"
+            :all-count="allCount"
+            @update:search-query="searchQuery = $event"
+            @update:selected-year="selectedYear = $event"
+            @update:selected-tag="selectedTag = $event"
+          />
         </div>
       </div>
 
@@ -104,7 +115,7 @@
 </template>
 
 <script>
-import { ref, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import PublicationItem from '@/components/publications/PublicationItem.vue'
 import PublicationFilter from '@/components/publications/PublicationFilter.vue'
 import { allPublications } from '@/data/publications.js'
@@ -117,6 +128,34 @@ export default {
   },
   setup() {
     const featuredPublications = ref([])
+    const searchQuery = ref('')
+    const selectedYear = ref('')
+    const selectedTag = ref('')
+
+    // Calculate available years from publications
+    const availableYears = computed(() => {
+      const years = [...new Set(allPublications.map(pub => pub.year.toString()))]
+      return years.sort((a, b) => b - a) // Sort by most recent first
+    })
+
+    // Calculate publication tags
+    const publicationTags = computed(() => {
+      const tagCounts = {}
+      allPublications.forEach(pub => {
+        if (pub.tag) {
+          tagCounts[pub.tag] = (tagCounts[pub.tag] || 0) + 1
+        }
+      })
+      return Object.entries(tagCounts).map(([name, count]) => ({ name, count }))
+    })
+
+    const featuredCount = computed(() => {
+      return allPublications.filter(pub => pub.featured).length
+    })
+
+    const allCount = computed(() => {
+      return allPublications.length
+    })
 
     onMounted(() => {
       // Load featured publications
@@ -129,7 +168,14 @@ export default {
     })
 
     return {
-      featuredPublications
+      featuredPublications,
+      searchQuery,
+      selectedYear,
+      selectedTag,
+      availableYears,
+      publicationTags,
+      featuredCount,
+      allCount
     }
   }
 }

@@ -25,6 +25,22 @@ const routes = [
     meta: {
       title: 'publications.title'
     }
+  },
+  {
+    path: '/news',
+    name: 'News',
+    component: () => import('@/views/News.vue'),
+    meta: {
+      title: 'news.title'
+    }
+  },
+  {
+    path: '/news/:id',
+    name: 'NewsDetail',
+    component: () => import('@/views/NewsDetail.vue'),
+    meta: {
+      title: 'news.title'
+    }
   }
 ]
 

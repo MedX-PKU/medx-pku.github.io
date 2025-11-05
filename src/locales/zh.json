@@ -4,7 +4,8 @@
     "subtitle": "国际医信交叉研究平台",
     "home": "首页",
     "people": "团队成员",
-    "publications": "学术成果"
+    "publications": "学术成果",
+    "news": "新闻动态"
   },
   "home": {
     "hero": {
@@ -71,6 +72,54 @@
     "search": "搜索论文...",
     "year": "年份",
     "view_all": "查看全部论文"
+  },
+  "news": {
+    "title": "新闻动态",
+    "subtitle": "了解MedX实验室的最新研究突破、活动和公告，保持与我们的发展同步",
+    "totalNews": "共 {count} 条新闻",
+    "categories": {
+      "all": "全部新闻",
+      "featured": "精选新闻",
+      "research": "研究成果",
+      "event": "学术活动",
+      "other": "其他动态"
+    },
+    "items": {
+      "1": {
+        "title": "MedX实验室迎来新博士后研究人员",
+        "summary": "我们热烈欢迎三位专攻医学AI和大语言模型的新博士后研究人员加入我们的团队。"
+      },
+      "2": {
+        "title": "研究成果发表于Nature Medicine",
+        "summary": "我们在AI辅助临床决策方面的研究已在Nature Medicine发表，标志着重要里程碑。"
+      },
+      "3": {
+        "title": "2024年度医学人工智能研讨会",
+        "summary": "参加我们的年度研讨会，与医学AI领域的顶尖专家一起讨论最新发展和挑战。"
+      },
+      "4": {
+        "title": "与北京大学肿瘤医院建立合作伙伴关系",
+        "summary": "MedX实验室与北京大学肿瘤医院建立战略合作伙伴关系，共同开展肿瘤学AI研究。"
+      },
+      "5": {
+        "title": "获ICML 2024最佳论文奖",
+        "summary": "我们在可解释医学AI系统方面的研究工作获得了ICML 2024最佳论文奖。"
+      },
+      "6": {
+        "title": "新实验室设施启用",
+        "summary": "MedX实验室扩建了专门用于医学AI开发和临床应用的新研究设施。"
+      }
+    },
+    "noNews": "暂无新闻",
+    "noNewsDescription": "该分类下目前没有新闻项目，请稍后再来查看。",
+    "loadMore": "加载更多新闻",
+    "backToNews": "返回新闻",
+    "tags": "标签",
+    "fullContentNotAvailable": "详细内容暂未开放",
+    "checkBackLater": "请稍后查看完整文章。",
+    "newsNotFound": "新闻文章未找到",
+    "newsNotFoundDescription": "您要查找的新闻文章不存在或已被删除。",
+    "backToAllNews": "查看所有新闻"
   },
   "common": {
     "readMore": "阅读更多",

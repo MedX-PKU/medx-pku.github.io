@@ -76,7 +76,8 @@ const mobileMenuOpen = ref(false)
 const navigationItems = [
   { name: 'home', path: '/', label: 'nav.home' },
   { name: 'people', path: '/people', label: 'nav.people' },
-  { name: 'publications', path: '/publications', label: 'nav.publications' }
+  { name: 'publications', path: '/publications', label: 'nav.publications' },
+  { name: 'news', path: '/news', label: 'nav.news' }
 ]
 </script>
 

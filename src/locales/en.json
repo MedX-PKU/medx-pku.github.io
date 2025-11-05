@@ -4,7 +4,8 @@
     "subtitle": "International Medical Informatics Research Platform",
     "home": "Home",
     "people": "People",
-    "publications": "Publications"
+    "publications": "Publications",
+    "news": "News"
   },
   "home": {
     "hero": {
@@ -71,6 +72,54 @@
     "search": "Search publications...",
     "year": "Year",
     "view_all": "View All Publications"
+  },
+  "news": {
+    "title": "News & Updates",
+    "subtitle": "Stay informed about our latest research breakthroughs, events, and announcements from MedX Lab",
+    "totalNews": "{count} news items",
+    "categories": {
+      "all": "All News",
+      "featured": "Featured",
+      "research": "Research",
+      "event": "Events",
+      "other": "Other"
+    },
+    "items": {
+      "1": {
+        "title": "MedX Lab Welcomes New Postdoctoral Researchers",
+        "summary": "We are excited to welcome three new postdoctoral researchers specializing in medical AI and large language models to our team."
+      },
+      "2": {
+        "title": "New Publication in Nature Medicine",
+        "summary": "Our research on AI-assisted clinical decision making has been published in Nature Medicine, marking a significant milestone."
+      },
+      "3": {
+        "title": "Annual Medical AI Workshop 2024",
+        "summary": "Join us for our annual workshop featuring leading experts in medical AI, discussing the latest developments and challenges."
+      },
+      "4": {
+        "title": "Partnership with Peking University Cancer Hospital",
+        "summary": "MedX Lab establishes strategic partnership with Peking University Cancer Hospital for collaborative research on AI in oncology."
+      },
+      "5": {
+        "title": "Best Paper Award at ICML 2024",
+        "summary": "Our team received the best paper award at ICML 2024 for our work on interpretable medical AI systems."
+      },
+      "6": {
+        "title": "New Lab Facilities Opening",
+        "summary": "MedX Lab expands with new research facilities dedicated to medical AI development and clinical applications."
+      }
+    },
+    "noNews": "No news items found",
+    "noNewsDescription": "There are no news items in this category at the moment. Please check back later.",
+    "loadMore": "Load More News",
+    "backToNews": "Back to News",
+    "tags": "Tags",
+    "fullContentNotAvailable": "Full content is not available yet",
+    "checkBackLater": "Please check back later for the complete article.",
+    "newsNotFound": "News article not found",
+    "newsNotFoundDescription": "The news article you're looking for doesn't exist or has been removed.",
+    "backToAllNews": "View All News"
   },
   "common": {
     "readMore": "Read More",
