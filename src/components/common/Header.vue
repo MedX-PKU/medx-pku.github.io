@@ -3,7 +3,10 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center py-4">
         <!-- Logo and Title -->
-        <div class="flex items-center space-x-4">
+        <router-link
+          to="/"
+          class="flex items-center space-x-4 hover:opacity-80 transition-opacity duration-200"
+        >
           <img
             src="/images/logo.svg"
             alt="MedX Lab Logo"
@@ -17,7 +20,7 @@
               {{ $t('nav.subtitle') }}
             </p>
           </div>
-        </div>
+        </router-link>
 
         <!-- Navigation -->
         <nav class="hidden md:flex items-center space-x-8">
