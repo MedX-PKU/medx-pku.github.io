@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
@@ -7,52 +7,23 @@
     <title>MEDX Lab - PKU</title>
     <meta name="description" content="Medical Imaging and Deep Learning Lab at Peking University" />
     <script>
-      // Single Page Apps for GitHub Pages
-      // https://github.com/rafgraph/spa-github-pages
-      // Copyright (c) 2016 Rafael Pedicini, licensed under the MIT License
-      // ----------------------------------------------------------------------
-      // This script takes the current url and converts the path and query
-      // string into just a query string, and then redirects the browser
-      // to the new url with only a query string and hash fragment,
-      // e.g. https://www.foo.tld/one/two?a=b&c=d#qwe, becomes
-      // https://www.foo.tld/?p=/one/two&q=a=b~and~c=d#qwe
-      // Note: this 404.html file must be at least 512 bytes for it to work
-      // with Internet Explorer (it is currently > 512 bytes)
+      // Simple redirect for hash-based routing
+      // This handles 404s by redirecting to the root with the path as hash
+      (function() {
+        var path = window.location.pathname;
+        var search = window.location.search;
+        var hash = window.location.hash;
 
-      // If you're creating a Project Pages site and NOT using a custom domain,
-      // then set segmentCount to 1 (enterprise users may need to set it to > 1).
-      // This way the code will only replace the route part of the path, and not
-      // the directory part of the path, e.g. https://foo.github.io/bar/hello,
-      // becomes https://foo.github.io/bar/?p=/hello
-
-      // segmentCount can be used instead of setting the redirectPath directly,
-      // e.g.:
-      // GitHub Pages with user.github.io -> segmentCount = 1
-      // GitHub Pages with project.github.io -> segmentCount = 2
-      // GitHub Enterprise with custom domain -> segmentCount = 1
-      // GitHub Enterprise with project pages -> segmentCount >= 2
-
-      var segmentCount = 1;
-
-      var l = window.location;
-      l.replace(
-        l.protocol +
-        '//' +
-        l.hostname +
-        (l.port ? ':' + l.port : '') +
-        l.pathname
-          .split('/')
-          .slice(0, 1 + segmentCount)
-          .join('/') +
-        '/?p=/' +
-        l.pathname.slice(1).split('/').slice(segmentCount).join('/').replace(/&/g, '~and~') +
-        (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-        l.hash
-      );
+        // Build the hash URL (root + path + query + original hash)
+        var hashUrl = '/#' + path + search + hash;
+        window.location.replace(hashUrl);
+      })();
     </script>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <div style="text-align: center; padding: 50px; font-family: Arial, sans-serif;">
+      <h1>Redirecting...</h1>
+      <p>If you are not redirected automatically, <a href="/">click here</a>.</p>
+    </div>
   </body>
 </html>
