@@ -5,7 +5,8 @@
     "home": "首页",
     "people": "团队成员",
     "publications": "学术成果",
-    "news": "新闻动态"
+    "news": "新闻动态",
+    "join": "加入我们"
   },
   "home": {
     "hero": {
@@ -120,6 +121,249 @@
     "newsNotFound": "新闻文章未找到",
     "newsNotFoundDescription": "您要查找的新闻文章不存在或已被删除。",
     "backToAllNews": "查看所有新闻"
+  },
+  "join": {
+    "title": "加入我们",
+    "subtitle": "与我们一起构建医学AI的未来。我们正在寻找才华横溢的研究人员、工程师和学生加入我们的跨学科团队。",
+    "email": "malt@pku.edu.cn",
+    "applyNow": "立即申请",
+    "apply": "申请职位",
+    "viewDetails": "查看详情",
+    "requirements": "任职要求",
+    "responsibilities": "工作职责",
+    "whyJoin": {
+      "title": "为什么选择MedX实验室？",
+      "research": {
+        "title": "join.reasons.research.title",
+        "description": "join.reasons.research.description"
+      },
+      "team": {
+        "title": "join.reasons.team.title",
+        "description": "join.reasons.team.description"
+      },
+      "innovation": {
+        "title": "join.reasons.innovation.title",
+        "description": "join.reasons.innovation.description"
+      },
+      "impact": {
+        "title": "join.reasons.impact.title",
+        "description": "join.reasons.impact.description"
+      },
+      "resources": {
+        "title": "join.reasons.resources.title",
+        "description": "join.reasons.resources.description"
+      },
+      "growth": {
+        "title": "join.reasons.growth.title",
+        "description": "join.reasons.growth.description"
+      }
+    },
+    "positions": {
+      "title": "开放职位",
+      "subtitle": "探索当前机会，加入我们的团队，为前沿医学AI研究做出贡献。",
+      "types": {
+        "postdoc": "博士后",
+        "phd": "博士生",
+        "master": "硕士生",
+        "intern": "实习生",
+        "fulltime": "全职"
+      },
+      "locations": {
+        "beijing": "北京",
+        "remote": "远程",
+        "hybrid": "混合"
+      },
+      "postdoc": {
+        "ai": {
+          "title": "医学AI与自然语言处理博士后研究员",
+          "description": "我们寻求博士后研究员从事前沿医学AI项目，专注于临床文本的自然语言处理和医学大语言模型。",
+          "reqs": {
+            "1": "计算机科学、AI、NLP或相关领域博士学位",
+            "2": "在顶级会议/期刊上有优秀的发表论文记录",
+            "3": "具有深度学习框架经验（PyTorch、TensorFlow）",
+            "4": "医学NLP或医疗AI背景优先"
+          },
+          "responsibilities": {
+            "1": "领导医学AI和NLP研究项目",
+            "2": "发表高质量研究论文",
+            "3": "与医学专业人士和跨学科团队合作"
+          }
+        }
+      },
+      "phd": {
+        "medical": {
+          "title": "医学AI博士生",
+          "description": "加入我们的博士项目，进行医学人工智能的创新研究，使用真实临床数据和医院合作。",
+          "reqs": {
+            "1": "计算机科学、AI或相关领域硕士学位",
+            "2": "强大的编程技能和数学背景",
+            "3": "机器学习或AI研究经验"
+          },
+          "responsibilities": {
+            "1": "进行医学AI原创研究",
+            "2": "发表研究成果并在会议上展示"
+          }
+        }
+      },
+      "master": {
+        "engineering": {
+          "title": "AI工程硕士生",
+          "description": "寻找有才华的硕士生从事医学AI系统的工程方面工作，从数据管道到模型部署。",
+          "reqs": {
+            "1": "计算机科学或工程学士学位",
+            "2": "强大的软件开发技能",
+            "3": "对AI和医疗应用感兴趣"
+          },
+          "responsibilities": {
+            "1": "开发和维护医学AI系统",
+            "2": "从事数据处理和模型部署工作"
+          }
+        }
+      },
+      "intern": {
+        "research": {
+          "title": "医学AI研究实习生",
+          "description": "为学生提供令人兴奋的实习机会，获得医学AI研究和开发的实践经验。",
+          "reqs": {
+            "1": "目前在读本科或研究生",
+            "2": "编程经验和对AI/ML的兴趣"
+          },
+          "responsibilities": {
+            "1": "协助研究项目和数据分析",
+            "2": "参与AI模型开发和测试"
+          }
+        }
+      }
+    },
+    "process": {
+      "title": "申请流程",
+      "steps": {
+        "apply": {
+          "title": "提交申请",
+          "description": "将您的简历、研究陈述和相关文件发送到我们的邮箱。"
+        },
+        "review": {
+          "title": "申请审核",
+          "description": "我们的团队仔细审核所有申请，并联系有潜力的候选人。"
+        },
+        "interview": {
+          "title": "面试流程",
+          "description": "选定的候选人参加技术和文化匹配面试。"
+        },
+        "decision": {
+          "title": "最终决定",
+          "description": "我们做出最终决定并向成功候选人发出录用通知。"
+        }
+      }
+    },
+    "contact": {
+      "title": "联系我们",
+      "subtitle": "对加入我们团队有疑问？我们很乐意听到您的声音。",
+      "emailLabel": "邮箱",
+      "locationLabel": "地址",
+      "address": "北京市海淀区颐和园路5号北京大学",
+      "getInTouch": "立即联系"
+    },
+    "noPositions": "目前没有开放职位",
+    "noPositionsDescription": "我们一直在寻找优秀的人才。欢迎随时发送自荐申请。",
+    "spontaneousApplication": "发送自荐申请"
+  },
+  "reasons": {
+    "research": {
+      "title": "前沿研究",
+      "description": "从事直接影响医疗保健、拯救生命的突破性医学AI研究。"
+    },
+    "team": {
+      "title": "专业团队",
+      "description": "与来自北京大学、爱丁堡大学和顶级医疗机构的研究人员合作。"
+    },
+    "innovation": {
+      "title": "创新环境",
+      "description": "在鼓励创造力、实验和突破界限的文化中茁壮成长。"
+    },
+    "impact": {
+      "title": "实际影响",
+      "description": "看到您的工作转化为帮助全世界医生和患者的实际应用。"
+    },
+    "resources": {
+      "title": "丰富资源",
+      "description": "访问最先进的计算资源、大量数据集和现代化实验室设施。"
+    },
+    "growth": {
+      "title": "职业发展",
+      "description": "在AI、医疗保健和研究方面发展宝贵技能，拥有良好的职业发展机会。"
+    }
+  },
+  "postdoc_ai": {
+    "title": "医学AI与自然语言处理博士后研究员",
+    "description": "我们寻求博士后研究员从事前沿医学AI项目，专注于临床文本的自然语言处理和医学大语言模型。",
+    "reqs": {
+      "1": "计算机科学、AI、NLP或相关领域博士学位",
+      "2": "在顶级会议/期刊上有优秀的发表论文记录",
+      "3": "具有深度学习框架经验（PyTorch、TensorFlow）",
+      "4": "医学NLP或医疗AI背景优先"
+    },
+    "responsibilities": {
+      "1": "领导医学AI和NLP研究项目",
+      "2": "发表高质量研究论文",
+      "3": "与医学专业人士和跨学科团队合作"
+    }
+  },
+  "phd_medical": {
+    "title": "医学AI博士生",
+    "description": "加入我们的博士项目，进行医学人工智能的创新研究，使用真实临床数据和医院合作。",
+    "reqs": {
+      "1": "计算机科学、AI或相关领域硕士学位",
+      "2": "强大的编程技能和数学背景",
+      "3": "机器学习或AI研究经验"
+    },
+    "responsibilities": {
+      "1": "进行医学AI原创研究",
+      "2": "发表研究成果并在会议上展示"
+    }
+  },
+  "master_engineering": {
+    "title": "AI工程硕士生",
+    "description": "寻找有才华的硕士生从事医学AI系统的工程方面工作，从数据管道到模型部署。",
+    "reqs": {
+      "1": "计算机科学或工程学士学位",
+      "2": "强大的软件开发技能",
+      "3": "对AI和医疗应用感兴趣"
+    },
+    "responsibilities": {
+      "1": "开发和维护医学AI系统",
+      "2": "从事数据处理和模型部署工作"
+    }
+  },
+  "intern_research": {
+    "title": "医学AI研究实习生",
+    "description": "为学生提供令人兴奋的实习机会，获得医学AI研究和开发的实践经验。",
+    "reqs": {
+      "1": "目前在读本科或研究生",
+      "2": "编程经验和对AI/ML的兴趣"
+    },
+    "responsibilities": {
+      "1": "协助研究项目和数据分析",
+      "2": "参与AI模型开发和测试"
+    }
+  },
+  "process_steps": {
+    "apply": {
+      "title": "提交申请",
+      "description": "将您的简历、研究陈述和相关文件发送到我们的邮箱。"
+    },
+    "review": {
+      "title": "申请审核",
+      "description": "我们的团队仔细审核所有申请，并联系有潜力的候选人。"
+    },
+    "interview": {
+      "title": "面试流程",
+      "description": "选定的候选人参加技术和文化匹配面试。"
+    },
+    "decision": {
+      "title": "最终决定",
+      "description": "我们做出最终决定并向成功候选人发出录用通知。"
+    }
   },
   "common": {
     "readMore": "阅读更多",

@@ -41,6 +41,14 @@ const routes = [
     meta: {
       title: 'news.title'
     }
+  },
+  {
+    path: '/join',
+    name: 'Join',
+    component: () => import('@/views/Join.vue'),
+    meta: {
+      title: 'join.title'
+    }
   }
 ]
 

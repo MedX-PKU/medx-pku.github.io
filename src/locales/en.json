@@ -5,7 +5,8 @@
     "home": "Home",
     "people": "People",
     "publications": "Publications",
-    "news": "News"
+    "news": "News",
+    "join": "Join Us"
   },
   "home": {
     "hero": {
@@ -120,6 +121,249 @@
     "newsNotFound": "News article not found",
     "newsNotFoundDescription": "The news article you're looking for doesn't exist or has been removed.",
     "backToAllNews": "View All News"
+  },
+  "join": {
+    "title": "Join Us",
+    "subtitle": "Build the future of medical AI with us. We're looking for talented researchers, engineers, and students to join our interdisciplinary team.",
+    "email": "malt@pku.edu.cn",
+    "applyNow": "Apply Now",
+    "apply": "Apply",
+    "viewDetails": "View Details",
+    "requirements": "Requirements",
+    "responsibilities": "Responsibilities",
+    "whyJoin": {
+      "title": "Why Join MedX Lab?",
+      "research": {
+        "title": "join.reasons.research.title",
+        "description": "join.reasons.research.description"
+      },
+      "team": {
+        "title": "join.reasons.team.title",
+        "description": "join.reasons.team.description"
+      },
+      "innovation": {
+        "title": "join.reasons.innovation.title",
+        "description": "join.reasons.innovation.description"
+      },
+      "impact": {
+        "title": "join.reasons.impact.title",
+        "description": "join.reasons.impact.description"
+      },
+      "resources": {
+        "title": "join.reasons.resources.title",
+        "description": "join.reasons.resources.description"
+      },
+      "growth": {
+        "title": "join.reasons.growth.title",
+        "description": "join.reasons.growth.description"
+      }
+    },
+    "positions": {
+      "title": "Open Positions",
+      "subtitle": "Explore current opportunities to join our team and contribute to cutting-edge medical AI research.",
+      "types": {
+        "postdoc": "Postdoctoral",
+        "phd": "PhD Candidate",
+        "master": "Master's Student",
+        "intern": "Intern",
+        "fulltime": "Full-time"
+      },
+      "locations": {
+        "beijing": "Beijing",
+        "remote": "Remote",
+        "hybrid": "Hybrid"
+      },
+      "postdoc": {
+        "ai": {
+          "title": "Postdoctoral Researcher in Medical AI and NLP",
+          "description": "We're seeking a postdoctoral researcher to work on cutting-edge medical AI projects, focusing on natural language processing of clinical text and medical large language models.",
+          "reqs": {
+            "1": "PhD in Computer Science, AI, NLP, or related field",
+            "2": "Strong publication record in top-tier conferences/journals",
+            "3": "Experience with deep learning frameworks (PyTorch, TensorFlow)",
+            "4": "Background in medical NLP or healthcare AI is preferred"
+          },
+          "responsibilities": {
+            "1": "Lead research projects on medical AI and NLP",
+            "2": "Publish high-quality research papers",
+            "3": "Collaborate with medical professionals and interdisciplinary teams"
+          }
+        }
+      },
+      "phd": {
+        "medical": {
+          "title": "PhD Candidate in Medical AI",
+          "description": "Join our PhD program to conduct innovative research in medical artificial intelligence, working with real clinical data and hospital partnerships.",
+          "reqs": {
+            "1": "Master's degree in Computer Science, AI, or related field",
+            "2": "Strong programming skills and mathematics background",
+            "3": "Research experience in machine learning or AI"
+          },
+          "responsibilities": {
+            "1": "Conduct original research in medical AI",
+            "2": "Publish research findings and present at conferences"
+          }
+        }
+      },
+      "master": {
+        "engineering": {
+          "title": "Master's Student in AI Engineering",
+          "description": "Looking for talented Master's students to work on the engineering aspects of medical AI systems, from data pipelines to model deployment.",
+          "reqs": {
+            "1": "Bachelor's degree in Computer Science or Engineering",
+            "2": "Strong software development skills",
+            "3": "Interest in AI and healthcare applications"
+          },
+          "responsibilities": {
+            "1": "Develop and maintain medical AI systems",
+            "2": "Work on data processing and model deployment"
+          }
+        }
+      },
+      "intern": {
+        "research": {
+          "title": "Research Intern in Medical AI",
+          "description": "Exciting internship opportunity for students to gain hands-on experience in medical AI research and development.",
+          "reqs": {
+            "1": "Currently enrolled in undergraduate or graduate program",
+            "2": "Programming experience and interest in AI/ML"
+          },
+          "responsibilities": {
+            "1": "Assist in research projects and data analysis",
+            "2": "Contribute to AI model development and testing"
+          }
+        }
+      }
+    },
+    "process": {
+      "title": "Application Process",
+      "steps": {
+        "apply": {
+          "title": "Submit Application",
+          "description": "Send your CV, research statement, and relevant documents to our email."
+        },
+        "review": {
+          "title": "Application Review",
+          "description": "Our team carefully reviews all applications and contacts promising candidates."
+        },
+        "interview": {
+          "title": "Interview Process",
+          "description": "Selected candidates participate in technical and cultural fit interviews."
+        },
+        "decision": {
+          "title": "Final Decision",
+          "description": "We make final decisions and extend offers to successful candidates."
+        }
+      }
+    },
+    "contact": {
+      "title": "Get in Touch",
+      "subtitle": "Have questions about joining our team? We'd love to hear from you.",
+      "emailLabel": "Email",
+      "locationLabel": "Location",
+      "address": "5 Yiheyuan Road, Haidian District, Beijing, Peking University",
+      "getInTouch": "Get in Touch"
+    },
+    "noPositions": "No open positions at the moment",
+    "noPositionsDescription": "We're always looking for talented individuals. Feel free to reach out with spontaneous applications.",
+    "spontaneousApplication": "Send Spontaneous Application"
+  },
+  "reasons": {
+    "research": {
+      "title": "Cutting-edge Research",
+      "description": "Work on groundbreaking medical AI research that directly impacts healthcare and saves lives."
+    },
+    "team": {
+      "title": "Expert Team",
+      "description": "Collaborate with leading researchers from PKU, University of Edinburgh, and top medical institutions."
+    },
+    "innovation": {
+      "title": "Innovation Environment",
+      "description": "Thrive in a culture that encourages creativity, experimentation, and pushing boundaries."
+    },
+    "impact": {
+      "title": "Real-world Impact",
+      "description": "See your work translate into practical applications that help doctors and patients worldwide."
+    },
+    "resources": {
+      "title": "Abundant Resources",
+      "description": "Access state-of-the-art computing resources, extensive datasets, and modern lab facilities."
+    },
+    "growth": {
+      "title": "Career Growth",
+      "description": "Develop valuable skills in AI, healthcare, and research with excellent career advancement opportunities."
+    }
+  },
+  "postdoc_ai": {
+    "title": "Postdoctoral Researcher in Medical AI and NLP",
+    "description": "We're seeking a postdoctoral researcher to work on cutting-edge medical AI projects, focusing on natural language processing of clinical text and medical large language models.",
+    "reqs": {
+      "1": "PhD in Computer Science, AI, NLP, or related field",
+      "2": "Strong publication record in top-tier conferences/journals",
+      "3": "Experience with deep learning frameworks (PyTorch, TensorFlow)",
+      "4": "Background in medical NLP or healthcare AI is preferred"
+    },
+    "responsibilities": {
+      "1": "Lead research projects on medical AI and NLP",
+      "2": "Publish high-quality research papers",
+      "3": "Collaborate with medical professionals and interdisciplinary teams"
+    }
+  },
+  "phd_medical": {
+    "title": "PhD Candidate in Medical AI",
+    "description": "Join our PhD program to conduct innovative research in medical artificial intelligence, working with real clinical data and hospital partnerships.",
+    "reqs": {
+      "1": "Master's degree in Computer Science, AI, or related field",
+      "2": "Strong programming skills and mathematics background",
+      "3": "Research experience in machine learning or AI"
+    },
+    "responsibilities": {
+      "1": "Conduct original research in medical AI",
+      "2": "Publish research findings and present at conferences"
+    }
+  },
+  "master_engineering": {
+    "title": "Master's Student in AI Engineering",
+    "description": "Looking for talented Master's students to work on the engineering aspects of medical AI systems, from data pipelines to model deployment.",
+    "reqs": {
+      "1": "Bachelor's degree in Computer Science or Engineering",
+      "2": "Strong software development skills",
+      "3": "Interest in AI and healthcare applications"
+    },
+    "responsibilities": {
+      "1": "Develop and maintain medical AI systems",
+      "2": "Work on data processing and model deployment"
+    }
+  },
+  "intern_research": {
+    "title": "Research Intern in Medical AI",
+    "description": "Exciting internship opportunity for students to gain hands-on experience in medical AI research and development.",
+    "reqs": {
+      "1": "Currently enrolled in undergraduate or graduate program",
+      "2": "Programming experience and interest in AI/ML"
+    },
+    "responsibilities": {
+      "1": "Assist in research projects and data analysis",
+      "2": "Contribute to AI model development and testing"
+    }
+  },
+  "process_steps": {
+    "apply": {
+      "title": "Submit Application",
+      "description": "Send your CV, research statement, and relevant documents to our email."
+    },
+    "review": {
+      "title": "Application Review",
+      "description": "Our team carefully reviews all applications and contacts promising candidates."
+    },
+    "interview": {
+      "title": "Interview Process",
+      "description": "Selected candidates participate in technical and cultural fit interviews."
+    },
+    "decision": {
+      "title": "Final Decision",
+      "description": "We make final decisions and extend offers to successful candidates."
+    }
   },
   "common": {
     "readMore": "Read More",
