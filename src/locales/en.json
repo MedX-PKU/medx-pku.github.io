@@ -11,15 +11,15 @@
   },
   "home": {
     "hero": {
-      "title": "MedX Laboratory",
+      "title": "MedX Lab",
       "subtitle": "Building trustworthy and accessible medical AI, focusing on large language model technologies to empower clinical decision-making and medical research",
       "cta1": "View Research",
       "cta2": "Meet Our Team"
     },
     "about": {
       "title": "About the Lab",
-      "description1": "MedX is jointly established by AI researchers and medical researchers from Peking University and the University of Edinburgh, collaborating with top-tier hospitals including Peking University Cancer Hospital and Peking University Third Hospital.",
-      "description2": "We focus on large language model technologies to empower clinical decision-making and medical research, creating a complete loop from clinical needs to technology development to practical applications."
+      "description1": "MedX Lab (医维矩阵实验室) is a laboratory supported by the National Engineering Research Center for Software Engineering (NERC) at Peking University, led by Professor Yasha Wang and managed by Research Assistant Professor Liantao Ma. The lab collaborates extensively with the University of Hong Kong, the University of Edinburgh, and other institutions.",
+      "description2": "Our collaborating hospitals include Peking University Third Hospital, Peking University Cancer Hospital, and others. We focus on large language model technologies to empower clinical decision-making and medical research, creating a complete loop from clinical needs to technology development to practical applications."
     },
     "research": {
       "title": "Core Research Areas",
@@ -146,7 +146,7 @@
       },
       "team": {
         "title": "Expert Team",
-        "description": "Collaborate with leading researchers from PKU, University of Edinburgh, and top medical institutions."
+        "description": "Collaborate with leading researchers from Peking University, University of Hong Kong, University of Edinburgh, and top medical institutions."
       },
       "innovation": {
         "title": "Innovation Environment",

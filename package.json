@@ -1,7 +1,7 @@
 {
   "name": "medx-pku.github.io",
   "version": "1.0.0",
-  "description": "MedX Laboratory - International Medical Informatics Research Platform at Peking University",
+  "description": "MedX Lab - Medical AI Laboratory at Peking University",
   "type": "module",
   "homepage": "https://medx-pku.github.io/",
   "scripts": {
@@ -19,7 +19,7 @@
     "healthcare",
     "ai"
   ],
-  "author": "MedX Laboratory",
+  "author": "MedX Lab",
   "license": "MIT",
   "packageManager": "pnpm@10.10.0",
   "dependencies": {

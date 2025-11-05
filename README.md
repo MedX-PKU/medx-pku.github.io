@@ -5,7 +5,7 @@
 [![Vue.js](https://img.shields.io/badge/Vue.js-35B995?style=for-the-badge&logo=vue.js&logoColor=white)](https://vuejs.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 
-International Medical Informatics Research Platform at Peking University
+Medical AI Laboratory at Peking University
 
 ## 🌐 Live Demo
 
@@ -24,7 +24,7 @@ International Medical Informatics Research Platform at Peking University
 
 ## 🎯 About
 
-MedX Laboratory (医维矩阵实验室) is an international medical informatics research platform jointly established by AI researchers and medical researchers from Peking University and the University of Edinburgh. We collaborate with top-tier hospitals including Peking University Cancer Hospital and Peking University Third Hospital.
+MedX Laboratory (医维矩阵实验室) is a laboratory supported by the National Engineering Research Center for Software Engineering (NERC) at Peking University, led by Professor Yasha Wang and managed by Research Assistant Professor Liantao Ma. The lab collaborates extensively with the University of Hong Kong, the University of Edinburgh, and other institutions. Our collaborating hospitals include Peking University Third Hospital, Peking University Cancer Hospital, and others.
 
 Our research focuses on:
 - 🧠 **Large Language Models** for medical applications
@@ -182,8 +182,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- Peking University and University of Edinburgh
-- Our collaborating hospitals and research partners
+- National Engineering Research Center for Software Engineering (NERC) at Peking University
+- Professor Yasha Wang and the NERC leadership
+- Our collaborating institutions: University of Hong Kong, University of Edinburgh, and others
+- Our collaborating hospitals: Peking University Third Hospital, Peking University Cancer Hospital, and others
 - The open-source community for the amazing tools and libraries
 - All contributors and team members
 
