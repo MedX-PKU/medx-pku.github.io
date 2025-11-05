@@ -85,12 +85,12 @@
 
               <!-- Title -->
               <h3 class="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
-                {{ $t(item.title) }}
+                {{ item.title }}
               </h3>
 
               <!-- Summary -->
               <p class="text-gray-600 mb-4 line-clamp-3">
-                {{ $t(item.summary) }}
+                {{ item.excerpt }}
               </p>
 
               <!-- Tags -->
