@@ -1,0 +1,9 @@
+<svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 深蓝色背景代表高年级博士生 -->
+  <circle cx="48" cy="48" r="48" fill="#e0e7ff"/>
+  <circle cx="48" cy="36" r="15" fill="#4338ca"/>
+  <path d="M24 72c0-13.5 10.5-24 24-24s24 10.5 24 24v6H24v-6z" fill="#4338ca"/>
+  <!-- 实验设备装饰 -->
+  <circle cx="55" cy="40" r="3" fill="#3730a3"/>
+  <rect x="35" y="38" width="8" height="6" rx="1" fill="#3730a3"/>
+</svg>

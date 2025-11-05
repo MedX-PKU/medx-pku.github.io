@@ -1,0 +1,9 @@
+<svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 粉色背景代表访问学生 -->
+  <circle cx="48" cy="48" r="48" fill="#fce7f3"/>
+  <circle cx="48" cy="36" r="15" fill="#db2777"/>
+  <path d="M24 72c0-13.5 10.5-24 24-24s24 10.5 24 24v6H24v-6z" fill="#db2777"/>
+  <!-- 飞机装饰代表访问 -->
+  <path d="M40 40l16 8l-16 8l4-8z" fill="#be185d"/>
+  <path d="M44 44l12 4l-12 4" fill="none" stroke="#be185d" stroke-width="1.5"/>
+</svg>

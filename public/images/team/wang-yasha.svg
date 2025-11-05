@@ -1,0 +1,14 @@
+<svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 紫色背景代表研究中心主任 -->
+  <circle cx="48" cy="48" r="48" fill="#ddd6fe"/>
+  <!-- 头部轮廓 -->
+  <circle cx="48" cy="36" r="15" fill="#7c3aed"/>
+  <!-- 身体轮廓 -->
+  <path d="M24 72c0-13.5 10.5-24 24-24s24 10.5 24 24v6H24v-6z" fill="#7c3aed"/>
+  <!-- 学士帽装饰 -->
+  <rect x="33" y="26" width="30" height="3" rx="1" fill="#4c1d95"/>
+  <path d="M48 23l18 6-18 6-18-6z" fill="#4c1d95"/>
+  <!-- 流苏 -->
+  <circle cx="66" cy="29" r="2" fill="#fbbf24"/>
+  <line x1="66" y1="31" x2="69" y2="38" stroke="#fbbf24" stroke-width="1.5"/>
+</svg>

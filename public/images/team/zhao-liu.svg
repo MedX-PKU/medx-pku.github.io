@@ -1,0 +1,11 @@
+<svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 橙色背景代表新硕士生 -->
+  <circle cx="48" cy="48" r="48" fill="#fed7aa"/>
+  <circle cx="48" cy="36" r="15" fill="#ea580c"/>
+  <path d="M24 72c0-13.5 10.5-24 24-24s24 10.5 24 24v6H24v-6z" fill="#ea580c"/>
+  <!-- 笔记本装饰 -->
+  <rect x="34" y="41" width="28" height="18" rx="2" fill="#c2410c"/>
+  <line x1="38" y1="46" x2="58" y2="46" stroke="#fed7aa" stroke-width="1"/>
+  <line x1="38" y1="50" x2="54" y2="50" stroke="#fed7aa" stroke-width="1"/>
+  <line x1="38" y1="54" x2="56" y2="54" stroke="#fed7aa" stroke-width="1"/>
+</svg>

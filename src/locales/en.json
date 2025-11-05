@@ -59,7 +59,12 @@
   },
   "people": {
     "title": "Our Team",
-    "director": "Lab Director",
+    "leadership": "Leadership",
+    "centerDirector": "Research Center Director",
+    "labDirector": "Lab Director",
+    "centerLabRelation": "MedX Lab is affiliated with the National Engineering Research Center for Software Engineering at Peking University. Under the guidance of Professor Yasha Wang, the lab is managed by Assistant Professor Liantao Ma.",
+    "labIntro": "Lab Introduction",
+    "labDescription": "MedX Lab focuses on interdisciplinary research in medical informatics and AI applications in healthcare, cultivating versatile research talent that integrates medicine and engineering.",
     "members": "Team Members"
   },
   "publications": {

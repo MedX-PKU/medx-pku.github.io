@@ -11,23 +11,36 @@
       </div>
     </div>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <!-- Lab Director -->
-      <div class="mb-16">
-        <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">
-          {{ $t('people.director') }}
-        </h2>
-        <div class="flex justify-center">
-          <PersonCard :person="director" />
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <!-- Research Center & Lab Leadership -->
+      <div class="mb-12">
+        <div class="text-center mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">{{ $t('people.leadership') }}</h2>
+          <p class="text-gray-600 max-w-3xl mx-auto">{{ $t('people.centerLabRelation') }}</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+          <PersonCard :person="centerDirector" />
+          <PersonCard :person="labDirector" />
+        </div>
+
+        <!-- Lab Introduction -->
+        <div class="mt-8 max-w-4xl mx-auto text-center">
+          <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+            <h3 class="text-lg font-semibold text-blue-900 mb-3">{{ $t('people.labIntro') }}</h3>
+            <p class="text-blue-800 leading-relaxed text-sm">
+              {{ $t('people.labDescription') }}
+            </p>
+          </div>
         </div>
       </div>
 
       <!-- Team Members -->
       <div>
-        <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">
+        <h2 class="text-xl font-bold text-gray-900 mb-6 text-center">
           {{ $t('people.members') }}
         </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <PersonCard
             v-for="member in teamMembers"
             :key="member.id"
@@ -50,44 +63,69 @@ export default {
     PersonCard
   },
   setup() {
-    const director = ref({})
+    const centerDirector = ref({})
+    const labDirector = ref({})
     const teamMembers = ref([])
 
     onMounted(() => {
       try {
-        // Set director
-        const directorData = teamData.find(member => member.isDirector)
-        if (directorData) {
-          director.value = {
-            name: directorData.name.zh || directorData.name.en,
-            title: directorData.position.zh || directorData.position.en,
-            email: directorData.email,
-            image: directorData.image
+        // Set center director
+        const centerDirectorData = teamData.find(member => member.isCenterDirector)
+        if (centerDirectorData) {
+          centerDirector.value = {
+            name: centerDirectorData.name.zh || centerDirectorData.name.en,
+            title: centerDirectorData.title.zh || centerDirectorData.title.en,
+            email: centerDirectorData.email,
+            image: centerDirectorData.image,
+            isCenterDirector: true
           }
         }
 
-        // Set team members (excluding director)
-        teamMembers.value = teamData.filter(member => !member.isDirector).map(member => ({
+        // Set lab director
+        const labDirectorData = teamData.find(member => member.isLabDirector)
+        if (labDirectorData) {
+          labDirector.value = {
+            name: labDirectorData.name.zh || labDirectorData.name.en,
+            title: labDirectorData.title.zh || labDirectorData.title.en,
+            email: labDirectorData.email,
+            image: labDirectorData.image,
+            isLabDirector: true
+          }
+        }
+
+        // Set team members (excluding directors)
+        teamMembers.value = teamData.filter(member => !member.isCenterDirector && !member.isLabDirector).map(member => ({
           name: member.name.zh || member.name.en,
-          title: member.position.zh || member.position.en,
+          title: member.title.zh || member.title.en,
           email: member.email,
-          image: member.image
+          image: member.image,
+          research: member.research
         }))
       } catch (error) {
         console.warn('Could not load team data:', error)
 
-        // Fallback director data
-        director.value = {
+        // Fallback data
+        centerDirector.value = {
+          name: 'Yasha Wang',
+          title: 'Research Center Director',
+          email: 'wangyasha[at]pku.edu.cn',
+          image: '/images/team/wang-yasha.svg',
+          isCenterDirector: true
+        }
+
+        labDirector.value = {
           name: 'Liantao Ma',
           title: 'Lab Director',
           email: 'malt[at]pku.edu.cn',
-          image: '/images/team/ma-liantao.svg'
+          image: '/images/team/ma-liantao.svg',
+          isLabDirector: true
         }
       }
     })
 
     return {
-      director,
+      centerDirector,
+      labDirector,
       teamMembers
     }
   }
