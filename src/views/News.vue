@@ -213,11 +213,10 @@ const getCategoryColor = (categoryId) => {
   const colors = {
     featured: 'bg-yellow-100 text-yellow-800',
     research: 'bg-green-100 text-green-800',
-    news: 'bg-blue-100 text-blue-800',
     event: 'bg-purple-100 text-purple-800',
-    other: 'bg-gray-100 text-gray-800'
+    achievement: 'bg-orange-100 text-orange-800'
   }
-  return colors[categoryId] || 'bg-blue-100 text-blue-800'
+  return colors[categoryId] || 'bg-purple-100 text-purple-800'
 }
 
 const formatDate = (dateString) => {
@@ -229,11 +228,10 @@ const getCategoryShortName = (categoryId) => {
   const names = {
     featured: 'Featured',
     research: 'Research',
-    news: 'News',
     event: 'Event',
-    other: 'Other'
+    achievement: 'Achievement'
   }
-  return names[categoryId] || 'News'
+  return names[categoryId] || 'Event'
 }
 
 const handleImageError = (event, item) => {

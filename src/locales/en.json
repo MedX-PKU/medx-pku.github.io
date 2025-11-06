@@ -88,9 +88,8 @@
       "all": "All News",
       "featured": "Featured",
       "research": "Research",
-      "news": "News",
       "event": "Events",
-      "other": "Other"
+      "achievement": "Achievements"
     },
     "items": {
       "1": {

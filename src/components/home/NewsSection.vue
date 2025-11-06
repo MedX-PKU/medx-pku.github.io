@@ -171,11 +171,10 @@ const getCategoryShortName = (categoryId) => {
   const names = {
     featured: 'Featured',
     research: 'Research',
-    news: 'News',
     event: 'Event',
-    other: 'Other'
+    achievement: 'Achievement'
   }
-  return names[categoryId] || 'News'
+  return names[categoryId] || 'Event'
 }
 
 const handleImageError = (event, news) => {
