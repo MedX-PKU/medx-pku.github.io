@@ -49,7 +49,7 @@
                 :src="news.image"
                 :alt="news.title"
                 class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                @error="handleImageError"
+                @error="(e) => handleImageError(e, news)"
               >
             </div>
             <div
@@ -171,13 +171,14 @@ const getCategoryShortName = (categoryId) => {
   const names = {
     featured: 'Featured',
     research: 'Research',
+    news: 'News',
     event: 'Event',
-    other: 'News'
+    other: 'Other'
   }
   return names[categoryId] || 'News'
 }
 
-const handleImageError = (event) => {
+const handleImageError = (event, news) => {
   // Set a fallback if image fails to load
   event.target.style.display = 'none'
   const parent = event.target.parentElement
@@ -185,7 +186,8 @@ const handleImageError = (event) => {
     const fallback = document.createElement('div')
     fallback.className = 'fallback-image w-full h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center'
     fallback.innerHTML = `<div class="text-center text-white">
-      <div class="text-lg font-bold uppercase tracking-wider">${getCategoryShortName('other')}</div>
+      <div class="text-lg font-bold uppercase tracking-wider">${getCategoryShortName(news.category?.id || 'news')}</div>
+      <div class="text-xs opacity-75 mt-1">${news.readTime || 1} min</div>
     </div>`
     parent.appendChild(fallback)
   }

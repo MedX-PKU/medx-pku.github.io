@@ -149,15 +149,22 @@ function processMarkdownFile(id, content) {
   }
 
   // Process category
-  let category = frontmatter.category || 'other'
-  if (!category && frontmatter.featured) {
-    category = 'featured'
+  let category = frontmatter.category || 'news'
+
+  // Normalize category names (featured is a special flag, not a category)
+  const categoryMapping = {
+    'news': 'news',        // General news items
+    'research': 'research', // Research publications
+    'event': 'event',       // Academic events, lectures, courses
+    'other': 'other'        // Other/miscellaneous
   }
 
+  category = categoryMapping[category] || 'news'
+
   const categoryLabels = {
-    featured: 'news.categories.featured',
     research: 'news.categories.research',
     event: 'news.categories.event',
+    news: 'news.categories.news',
     other: 'news.categories.other'
   }
 
@@ -276,6 +283,7 @@ export async function getNewsCategories() {
     { id: 'all', label: 'news.categories.all', count: allNews.length },
     { id: 'featured', label: 'news.categories.featured', count: allNews.filter(item => item.featured).length },
     { id: 'research', label: 'news.categories.research', count: allNews.filter(item => item.category.id === 'research').length },
+    { id: 'news', label: 'news.categories.news', count: allNews.filter(item => item.category.id === 'news').length },
     { id: 'event', label: 'news.categories.event', count: allNews.filter(item => item.category.id === 'event').length },
     { id: 'other', label: 'news.categories.other', count: allNews.filter(item => item.category.id === 'other').length }
   ]

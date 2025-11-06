@@ -61,7 +61,7 @@
                 :src="item.image"
                 :alt="item.title"
                 class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                @error="handleImageError"
+                @error="(e) => handleImageError(e, item)"
               >
               <div
                 v-else
@@ -189,6 +189,8 @@ const filteredNews = computed(() => {
 
   let filtered = selectedCategory.value === 'all'
     ? newsData.value
+    : selectedCategory.value === 'featured'
+    ? newsData.value.filter(item => item.featured)
     : newsData.value.filter(item => item.category.id === selectedCategory.value)
 
   return filtered.slice(0, displayedCount.value)
@@ -199,6 +201,8 @@ const hasMoreNews = computed(() => {
 
   let allFiltered = selectedCategory.value === 'all'
     ? newsData.value
+    : selectedCategory.value === 'featured'
+    ? newsData.value.filter(item => item.featured)
     : newsData.value.filter(item => item.category.id === selectedCategory.value)
 
   return allFiltered.length > displayedCount.value
@@ -209,10 +213,11 @@ const getCategoryColor = (categoryId) => {
   const colors = {
     featured: 'bg-yellow-100 text-yellow-800',
     research: 'bg-green-100 text-green-800',
+    news: 'bg-blue-100 text-blue-800',
     event: 'bg-purple-100 text-purple-800',
     other: 'bg-gray-100 text-gray-800'
   }
-  return colors[categoryId] || 'bg-gray-100 text-gray-800'
+  return colors[categoryId] || 'bg-blue-100 text-blue-800'
 }
 
 const formatDate = (dateString) => {
@@ -224,13 +229,14 @@ const getCategoryShortName = (categoryId) => {
   const names = {
     featured: 'Featured',
     research: 'Research',
+    news: 'News',
     event: 'Event',
-    other: 'News'
+    other: 'Other'
   }
   return names[categoryId] || 'News'
 }
 
-const handleImageError = (event) => {
+const handleImageError = (event, item) => {
   // Set a fallback image if the main image fails to load
   event.target.style.display = 'none'
   const parent = event.target.parentElement
@@ -238,7 +244,8 @@ const handleImageError = (event) => {
     const fallback = document.createElement('div')
     fallback.className = 'fallback-image w-full h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center'
     fallback.innerHTML = `<div class="text-center text-white">
-      <div class="text-lg font-bold uppercase tracking-wider">${getCategoryShortName('other')}</div>
+      <div class="text-lg font-bold uppercase tracking-wider">${getCategoryShortName(item.category.id)}</div>
+      <div class="text-xs opacity-75 mt-1">${item.readTime || 1} min read</div>
     </div>`
     parent.appendChild(fallback)
   }
