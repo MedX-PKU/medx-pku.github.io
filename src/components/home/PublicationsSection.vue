@@ -19,6 +19,15 @@
         <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-4 leading-relaxed">
           {{ $t('publications.subtitle') }}
         </p>
+        <!-- Author Annotation Legend in Section Header -->
+        <div class="text-sm text-gray-500 mb-4">
+          <span>
+            <sup class="text-text-gray font-bold">*</sup> Co-first author
+          </span>
+          <span>
+            <sup class="text-text-gray font-bold">†</sup> Corresponding author
+          </span>
+        </div>
         <div class="w-20 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto rounded-full"></div>
       </div>
 
@@ -35,7 +44,7 @@
                 <!-- Main Content -->
                 <div class="flex-1 min-w-0">
                   <!-- Title and Comment -->
-                  <div class="flex items-start justify-between gap-4 mb-3">
+                  <div class="flex items-start justify-between gap-4 mb-2">
                     <h4 class="font-semibold text-gray-800 text-base leading-tight group-hover:text-purple-700 transition-colors duration-200 line-clamp-2">
                       {{ publication.title }}
                     </h4>
@@ -53,7 +62,28 @@
 
                   <!-- Authors and Venue -->
                   <div class="space-y-1 mb-3">
-                    <p class="text-sm text-gray-600 leading-relaxed line-clamp-1" v-html="highlightAuthor(publication.authors)">
+                    <p class="text-sm text-gray-600 leading-relaxed line-clamp-1">
+                      <span v-for="(a, idx) in buildAuthors(publication.authors, publication.firstAuthors, publication.correspondingAuthors)" :key="a.name">
+                        <a
+                          v-if="a.url"
+                          :href="a.url"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="author-link hover:text-purple-700 transition-colors duration-200"
+                          :class="{ 'font-bold text-gray-900': a.name === 'Liantao Ma' }"
+                        >
+                          {{ a.name }}
+                        </a>
+                        <span
+                          v-else
+                          :class="{ 'font-bold text-gray-900': a.name === 'Liantao Ma' }"
+                        >
+                          {{ a.name }}
+                        </span>
+                        <sup v-if="a.isFirst" class="text-gray-700 font-bold">*</sup>
+                        <sup v-if="a.isCorresponding" class="text-gray-700 font-bold">†</sup>
+                        <span v-if="idx < buildAuthors(publication.authors, publication.firstAuthors, publication.correspondingAuthors).length - 1">, </span>
+                      </span>
                     </p>
                     <p class="text-sm text-blue-600 italic font-medium">
                       {{ publication.venue }}
@@ -101,17 +131,28 @@
 
 <script>
 import { ref, onMounted } from 'vue'
-import { allPublications } from '@/data/publications.js'
+import { allPublications, authorLinks } from '@/data/publications.js'
 
 export default {
   name: 'PublicationsSection',
   setup() {
     const featuredPublications = ref([])
 
-    const highlightAuthor = (authors) => {
-      if (!authors) return ''
-      // Make Liantao Ma bold
-      return authors.replace(/Liantao Ma/g, '<strong class="font-bold text-gray-900">Liantao Ma</strong>')
+    const buildAuthors = (authorString, firstAuthorsStr = '', correspondingAuthorsStr = '') => {
+      if (!authorString) return []
+      const names = authorString.split(/,\s*/)
+      const firstAuthors = firstAuthorsStr ? firstAuthorsStr.split(',').map(s => s.trim()) : []
+      const correspondingAuthors = correspondingAuthorsStr ? correspondingAuthorsStr.split(',').map(s => s.trim()) : []
+
+      return names.map(rawName => {
+        const name = rawName.trim()
+        return {
+          name,
+          url: authorLinks[name] || '',
+          isFirst: firstAuthors.includes(name),
+          isCorresponding: correspondingAuthors.includes(name)
+        }
+      })
     }
 
     onMounted(() => {
@@ -129,7 +170,7 @@ export default {
 
     return {
       featuredPublications,
-      highlightAuthor
+      buildAuthors
     }
   }
 }
