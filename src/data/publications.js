@@ -72,6 +72,7 @@ export const allPublications = [
       'Conference on Neural Information Processing Systems (NeurIPS) Datasets and Benchmarks Track, 2025',
     year: '2025',
     tag: 'Healthcare Benchmark',
+    comment: '[CCF-A] NeurIPS 2025',
     links: [
       { type: 'Paper', url: 'https://arxiv.org/abs/2505.12371' },
       { type: 'Code', url: 'https://github.com/yhzhu99/MedAgentBoard' },
@@ -87,9 +88,10 @@ export const allPublications = [
     firstAuthors: '',
     correspondingAuthors: '',
     venue:
-      'The Symposium on Artificial Intelligence in Learning Health Systems (SAIL), Best abstract nominee, 2025',
+      'The Symposium on Artificial Intelligence in Learning Health Systems (SAIL), 2025',
     year: '2025',
     tag: 'Toolkits & Platforms',
+    comment: 'SAIL 2025 Best Abstract Nominee',
     links: [
       {
         type: 'Paper',
@@ -110,6 +112,7 @@ export const allPublications = [
       'Conference on Neural Information Processing Systems (NeurIPS), 2025',
     year: '2025',
     tag: 'Healthcare Modeling',
+    comment: '[CCF-A] NeurIPS 2025',
     links: [
       { type: 'Paper', url: 'https://arxiv.org/abs/2508.08730' },
       { type: 'Code', url: 'https://github.com/tianlwang/Magical' }
@@ -127,6 +130,7 @@ export const allPublications = [
       'ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD), 2025',
     year: '2025',
     tag: 'Healthcare Modeling',
+    comment: '[CCF-A] KDD 2025',
     links: [
       { type: 'Paper', url: 'https://dl.acm.org/doi/10.1145/3690624.3709166' },
       { type: 'Code', url: 'https://github.com/MrBlankness/PAI' }
@@ -143,6 +147,7 @@ export const allPublications = [
     venue: 'ACM International World Wide Web Conference (WWW), 2025',
     year: '2025',
     tag: 'LLM Agents for Healthcare',
+    comment: '[CCF-A] WWW 2025',
     links: [
       { type: 'Paper', url: 'https://dl.acm.org/doi/10.1145/3696410.3714877' },
       { type: 'Code', url: 'https://github.com/PKU-AICare/ColaCare' },
@@ -160,6 +165,7 @@ export const allPublications = [
     venue: 'Cell Patterns, 2024',
     year: '2024',
     tag: 'Healthcare Benchmark',
+    comment: '[Cell 子刊] Patterns',
     links: [
       { type: 'Paper', url: 'https://www.cell.com/patterns/fulltext/S2666-3899(24)00050-3' },
       { type: 'Code', url: 'https://github.com/yhzhu99/pyehr' },
@@ -177,6 +183,7 @@ export const allPublications = [
     venue: 'Cell Patterns, Cover, 2023',
     year: '2023',
     tag: 'Healthcare Modeling',
+    comment: '[Cell 子刊封面] Patterns',
     links: [
       { type: 'Paper', url: 'https://www.cell.com/patterns/fulltext/S2666-3899(23)00294-5' },
       { type: 'Code', url: 'https://github.com/Accountable-Machine-Intelligence/AICare' }
@@ -191,6 +198,7 @@ export const allPublications = [
     venue: 'ACM International World Wide Web Conference (WWW), 2025',
     year: '2025',
     tag: 'Trustworthy AI',
+    comment: '[CCF-A] WWW 2025',
     links: [
       { type: 'Paper', url: 'https://dl.acm.org/doi/10.1145/3696410.3714640' },
       { type: 'Code', url: 'https://github.com/tianlwang/ACT' }
