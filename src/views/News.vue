@@ -2,7 +2,7 @@
   <div class="news">
     <!-- Hero Section -->
     <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto px-3 sm:px-5 lg:px-7">
         <div class="text-center">
           <h1 class="text-4xl md:text-5xl font-bold mb-4">
             {{ $t('news.title') }}
@@ -16,7 +16,7 @@
 
     <!-- News Content -->
     <section class="py-16 bg-gray-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto px-3 sm:px-5 lg:px-7">
         <!-- News Filter -->
         <div class="mb-12 flex flex-wrap justify-between items-center gap-4">
           <div class="flex flex-wrap gap-2">

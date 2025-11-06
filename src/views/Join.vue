@@ -2,7 +2,7 @@
   <div class="join">
     <!-- Hero Section -->
     <section class="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white py-20">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto px-3 sm:px-5 lg:px-7">
         <div class="text-center">
           <div class="inline-flex items-center justify-center w-20 h-20 bg-white/20 rounded-full mb-6 backdrop-blur-sm">
             <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -32,7 +32,7 @@
 
     <!-- Why Join Us -->
     <section class="py-20 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto px-3 sm:px-5 lg:px-7">
         <div class="text-center mb-16">
           <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
             {{ $t('join.whyJoin.title') }}
@@ -64,7 +64,7 @@
 
     <!-- Open Positions -->
     <section class="py-20 bg-gray-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto px-3 sm:px-5 lg:px-7">
         <div class="text-center mb-16">
           <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
             {{ $t('join.positions.title') }}
@@ -187,7 +187,7 @@
 
     <!-- Application Process -->
     <section class="py-20 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto px-3 sm:px-5 lg:px-7">
         <div class="text-center mb-16">
           <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
             {{ $t('join.process.title') }}
@@ -223,7 +223,7 @@
 
     <!-- Contact CTA -->
     <section class="py-20 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="max-w-4xl mx-auto px-3 sm:px-5 lg:px-7 text-center">
         <div class="inline-flex items-center justify-center w-20 h-20 bg-white/20 rounded-full mb-6 backdrop-blur-sm">
           <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>

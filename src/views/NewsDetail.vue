@@ -2,7 +2,7 @@
   <div class="news-detail">
     <!-- Back to News -->
     <section class="py-8 bg-gray-50">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-5xl mx-auto px-3 sm:px-5 lg:px-7">
         <router-link
           to="/news"
           class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
@@ -15,7 +15,7 @@
 
     <!-- News Content -->
     <section class="py-12 bg-white">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-5xl mx-auto px-3 sm:px-5 lg:px-7">
         <article v-if="newsItem" class="prose prose-lg max-w-none">
           <!-- News Header -->
           <header class="mb-8">

@@ -1,7 +1,7 @@
 <template>
   <div class="people-page">
     <div class="bg-gradient-to-br from-blue-700 to-blue-900 text-white py-16">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="max-w-7xl mx-auto px-3 sm:px-5 lg:px-7 text-center">
         <h1 class="text-4xl md:text-5xl font-bold mb-4">
           {{ $t('people.title') }}
         </h1>
@@ -11,7 +11,7 @@
       </div>
     </div>
 
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="max-w-6xl mx-auto px-3 sm:px-5 lg:px-7 py-12">
       <!-- Research Center & Lab Leadership -->
       <div class="mb-12">
         <div class="text-center mb-8">

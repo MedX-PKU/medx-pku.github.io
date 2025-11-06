@@ -2,7 +2,7 @@
   <div class="publications">
     <!-- Hero Section -->
     <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto px-3 sm:px-5 lg:px-7">
         <div class="text-center">
           <h1 class="text-4xl md:text-5xl font-bold mb-4">
             {{ $t('publications.title') }}
@@ -16,7 +16,7 @@
 
     <!-- Publications Content -->
     <section class="py-16 bg-gray-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto px-3 sm:px-5 lg:px-7">
         <div class="academic-card rounded-lg flex-1 overflow-hidden flex flex-col animate-scale-in">
           <!-- Filter Section -->
           <PublicationFilter
