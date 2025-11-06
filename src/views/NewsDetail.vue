@@ -72,12 +72,12 @@
               <router-link
                 v-if="previousNews"
                 :to="`/news/${previousNews.id}`"
-                class="flex items-center text-blue-600 hover:text-blue-800 font-medium group max-w-[280px] sm:max-w-sm"
+                class="flex items-center text-blue-600 hover:text-blue-800 font-medium group max-w-[320px] sm:max-w-md"
               >
                 <ChevronLeftIcon class="h-5 w-5 mr-2 group-hover:-translate-x-1 transition-transform duration-200 flex-shrink-0" />
                 <div class="flex flex-col sm:flex-row sm:items-center">
                   <span class="font-medium">{{ $t('news.previous') || 'Previous' }}</span>
-                  <span class="text-sm text-gray-500 group-hover:text-gray-700 sm:ml-2 mt-1 sm:mt-0 truncate max-w-[120px] sm:max-w-[180px]">
+                  <span class="text-sm text-gray-500 group-hover:text-gray-700 sm:ml-2 mt-1 sm:mt-0 max-w-[200px] sm:max-w-[280px] truncate">
                     {{ getTruncatedTitle(previousNews.title) }}
                   </span>
                 </div>
@@ -88,10 +88,10 @@
               <router-link
                 v-if="nextNews"
                 :to="`/news/${nextNews.id}`"
-                class="flex items-center text-blue-600 hover:text-blue-800 font-medium group max-w-[280px] sm:max-w-sm sm:text-right"
+                class="flex items-center text-blue-600 hover:text-blue-800 font-medium group max-w-[320px] sm:max-w-md sm:text-right"
               >
                 <div class="flex flex-col sm:flex-row sm:items-center text-left sm:text-right">
-                  <span class="text-sm text-gray-500 group-hover:text-gray-700 sm:mr-2 mb-1 sm:mb-0 truncate max-w-[120px] sm:max-w-[180px]">
+                  <span class="text-sm text-gray-500 group-hover:text-gray-700 sm:mr-2 mb-1 sm:mb-0 max-w-[200px] sm:max-w-[280px] truncate">
                     {{ getTruncatedTitle(nextNews.title) }}
                   </span>
                   <span class="font-medium">{{ $t('news.next') || 'Next' }}</span>
@@ -198,23 +198,57 @@ const getContentParagraphs = (content) => {
 }
 
 const getTruncatedTitle = (title) => {
-  // Calculate approximate "width" of title (Chinese characters count as 2, English as 1)
+  // Calculate approximate "visual width" of title
+  // Chinese characters: 2 units, English letters: 1 unit, Numbers: 1 unit, Spaces: 0.5 units
   let width = 0
   let actualLength = 0
+  const maxWidth = 38 // Increased from 28 to show more content
 
   for (let i = 0; i < title.length; i++) {
     const char = title[i]
-    // Chinese characters (including punctuation) count as 2 units
+
+    // More precise character width calculation
     if (/[\u4e00-\u9fff\u3400-\u4dbf\uf900-\ufaff]/.test(char)) {
+      // Chinese characters (includingCJK Unified Ideographs)
       width += 2
-    } else {
+    } else if (/[\u3040-\u309f\u30a0-\u30ff]/.test(char)) {
+      // Japanese Hiragana/Katakana
+      width += 1.8
+    } else if (/[\uac00-\ud7af]/.test(char)) {
+      // Korean characters
+      width += 1.8
+    } else if (/[a-zA-Z]/.test(char)) {
+      // English letters
       width += 1
+    } else if (/[0-9]/.test(char)) {
+      // Numbers
+      width += 1
+    } else if (/\s/.test(char)) {
+      // Spaces
+      width += 0.5
+    } else if (/[.,;:!?'"()[\]{}]/.test(char)) {
+      // Common punctuation
+      width += 0.8
+    } else {
+      // Other characters/symbols
+      width += 1.2
     }
+
     actualLength = i + 1
 
-    // Stop when we exceed the width limit (around 25-30 units)
-    if (width > 28) {
-      return title.substring(0, actualLength) + '...'
+    // Stop when we exceed the width limit
+    if (width > maxWidth) {
+      // Try to find a better breaking point (prefer breaking after spaces or punctuation)
+      let breakPoint = actualLength
+      for (let j = actualLength - 1; j >= Math.max(0, actualLength - 10); j--) {
+        const breakChar = title[j]
+        if (/\s|[，。！？；：、]/.test(breakChar)) {
+          breakPoint = j + 1
+          break
+        }
+      }
+
+      return title.substring(0, breakPoint) + '...'
     }
   }
 
