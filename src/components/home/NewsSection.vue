@@ -185,7 +185,7 @@ const handleImageError = (event, news) => {
     const fallback = document.createElement('div')
     fallback.className = 'fallback-image w-full h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center'
     fallback.innerHTML = `<div class="text-center text-white">
-      <div class="text-lg font-bold uppercase tracking-wider">${getCategoryShortName(news.category?.id || 'news')}</div>
+      <div class="text-lg font-bold uppercase tracking-wider">${getCategoryShortName(news.category?.id || 'event')}</div>
       <div class="text-xs opacity-75 mt-1">${news.readTime || 1} min</div>
     </div>`
     parent.appendChild(fallback)

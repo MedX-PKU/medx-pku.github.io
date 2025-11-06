@@ -4,7 +4,7 @@ date: 2025-11-03
 excerpt: 2025年10月20日，南京大学符天凡教授应北京大学马连韬研究型助理教授邀请，以《深度学习赋能的药物发现与开发：从AI驱动药物设计到可信赖临床试验预测》为主题，开展学术分享交流。
 featured: false
 tags: ['学术讲座', '药物研发', 'AI赋能', '南京大学', '符天凡教授']
-category: news
+category: event
 image: /images/news/nju-lecture-header.jpg
 ---
 

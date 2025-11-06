@@ -4,7 +4,7 @@ date: 2025-05-20
 excerpt: 近日，2025年度国际万维网会议 WWW (International World Wide Web Conference 2025)在悉尼举行，我实验室文章"Adaptive Activation Steering"和"ColaCare"被该会议录用。北京大学王亚沙教授、马连韬研究助理教授团队硕士二年级学生王天龙、硕士一年级学生王子翔作为两篇文章第一作者前往参会。
 featured: false
 tags: ['WWW2025', '大语言模型', '多智能体协作', '学术会议', '医信交叉']
-category: news
+category: event
 image: /images/news/www2025-presentation-header.jpg
 ---
 

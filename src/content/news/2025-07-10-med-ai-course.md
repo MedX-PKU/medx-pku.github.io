@@ -4,7 +4,7 @@ date: 2025-07-10
 excerpt: 2025年7月10日（周四晚）马连韬老师于北京大学医学部学科建设课程，主讲面向电子病历数据分析的AI技术应用专题培训，欢迎各位专家同仁莅临指导。
 featured: true
 tags: ['课程预告', '电子病历分析', 'AI技术', '医学AI', '马连韬']
-category: news
+category: event
 image: /images/news/med-ai-course-header.jpg
 ---
 

@@ -4,7 +4,7 @@ date: 2025-11-05
 excerpt: 近日，北京市卫生健康委员会于清华长庚医院举办第五期"领航"生信大数据讲座，会议由北京市卫健委科教处白冰副处长主持，北大医维矩阵实验室马连韬老师作为特邀嘉宾，发表了《AI赋能临床工作与医学科研》的专题演讲。
 featured: true
 tags: ['北京市卫健委', '生信大数据', 'AI赋能', '学术讲座', '马连韬']
-category: news
+category: event
 image: /images/news/beijing-health-lecture-header.jpg
 ---
 
