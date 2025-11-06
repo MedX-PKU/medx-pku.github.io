@@ -5,22 +5,22 @@ excerpt: 2025年，来自北京大学（医维矩阵实验室团队）、香港�
 featured: true
 tags: ['NeurIPS2025', '多智能体协作', '医疗AI', '基准测试', '医信交叉']
 category: research
-image: /images/news/neurips-medagentboard-header.jpg
+image: /images/news/2025-10-30-neurips2025-medagentboard/framework.png
 ---
 
-2025年，来自北京大学（医维矩阵实验室团队）、香港大学、苏黎世联邦理工学院和爱丁堡大学的研究团队，在人工智能领域的国际顶级会议（CCF-A）NeurIPS 2025上，发表了题为"MedAgentBoard: Benchmarking Multi-Agent Collaboration with Conventional Methods for Diverse Medical Tasks"的研究论文。该研究提出了一个名为MedAgentBoard的综合性评测基准，旨在系统性地回答一个关键问题：在复杂的医疗任务中，当前流行的"AI多智能体协作"是否真的比单个大模型或成熟的传统AI方法更胜一筹？这项工作通过一个全面、公平的"医疗AI竞技场"，为研究者和从业者在选择和开发医疗AI方案时，提供清晰、可行的实践支持。
+2025年，来自北京大学（医维矩阵实验室团队）、香港大学、苏黎世联邦理工学院和爱丁堡大学的研究团队，在人工智能领域的国际顶级会议（CCF-A）NeurIPS 2025上，发表了题为“MedAgentBoard: Benchmarking Multi-Agent Collaboration with Conventional Methods for Diverse Medical Tasks”的研究论文。该研究提出了一个名为MedAgentBoard的综合性评测基准，旨在系统性地回答一个关键问题：在复杂的医疗任务中，当前流行的“AI多智能体协作”是否真的比单个大模型或成熟的传统AI方法更胜一筹？这项工作通过一个全面、公平的“医疗AI竞技场”，为研究者和从业者在选择和开发医疗AI方案时，提供清晰、可行的实践支持。作者：朱英豪，贺子逸，胡浩然，郑晓琛，马连韬*，于乐全*等。
 
 **代码GitHub平台开源**：https://github.com/yhzhu99/MedAgentBoard
 
 **论文地址**：https://arxiv.org/abs/2505.12371
 
-![MedAgentBoard框架图](https://mmbiz.qpic.cn/mmbiz_png/dyabGzHWib798SoaSz0XGEr2p4jHfGkibRtxAdKxPNW508JiaqyebiabWutAkicR46x3h2nN66BCDIicCBnoGMMqW3sg/640?wx_fmt=png&from=appmsg&wxfrom=13&tp=wxpic#imgIndex=0)
+![MedAgentBoard框架图](/images/news/2025-10-30-neurips2025-medagentboard/framework.png)
 
 ## 研究背景：AI智能体"组团出道"热潮下的冷思考
 
 近年来，以GPT-4、DeepSeek为代表的大语言模型（LLM）在医学领域展现了惊人的潜力，甚至在执业医师资格考试中取得了媲美人类医生的成绩。为了解决更复杂的医疗难题，一个模拟"专家会诊"的模式——多智能体协作——应运而生。它让多个专门的AI智能体（Agent）扮演不同角色，通过讨论、辩论、分工合作来共同完成任务。
 
-![多智能体协作模式图](https://mmbiz.qpic.cn/mmbiz_png/dyabGzHWib798SoaSz0XGEr2p4jHfGkibRdrmLTjT2ETuJ7P6TqnqaGw7Op01R9piaMCkniacmrpqqExcibz75ejp6Q/640?wx_fmt=png&from=appmsg&wxfrom=13&tp=wxpic#imgIndex=1)
+![多智能体协作模式图](/images/news/2025-10-30-neurips2025-medagentboard/multiagent_illustration.png)
 
 然而，早期的研究大多集中在医学选择题等少数任务上，并且常常忽略了与那些久经考验的"传统"AI方法的直接比较。这带来了一个急需回答的问题：**我们投入巨大资源开发的AI"智能体团"，在真实、多样的临床场景中，相比单个顶尖大模型或高效的传统模型，其优势究竟体现在哪里？**
 
@@ -100,10 +100,3 @@ MedAgentBoard的研究给出了清晰的实践指导：
 ## 总结
 
 MedAgentBoard为评估和理解不同医疗AI方法的优劣提供了参考的基础。结论显示，实用可靠的医疗AI，并非一味地堆砌更复杂的模型，而在于深刻理解并结合临床问题，并为之匹配最恰当的方法，以最终推进医疗AI领域朝着更理性、务实的方向发展。
-
-作者：朱英豪，贺子逸，胡浩然，郑晓琛，马连韬*，于乐全*等。
-
----
-
-*医维矩阵实验室*
-*2025年10月30日*

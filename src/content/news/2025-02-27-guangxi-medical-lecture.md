@@ -2,7 +2,7 @@
 title: 应广西医科大学邀请，马连韬博士进行"人工智能赋能医学创新"讲座报告
 date: 2025-02-27
 excerpt: 2025年2月24日，北京大学软件工程国家工程研究中心研究助理教授马连韬博士、朱英豪博士应广西医科大学邀请，以"人工智能赋能医学创新"为主题，开展学术交流与合作研讨。
-featured: true
+featured: false
 tags: ['学术讲座', '人工智能', '医学创新', '广西医科大学', 'DeepSeek']
 category: news
 image: /images/news/guangxi-medical-lecture-header.jpg

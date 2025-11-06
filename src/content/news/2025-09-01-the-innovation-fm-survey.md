@@ -2,7 +2,7 @@
 title: 北大医维矩阵团队与中科院等高校院所联合发表The Innovation | 基础模型与决策智能
 date: 2025-09-01
 excerpt: 2025年，北京大学医维矩阵团队与中科院、清华大学、国防科大多家高校课题组合作，在Cell Press合作期刊The Innovation以Review发表题为"Foundation models and intelligent decision-making: Progress, challenges, and perspectives"文章。
-featured: true
+featured: false
 tags: ['The Innovation', '基础模型', '决策智能', '人工智能医疗', '顶级期刊']
 category: research
 image: /images/news/the-innovation-header.jpg

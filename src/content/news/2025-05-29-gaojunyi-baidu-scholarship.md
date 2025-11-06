@@ -2,7 +2,7 @@
 title: 医维矩阵高峻逸博士荣获百度全球博士奖学金
 date: 2025-05-29
 excerpt: 4月25日，第十二届百度奖学金颁奖典礼在武汉举办的"Create 2025百度AI开发者大会"上隆重举行。医维矩阵实验室成员、高峻逸博士凭借其在人工智能医疗领域的突出研究成果，从全球顶尖学子中脱颖而出，获此殊荣，及20万人民币奖学金。
-featured: true
+featured: false
 tags: ['百度奖学金', '人工智能医疗', '学术荣誉', '高峻逸']
 category: news
 image: /images/news/baidu-scholarship-header.jpg

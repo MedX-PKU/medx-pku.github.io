@@ -3,8 +3,7 @@ export const authorLinks = {
   'Yinghao Zhu': 'https://yhzhu99.github.io/',
   'Lequan Yu': 'https://yulequan.github.io/',
   'Liantao Ma': 'http://scholar.pku.edu.cn/malt/home',
-  'Chengwei Pan':
-    'https://scholar.google.com/citations?user=7i1dqbEAAAAJ&hl=en',
+  'Chengwei Pan': 'https://scholar.google.com/citations?user=7i1dqbEAAAAJ&hl=en',
   'Yasha Wang': 'https://faculty.pku.edu.cn/wangyasha/en/index.htm',
   'Junyi Gao': 'https://aboutme.vixerunt.org/',
   'Zixiang Wang': 'https://fieldry.github.io/',
@@ -22,17 +21,14 @@ export const authorLinks = {
   'Wen Tang': 'https://baike.baidu.com/item/%E5%94%90%E9%9B%AF/15893218',
   'Ewen M. Harrison': 'https://www.ed.ac.uk/profile/ewen-harrison',
   'Ewen Harrison': 'https://www.ed.ac.uk/profile/ewen-harrison',
-  'Miguel O. Bernabeu':
-    'https://edwebprofiles.ed.ac.uk/profile/miguel-o-bernabeu',
-  'Michael Krauthammer':
-    'https://krauthammerlab.ch/authors/michaelkrauthammer/',
+  'Miguel O. Bernabeu': 'https://edwebprofiles.ed.ac.uk/profile/miguel-o-bernabeu',
+  'Michael Krauthammer': 'https://krauthammerlab.ch/authors/michaelkrauthammer/',
   'Ahmed Allam': 'https://scholar.google.com/citations?user=xcuCdJUAAAAJ&hl=en',
   'Jiaya Jia': 'https://jiaya.me/home',
   'Junlan Feng': 'https://scholar.google.com/citations?user=rBjPtmQAAAAJ&hl=en',
   'Zhoujun Li': 'https://scholar.google.com/citations?user=e-4LoEcAAAAJ&hl=en',
   'Xu Chu': 'https://cfcs.pku.edu.cn/english/people/faculty/xuchu/index.htm',
-  'Zhongwei Qiao':
-    'https://ch.shmu.edu.cn/main/doctor/intro/id/375/pid/334.html',
+  'Zhongwei Qiao': 'https://ch.shmu.edu.cn/main/doctor/intro/id/375/pid/334.html',
   'Fang Liu': 'https://liufang816.github.io/',
   'Xin Tan': 'https://scholar.google.com/citations?user=vi1H6KMAAAAJ&hl=en',
   'Li Zhang': 'https://scholar.google.com/citations?user=WQuLq0MAAAAJ&hl=en'
