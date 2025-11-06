@@ -34,9 +34,33 @@ export const authorLinks = {
   'Li Zhang': 'https://scholar.google.com/citations?user=WQuLq0MAAAAJ&hl=en'
 }
 
+// Utility to assign unique IDs to items in arrays.
+// This function is defined once and captures the idCounter in a closure.
+const autoAssignIds = (() => {
+  let idCounter = 1;
+  return (dataArrays) => {
+    dataArrays.forEach(arr => {
+      if (Array.isArray(arr)) {
+        arr.forEach(item => {
+          if (item && typeof item === 'object' && !item.id) {
+            item.id = idCounter++;
+          }
+          // Special case for services which have a nested 'items' array
+          if (item.items && Array.isArray(item.items)) {
+            item.items.forEach(subItem => {
+               if (subItem && typeof subItem === 'object' && !subItem.id) {
+                    subItem.id = idCounter++;
+               }
+            });
+          }
+        });
+      }
+    });
+  };
+})();
+
 export const allPublications = [
   {
-    id: 1,
     featured: true,
     title:
       'MedAgentBoard: Benchmarking Multi-Agent Collaboration with Conventional Methods for Diverse Medical Tasks',
@@ -55,42 +79,6 @@ export const allPublications = [
     ]
   },
   {
-    id: 2,
-    featured: true,
-    title:
-      'MedAgentAudit: Diagnosing and Quantifying Collaborative Failure Modes in Medical Multi-Agent Systems',
-    authors:
-      'Lei Gu, Yinghao Zhu, Haoran Sang, Zixiang Wang, Dehao Sui, Wen Tang, Ewen Harrison, Junyi Gao, Lequan Yu, Liantao Ma',
-    firstAuthors: 'Lei Gu, Yinghao Zhu, Haoran Sang, Zixiang Wang',
-    correspondingAuthors: 'Lequan Yu, Liantao Ma',
-    venue: 'Preprint, 2025',
-    year: '2025',
-    tag: 'Healthcare Benchmark',
-    links: [
-      { type: 'Paper', url: 'https://arxiv.org/abs/2510.10185' },
-      { type: 'Code', url: 'https://github.com/yhzhu99/MedAgentAudit' }
-    ]
-  },
-  {
-    id: 3,
-    featured: true,
-    title:
-      'ClinicRealm: Re-evaluating Large Language Models with Conventional Machine Learning for Non-Generative Clinical Prediction Tasks',
-    authors:
-      'Yinghao Zhu, Junyi Gao, Zixiang Wang, Weibin Liao, Xiaochen Zheng, Lifang Liang, Miguel O. Bernabeu, Yasha Wang, Lequan Yu, Chengwei Pan, Ewen M. Harrison, Liantao Ma',
-    firstAuthors: 'Yinghao Zhu, Junyi Gao, Zixiang Wang, Weibin Liao',
-    correspondingAuthors: 'Chengwei Pan, Ewen M. Harrison, Liantao Ma',
-    venue: 'Preprint, 2024',
-    year: '2024',
-    tag: 'Healthcare Benchmark',
-    links: [
-      { type: 'Paper', url: 'https://arxiv.org/abs/2407.18525' },
-      { type: 'Code', url: 'https://github.com/yhzhu99/ehr-llm-benchmark' },
-      { type: 'Website', url: 'https://yhzhu99.github.io/ehr-llm-benchmark/' }
-    ]
-  },
-  {
-    id: 4,
     featured: true,
     title:
       'AICare: An AI-Clinician Interaction System for Transparent and Actionable Clinical Decision Support',
@@ -111,7 +99,6 @@ export const allPublications = [
     ]
   },
   {
-    id: 5,
     featured: true,
     title:
       'Magical: Medical Lay Language Generation via Semantic Invariance and Layperson-tailored Adaptation',
@@ -129,7 +116,6 @@ export const allPublications = [
     ]
   },
   {
-    id: 6,
     featured: true,
     title:
       'Learnable Prompt as Pseudo-Imputation: Rethinking the Necessity of Traditional EHR Data Imputation in Downstream Clinical Prediction',
@@ -147,7 +133,6 @@ export const allPublications = [
     ]
   },
   {
-    id: 7,
     featured: true,
     title:
       'ColaCare: Enhancing Electronic Health Record Modeling through Large Language Model-Driven Multi-Agent Collaboration',
@@ -165,7 +150,6 @@ export const allPublications = [
     ]
   },
   {
-    id: 8,
     featured: true,
     title:
       'A Comprehensive Benchmark For COVID-19 Predictive Modeling Using Electronic Health Records in Intensive Care',
@@ -183,7 +167,6 @@ export const allPublications = [
     ]
   },
   {
-    id: 9,
     featured: true,
     title:
       'Mortality Prediction with Adaptive Feature Importance Recalibration for Peritoneal Dialysis Patients',
@@ -200,7 +183,6 @@ export const allPublications = [
     ]
   },
   {
-    id: 10,
     featured: true,
     title: 'Adaptive Activation Steering: A Tuning-Free LLM Truthfulness Improvement Method for Diverse Hallucinations Categories',
     authors: 'Tianlong Wang, Xianfeng Jiao, Yinghao Zhu, Zhongzhi Chen, Yifan He, Xu Chu, Junyi Gao, Yasha Wang, Liantao Ma',
@@ -215,3 +197,6 @@ export const allPublications = [
     ]
   }
 ]
+
+// Auto-assign IDs to publications
+autoAssignIds([allPublications])

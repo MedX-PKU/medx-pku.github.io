@@ -15,10 +15,11 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 class="author-link"
+                :class="{ 'font-bold': a.name === 'Liantao Ma' }"
               >{{ a.name }}</a>
             </template>
             <template v-else>
-              <span>{{ a.name }}</span>
+              <span :class="{ 'font-bold': a.name === 'Liantao Ma' }">{{ a.name }}</span>
             </template>
             <sup v-if="a.isFirst" class="text-text-gray font-bold">*</sup>
             <sup v-if="a.isCorresponding" class="text-text-gray font-bold">†</sup>
