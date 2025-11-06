@@ -62,6 +62,7 @@ const autoAssignIds = (() => {
 export const allPublications = [
   {
     featured: true,
+    representative: true,
     title:
       'MedAgentBoard: Benchmarking Multi-Agent Collaboration with Conventional Methods for Diverse Medical Tasks',
     authors:
@@ -81,6 +82,7 @@ export const allPublications = [
   },
   {
     featured: true,
+    representative: false,
     title:
       'AICare: An AI-Clinician Interaction System for Transparent and Actionable Clinical Decision Support',
     authors:
@@ -102,6 +104,7 @@ export const allPublications = [
   },
   {
     featured: true,
+    representative: true,
     title:
       'Magical: Medical Lay Language Generation via Semantic Invariance and Layperson-tailored Adaptation',
     authors:
@@ -120,6 +123,7 @@ export const allPublications = [
   },
   {
     featured: true,
+    representative: true,
     title:
       'Learnable Prompt as Pseudo-Imputation: Rethinking the Necessity of Traditional EHR Data Imputation in Downstream Clinical Prediction',
     authors:
@@ -138,6 +142,7 @@ export const allPublications = [
   },
   {
     featured: true,
+    representative: true,
     title:
       'ColaCare: Enhancing Electronic Health Record Modeling through Large Language Model-Driven Multi-Agent Collaboration',
     authors:
@@ -156,6 +161,7 @@ export const allPublications = [
   },
   {
     featured: true,
+    representative: true,
     title:
       'A Comprehensive Benchmark For COVID-19 Predictive Modeling Using Electronic Health Records in Intensive Care',
     authors:
@@ -174,6 +180,7 @@ export const allPublications = [
   },
   {
     featured: true,
+    representative: true,
     title:
       'Mortality Prediction with Adaptive Feature Importance Recalibration for Peritoneal Dialysis Patients',
     authors:
@@ -191,6 +198,7 @@ export const allPublications = [
   },
   {
     featured: true,
+    representative: false,
     title: 'Adaptive Activation Steering: A Tuning-Free LLM Truthfulness Improvement Method for Diverse Hallucinations Categories',
     authors: 'Tianlong Wang, Xianfeng Jiao, Yinghao Zhu, Zhongzhi Chen, Yifan He, Xu Chu, Junyi Gao, Yasha Wang, Liantao Ma',
     firstAuthors: 'Tianlong Wang, Xianfeng Jiao',

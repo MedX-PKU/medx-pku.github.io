@@ -44,7 +44,7 @@
                 <!-- Main Content -->
                 <div class="flex-1 min-w-0">
                   <!-- Title and Comment -->
-                  <div class="flex items-start justify-between gap-4 mb-2">
+                  <div class="flex items-start justify-between gap-4 mb-1">
                     <h4 class="font-semibold text-gray-800 text-base leading-tight group-hover:text-purple-700 transition-colors duration-200 line-clamp-2">
                       {{ publication.title }}
                     </h4>
@@ -61,7 +61,7 @@
                   </div>
 
                   <!-- Authors and Venue -->
-                  <div class="space-y-1 mb-3">
+                  <div class="space-y-0.5 mb-3">
                     <p class="text-sm text-gray-600 leading-relaxed line-clamp-1">
                       <span v-for="(a, idx) in buildAuthors(publication.authors, publication.firstAuthors, publication.correspondingAuthors)" :key="a.name">
                         <a
@@ -156,12 +156,12 @@ export default {
     }
 
     onMounted(() => {
-      // Load top 6 featured publications
+      // Load top 6 representative publications
       try {
         featuredPublications.value = allPublications
-          .filter(pub => pub.featured) // Only get featured publications
+          .filter(pub => pub.representative) // Only get representative publications
           .sort((a, b) => b.year.localeCompare(a.year) || a.title.localeCompare(b.title)) // Sort by year desc
-          .slice(0, 6) // Take first 6 featured publications
+          .slice(0, 6) // Take first 6 representative publications
       } catch (error) {
         console.warn('Could not load publications:', error)
         featuredPublications.value = []
