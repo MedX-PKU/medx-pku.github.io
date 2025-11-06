@@ -67,32 +67,36 @@
 
           <!-- Navigation between news items -->
           <nav v-if="newsItem" class="mt-12 pt-8 border-t border-gray-200">
-            <div class="flex justify-between items-center">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
               <!-- Previous News -->
               <router-link
                 v-if="previousNews"
                 :to="`/news/${previousNews.id}`"
-                class="flex items-center text-blue-600 hover:text-blue-800 font-medium group"
+                class="flex items-center text-blue-600 hover:text-blue-800 font-medium group max-w-[280px] sm:max-w-sm"
               >
-                <ChevronLeftIcon class="h-5 w-5 mr-2 group-hover:-translate-x-1 transition-transform duration-200" />
-                {{ $t('news.previous') || 'Previous' }}
-                <span class="block text-sm text-gray-500 group-hover:text-gray-700 ml-2">
-                  {{ previousNews.title.substring(0, 50) }}...
-                </span>
+                <ChevronLeftIcon class="h-5 w-5 mr-2 group-hover:-translate-x-1 transition-transform duration-200 flex-shrink-0" />
+                <div class="flex flex-col sm:flex-row sm:items-center">
+                  <span class="font-medium">{{ $t('news.previous') || 'Previous' }}</span>
+                  <span class="text-sm text-gray-500 group-hover:text-gray-700 sm:ml-2 mt-1 sm:mt-0 truncate max-w-[120px] sm:max-w-[180px]">
+                    {{ previousNews.title.length > 15 ? previousNews.title.substring(0, 15) + '...' : previousNews.title }}
+                  </span>
+                </div>
               </router-link>
-              <div v-else></div>
+              <div v-else class="w-full sm:w-auto"></div>
 
               <!-- Next News -->
               <router-link
                 v-if="nextNews"
                 :to="`/news/${nextNews.id}`"
-                class="flex items-center text-blue-600 hover:text-blue-800 font-medium group"
+                class="flex items-center text-blue-600 hover:text-blue-800 font-medium group max-w-[280px] sm:max-w-sm sm:text-right"
               >
-                <span class="block text-sm text-gray-500 group-hover:text-gray-700 mr-2 text-right">
-                  {{ nextNews.title.substring(0, 50) }}...
-                </span>
-                {{ $t('news.next') || 'Next' }}
-                <ChevronRightIcon class="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
+                <div class="flex flex-col sm:flex-row sm:items-center text-left sm:text-right">
+                  <span class="text-sm text-gray-500 group-hover:text-gray-700 sm:mr-2 mb-1 sm:mb-0 truncate max-w-[120px] sm:max-w-[180px]">
+                    {{ nextNews.title.length > 15 ? nextNews.title.substring(0, 15) + '...' : nextNews.title }}
+                  </span>
+                  <span class="font-medium">{{ $t('news.next') || 'Next' }}</span>
+                </div>
+                <ChevronRightIcon class="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform duration-200 flex-shrink-0" />
               </router-link>
               <div v-else></div>
             </div>
@@ -135,7 +139,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { ArrowLeftIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/vue/24/outline'
 import { newsData } from '@/data/news.js'
@@ -193,16 +197,21 @@ const getContentParagraphs = (content) => {
   return content.split('\n\n').filter(paragraph => paragraph.trim())
 }
 
-// Lifecycle
-onMounted(() => {
-  const newsId = parseInt(route.params.id)
+// Method to load news item
+const loadNewsItem = (newsId) => {
   newsItem.value = processedNewsData.find(item => item.id === newsId)
 
   // If news item not found, you could redirect to 404 or news page
   if (!newsItem.value) {
     console.warn(`News item with ID ${newsId} not found`)
   }
-})
+}
+
+// Watch for route changes
+watch(() => route.params.id, (newId) => {
+  const newsId = parseInt(newId)
+  loadNewsItem(newsId)
+}, { immediate: true })
 </script>
 
 <style scoped>
