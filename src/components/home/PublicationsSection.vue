@@ -53,8 +53,7 @@
 
                   <!-- Authors and Venue -->
                   <div class="space-y-1 mb-3">
-                    <p class="text-sm text-gray-600 leading-relaxed line-clamp-1">
-                      {{ publication.authors }}
+                    <p class="text-sm text-gray-600 leading-relaxed line-clamp-1" v-html="highlightAuthor(publication.authors)">
                     </p>
                     <p class="text-sm text-blue-600 italic font-medium">
                       {{ publication.venue }}
@@ -109,6 +108,12 @@ export default {
   setup() {
     const featuredPublications = ref([])
 
+    const highlightAuthor = (authors) => {
+      if (!authors) return ''
+      // Make Liantao Ma bold
+      return authors.replace(/Liantao Ma/g, '<strong class="font-bold text-gray-900">Liantao Ma</strong>')
+    }
+
     onMounted(() => {
       // Load top 6 featured publications
       try {
@@ -123,7 +128,8 @@ export default {
     })
 
     return {
-      featuredPublications
+      featuredPublications,
+      highlightAuthor
     }
   }
 }
