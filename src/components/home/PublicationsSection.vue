@@ -1,103 +1,97 @@
 <template>
-  <section class="py-20 bg-gradient-to-br from-blue-50 to-gray-50 relative overflow-hidden">
+  <section class="py-16 bg-gradient-to-br from-purple-50 to-blue-50 relative overflow-hidden">
     <!-- Background decoration -->
-    <div class="absolute inset-0 bg-gradient-to-br from-blue-50/20 to-transparent"></div>
-    <div class="absolute top-20 left-20 w-36 h-36 bg-blue-100/15 rounded-full blur-2xl"></div>
-    <div class="absolute bottom-20 right-20 w-44 h-44 bg-blue-100/15 rounded-full blur-2xl"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-purple-50/20 to-blue-50/20"></div>
+    <div class="absolute top-10 left-10 w-24 h-24 bg-purple-100/20 rounded-full blur-xl"></div>
+    <div class="absolute bottom-10 right-10 w-28 h-28 bg-blue-100/20 rounded-full blur-xl"></div>
 
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="relative max-w-7xl mx-auto px-3 sm:px-5 lg:px-7">
       <!-- Section Header -->
-      <div class="text-center mb-16">
-        <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-50 rounded-full mb-6 shadow-md">
-          <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div class="text-center mb-12">
+        <div class="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-purple-100 to-blue-100 rounded-full mb-4 shadow-sm">
+          <svg class="w-7 h-7 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
           </svg>
         </div>
-        <h2 class="text-4xl font-bold text-gray-900 mb-6 tracking-tight">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4 tracking-tight">
           {{ $t('publications.title') }}
         </h2>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-6 leading-relaxed">
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-4 leading-relaxed">
           {{ $t('publications.subtitle') }}
         </p>
-        <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-blue-400 mx-auto rounded-full"></div>
+        <div class="w-20 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto rounded-full"></div>
       </div>
 
-      <!-- Publications List -->
-      <div class="max-w-4xl mx-auto">
-        <ul class="space-y-6">
-          <li
+      <!-- Compact Publications List -->
+      <div class="w-full">
+        <div class="space-y-3">
+          <div
             v-for="publication in featuredPublications"
             :key="publication.id"
-            class="p-6 bg-white rounded-xl border border-gray-200/80 hover:shadow-xl hover:border-blue-200 transition-all duration-300 transform hover:-translate-y-1.5"
+            class="group bg-white/80 backdrop-blur-sm rounded-lg border border-gray-200/60 hover:border-purple-200/80 hover:shadow-lg transition-all duration-300 hover:bg-white"
           >
-            <div class="flex flex-col sm:flex-row items-start gap-6">
-              <!-- Meta Info Column (Year) -->
-              <div class="flex-shrink-0 w-full sm:w-20 text-left sm:text-center">
-                <div class="text-2xl font-bold text-blue-600 leading-none">
-                  {{ publication.year }}
-                </div>
-                <div v-if="publication.tag" class="text-xs text-gray-500 mt-1 uppercase tracking-wider">
-                  {{ publication.tag.split(' ')[0] }}
-                </div>
-              </div>
+            <div class="p-4">
+              <div class="flex items-start gap-4">
+                <!-- Main Content -->
+                <div class="flex-1 min-w-0">
+                  <!-- Title and Comment -->
+                  <div class="flex items-start justify-between gap-4 mb-3">
+                    <h4 class="font-semibold text-gray-800 text-base leading-tight group-hover:text-purple-700 transition-colors duration-200 line-clamp-2">
+                      {{ publication.title }}
+                    </h4>
 
-              <!-- Main Content Column -->
-              <div class="flex-1 border-t sm:border-t-0 sm:border-l border-gray-200/80 pt-4 sm:pt-0 sm:pl-6">
-                <!-- Title -->
-                <h4 class="font-semibold text-gray-800 text-lg mb-2 leading-tight">
-                  {{ publication.title }}
-                </h4>
+                    <!-- Enhanced Comment Highlight -->
+                    <div v-if="publication.comment" class="flex-shrink-0">
+                      <span class="inline-flex items-center px-4 py-2 rounded-lg text-sm font-bold text-white bg-gradient-to-r from-purple-500 to-blue-500 shadow-lg border border-purple-300/50 backdrop-blur-sm">
+                        <svg class="w-4 h-4 mr-2 text-white/90" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        {{ publication.comment }}
+                      </span>
+                    </div>
+                  </div>
 
-                <!-- Comment Highlight -->
-                <div v-if="publication.comment" class="my-3">
-                  <span class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-bold text-yellow-900 bg-gradient-to-r from-yellow-300 to-amber-400 shadow-md">
-                    <svg class="w-4 h-4 mr-1.5 text-yellow-700" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                    {{ publication.comment }}
-                  </span>
-                </div>
+                  <!-- Authors and Venue -->
+                  <div class="space-y-1 mb-3">
+                    <p class="text-sm text-gray-600 leading-relaxed line-clamp-1">
+                      {{ publication.authors }}
+                    </p>
+                    <p class="text-sm text-blue-600 italic font-medium">
+                      {{ publication.venue }}
+                    </p>
+                  </div>
 
-                <!-- Authors -->
-                <p class="text-sm text-gray-600 mb-2 leading-relaxed line-clamp-2">
-                  {{ publication.authors }}
-                </p>
-
-                <!-- Venue -->
-                <p class="text-sm text-blue-700 italic font-medium mb-4">
-                  {{ publication.venue }}
-                </p>
-
-                <!-- Links -->
-                <div class="flex flex-wrap gap-2">
-                  <a
-                    v-for="link in publication.links"
-                    :key="link.type"
-                    :href="link.url"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="inline-flex items-center px-3 py-1.5 bg-gray-100 text-gray-800 text-xs rounded-full hover:bg-blue-100 hover:text-blue-800 border border-transparent hover:border-blue-200 transition-all duration-200 font-medium"
-                  >
-                    {{ link.type }}
-                    <svg class="w-3 h-3 ml-1 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                    </svg>
-                  </a>
+                  <!-- Links -->
+                  <div class="flex flex-wrap gap-1.5">
+                    <a
+                      v-for="link in publication.links"
+                      :key="link.type"
+                      :href="link.url"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center px-2.5 py-1 bg-gray-50 text-gray-700 text-xs rounded-md hover:bg-purple-50 hover:text-purple-700 border border-gray-200 hover:border-purple-200 transition-all duration-200 font-medium"
+                    >
+                      {{ link.type }}
+                      <svg class="w-3 h-3 ml-1 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
 
       <!-- View All Button -->
-      <div class="text-center mt-16">
+      <div class="text-center mt-12">
         <router-link
           to="/publications"
-          class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold rounded-full hover:from-blue-700 hover:to-blue-600 transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:scale-105"
+          class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-blue-700 transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105"
         >
           {{ $t('publications.view_all') }}
-          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
           </svg>
         </router-link>
