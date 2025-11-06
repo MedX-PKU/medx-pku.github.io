@@ -35,8 +35,7 @@
     "director": {
       "name": "Liantao Ma",
       "title": "Lab Director",
-      "description": "Research Assistant Professor at the National Engineering Research Center for Software Engineering, Peking University. Long-term engagement in medical informatics and interpretable deep learning analysis of electronic health record data.",
-      "email": "malt[at]pku.edu.cn"
+      "description": "Research Assistant Professor at the National Engineering Research Center for Software Engineering, Peking University. Long-term engagement in medical informatics and interpretable deep learning analysis of electronic health record data."
     },
     "news": {
       "title": "Latest News"
@@ -52,8 +51,7 @@
       "recruitment": "We are always looking for talented researchers and students to join our team. Check out our open positions and collaboration opportunities.",
       "learn_more": "Learn More",
       "address": "5 Yiheyuan Road, Haidian District, Beijing, Peking University",
-      "email": "malt[at]pku.edu.cn",
-      "phone": "+86-10-12345678",
+            "phone": "+86-10-12345678",
       "wechat": "WeChat: MedX-PKU"
     }
   },
@@ -135,8 +133,7 @@
   "join": {
     "title": "Join Us",
     "subtitle": "Build the future of medical AI with us. We're looking for talented researchers, engineers, and students to join our interdisciplinary team.",
-    "email": "malt[at]pku.edu.cn",
-    "applyNow": "Apply Now",
+        "applyNow": "Apply Now",
     "apply": "Apply",
     "viewDetails": "View Details",
     "requirements": "Requirements",

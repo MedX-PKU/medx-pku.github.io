@@ -108,7 +108,7 @@ export default {
         centerDirector.value = {
           name: 'Yasha Wang',
           title: 'Research Center Director',
-          email: 'wangyasha[at]pku.edu.cn',
+          email: 'wangyasha [at] pku.edu.cn',
           image: '/images/team/wang-yasha.svg',
           isCenterDirector: true
         }
@@ -116,7 +116,7 @@ export default {
         labDirector.value = {
           name: 'Liantao Ma',
           title: 'Lab Director',
-          email: 'malt[at]pku.edu.cn',
+          email: 'malt [at] pku.edu.cn',
           image: '/images/team/ma-liantao.svg',
           isLabDirector: true
         }

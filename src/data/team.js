@@ -13,7 +13,7 @@ export const teamData = [
       zh: '北京大学软件工程国家工程研究中心主任、教授、博士生导师',
       en: 'Director, Professor and Doctoral Supervisor, National Engineering Research Center for Software Engineering, Peking University'
     },
-    email: 'wangyasha@pku.edu.cn',
+    email: 'wangyasha [at] pku.edu.cn',
     bio: {
       zh: '王亚沙教授，北京大学软件工程国家工程研究中心主任，博士生导师。主要研究方向为医学信息学、软件工程、人工智能在医疗领域的应用等。',
       en: 'Professor Yasha Wang is the Director of the National Engineering Research Center for Software Engineering and doctoral supervisor, focusing on medical informatics, software engineering, and AI applications in healthcare.'
@@ -39,7 +39,7 @@ export const teamData = [
       zh: '北京大学软件工程国家工程研究中心研究型助理教授、医维矩阵实验室负责人',
       en: 'Research Assistant Professor, National Engineering Research Center for Software Engineering, Peking University & Director, MedX Lab'
     },
-    email: 'malt@pku.edu.cn',
+    email: 'malt [at] pku.edu.cn',
     bio: {
       zh: '马连韬，北京大学软件工程国家工程研究中心研究型助理教授，硕士生导师，医维矩阵实验室负责人。长期从事医信交叉、电子病历数据深度学习可解释分析研究工作。',
       en: 'Liantao Ma is a Research Assistant Professor at the National Engineering Research Center for Software Engineering, Peking University, Master supervisor, and Director of MedX Lab, focusing on medical informatics and deep learning.'
@@ -65,7 +65,7 @@ export const teamData = [
       zh: '2021级博士研究生',
       en: 'PhD Student, Class of 2021'
     },
-    email: 'zhangsan@pku.edu.cn',
+    email: 'zhangsan [at] pku.edu.cn',
     bio: {
       zh: '研究方向：医学图像处理、深度学习在医疗诊断中的应用。',
       en: 'Research interests: Medical image processing, deep learning applications in medical diagnosis.'
@@ -87,7 +87,7 @@ export const teamData = [
       zh: '2022级硕士研究生',
       en: 'Master Student, Class of 2022'
     },
-    email: 'lisi@pku.edu.cn',
+    email: 'lisi [at] pku.edu.cn',
     bio: {
       zh: '研究方向：自然语言处理在电子病历分析中的应用。',
       en: 'Research interests: Natural language processing in electronic medical record analysis.'
@@ -109,7 +109,7 @@ export const teamData = [
       zh: '2020级博士研究生',
       en: 'PhD Student, Class of 2020'
     },
-    email: 'wangwu@pku.edu.cn',
+    email: 'wangwu [at] pku.edu.cn',
     bio: {
       zh: '研究方向：医疗知识图谱构建与应用、药物推荐系统。',
       en: 'Research interests: Medical knowledge graph construction and applications, drug recommendation systems.'
@@ -131,7 +131,7 @@ export const teamData = [
       zh: '2023级硕士研究生',
       en: 'Master Student, Class of 2023'
     },
-    email: 'zhaoliu@pku.edu.cn',
+    email: 'zhaoliu [at] pku.edu.cn',
     bio: {
       zh: '研究方向：医疗大数据分析、疾病预测模型。',
       en: 'Research interests: Medical big data analysis, disease prediction models.'
@@ -153,7 +153,7 @@ export const teamData = [
       zh: '研究助理',
       en: 'Research Assistant'
     },
-    email: 'chenqi@pku.edu.cn',
+    email: 'chenqi [at] pku.edu.cn',
     bio: {
       zh: '负责实验室数据管理与维护，参与医疗数据标准化项目。',
       en: 'Responsible for laboratory data management and maintenance, participating in medical data standardization projects.'
@@ -175,7 +175,7 @@ export const teamData = [
       zh: '访问研究生',
       en: 'Visiting Graduate Student'
     },
-    email: 'sunba@pku.edu.cn',
+    email: 'sunba [at] pku.edu.cn',
     bio: {
       zh: '研究方向：医疗机器人、智能手术辅助系统。',
       en: 'Research interests: Medical robotics, intelligent surgical assistance systems.'

@@ -35,8 +35,7 @@
     "director": {
       "name": "马连韬",
       "title": "实验室负责人",
-      "description": "北京大学软件工程国家工程研究中心研究型助理教授",
-      "email": "malt[at]pku.edu.cn"
+      "description": "北京大学软件工程国家工程研究中心研究型助理教授"
     },
     "news": {
       "title": "最新动态"
@@ -52,8 +51,7 @@
       "recruitment": "我们一直在寻找有才华的研究人员和学生加入我们的团队。查看我们的开放职位和合作机会。",
       "learn_more": "了解更多",
       "address": "北京市海淀区颐和园路5号 北京大学",
-      "email": "malt[at]pku.edu.cn",
-      "phone": "+86-10-12345678",
+          "phone": "+86-10-12345678",
       "wechat": "微信公众号：医维矩阵实验室（MedX-PKU）"
     }
   },
@@ -135,8 +133,7 @@
   "join": {
     "title": "加入我们",
     "subtitle": "与我们一起构建医学AI的未来。我们正在寻找才华横溢的研究人员、工程师和学生加入我们的跨学科团队。",
-    "email": "malt[at]pku.edu.cn",
-    "applyNow": "立即申请",
+      "applyNow": "立即申请",
     "apply": "申请职位",
     "viewDetails": "查看详情",
     "requirements": "任职要求",
