@@ -15,30 +15,30 @@
             </span>
           </div>
           <!-- Title aligned with comment tag -->
-          <h4 class="font-semibold text-text-gray text-sm leading-tight mt-0.5">
+          <h4 class="font-semibold text-gray-800 text-base leading-tight mt-0.5">
             {{ publication.title }}
           </h4>
         </div>
-        <p class="text-xs text-text-gray-light mb-1">
+        <p class="text-sm text-gray-600 leading-relaxed line-clamp-1 mb-1">
           <template v-for="(a, idx) in authors" :key="a.name">
             <template v-if="a.url">
               <a
                 :href="a.url"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="author-link"
-                :class="{ 'font-bold': a.name === 'Liantao Ma' }"
+                class="author-link hover:text-purple-700 transition-colors duration-200"
+                :class="{ 'font-bold text-gray-900': a.name === 'Liantao Ma' }"
               >{{ a.name }}</a>
             </template>
             <template v-else>
-              <span :class="{ 'font-bold': a.name === 'Liantao Ma' }">{{ a.name }}</span>
+              <span :class="{ 'font-bold text-gray-900': a.name === 'Liantao Ma' }">{{ a.name }}</span>
             </template>
-            <sup v-if="a.isFirst" class="text-text-gray font-bold">*</sup>
-            <sup v-if="a.isCorresponding" class="text-text-gray font-bold">†</sup>
+            <sup v-if="a.isFirst" class="text-gray-700 font-bold">*</sup>
+            <sup v-if="a.isCorresponding" class="text-gray-700 font-bold">†</sup>
             <span v-if="idx < authors.length - 1">, </span>
           </template>
         </p>
-        <p class="text-xs text-primary-blue italic mb-2">
+        <p class="text-sm text-blue-600 italic font-medium mb-2">
           {{ publication.venue }}
         </p>
         <div class="flex flex-wrap gap-1.5">
@@ -48,9 +48,12 @@
             :href="link.url"
             target="_blank"
             rel="noopener noreferrer"
-            class="px-2.5 py-1 bg-bg-secondary text-text-gray text-xs rounded-full hover:bg-primary-blue/10 hover:text-primary-blue-dark transition-colors duration-200 interactive-element"
+            class="inline-flex items-center px-2.5 py-1 bg-gray-50 text-gray-700 text-xs rounded-md hover:bg-purple-50 hover:text-purple-700 border border-gray-200 hover:border-purple-200 transition-all duration-200 font-medium"
           >
             {{ link.type }}
+            <svg class="w-3 h-3 ml-1 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+            </svg>
           </a>
         </div>
       </div>
