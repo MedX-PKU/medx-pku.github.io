@@ -82,6 +82,7 @@
   "news": {
     "title": "新闻动态",
     "subtitle": "了解MedX实验室的最新研究突破、活动和公告，保持与我们的发展同步",
+    "loading": "加载中...",
     "totalNews": "共 {count} 条新闻",
     "categories": {
       "all": "全部新闻",

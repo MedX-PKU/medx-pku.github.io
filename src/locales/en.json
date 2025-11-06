@@ -82,6 +82,7 @@
   "news": {
     "title": "News & Updates",
     "subtitle": "Stay informed about our latest research breakthroughs, events, and announcements from MedX Lab",
+    "loading": "Loading...",
     "totalNews": "{count} news items",
     "categories": {
       "all": "All News",

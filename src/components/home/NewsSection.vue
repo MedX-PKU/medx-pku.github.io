@@ -19,15 +19,59 @@
         <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-blue-400 mx-auto rounded-full"></div>
       </div>
 
+      <!-- Loading State -->
+      <div v-if="loading" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div v-for="i in 6" :key="i" class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100/50">
+          <div class="p-6 pb-4">
+            <div class="animate-pulse">
+              <div class="h-4 bg-gray-200 rounded-full mb-4 w-32"></div>
+              <div class="h-6 bg-gray-200 rounded mb-3"></div>
+              <div class="h-4 bg-gray-200 rounded mb-2"></div>
+              <div class="h-4 bg-gray-200 rounded mb-4 w-3/4"></div>
+              <div class="h-4 bg-gray-200 rounded w-20"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- News Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <router-link
           v-for="news in latestNews"
           :key="news.id"
           :to="`/news/${news.id}`"
           class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100/50 hover:border-blue-200/50 transform hover:-translate-y-1 cursor-pointer block"
         >
-          <!-- News Header -->
+          <!-- News Image/Header -->
+          <div class="relative">
+            <div v-if="news.image" class="aspect-w-16 aspect-h-9 bg-gray-200">
+              <img
+                :src="news.image"
+                :alt="news.title"
+                class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                @error="handleImageError"
+              >
+            </div>
+            <div
+              v-else
+              class="w-full h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center"
+            >
+              <div class="text-center text-white">
+                <div class="text-lg font-bold uppercase tracking-wider">
+                  {{ getCategoryShortName(news.category?.id || 'other') }}
+                </div>
+                <div v-if="news.featured" class="text-xs opacity-75 mt-1">Featured</div>
+              </div>
+            </div>
+            <!-- Featured Badge -->
+            <div v-if="news.featured" class="absolute top-3 right-3">
+              <span class="bg-yellow-500 text-white text-xs px-2 py-1 rounded-full font-semibold">
+                Featured
+              </span>
+            </div>
+          </div>
+
+          <!-- News Content -->
           <div class="p-6 pb-4">
             <div class="flex items-center justify-between mb-4">
               <span class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-md">
@@ -36,7 +80,9 @@
                 </svg>
                 {{ formatDate(news.date) }}
               </span>
-              <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+              <div v-if="news.readTime" class="text-xs text-gray-500">
+                {{ news.readTime }} min
+              </div>
             </div>
 
             <!-- News Title -->
@@ -48,6 +94,17 @@
             <p class="text-gray-600 leading-relaxed mb-6 line-clamp-3">
               {{ news.excerpt }}
             </p>
+
+            <!-- Tags (show first 2) -->
+            <div v-if="news.tags && news.tags.length > 0" class="flex flex-wrap gap-1 mb-4">
+              <span
+                v-for="tag in news.tags.slice(0, 2)"
+                :key="tag"
+                class="inline-block bg-blue-50 text-blue-600 text-xs px-2 py-1 rounded"
+              >
+                {{ tag }}
+              </span>
+            </div>
 
             <!-- Read More Indicator -->
             <div class="inline-flex items-center text-blue-600 group-hover:text-blue-700 font-semibold text-sm transition-all duration-300">
@@ -80,11 +137,25 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
-import { newsData } from '@/data/news.js'
+import { ref, computed, onMounted } from 'vue'
+import { getLatestNews } from '@/utils/newsLoader.js'
+
+const newsData = ref([])
+const loading = ref(true)
+
+// Load latest news on mount
+onMounted(async () => {
+  try {
+    newsData.value = await getLatestNews(6)
+  } catch (error) {
+    console.error('Error loading latest news:', error)
+  } finally {
+    loading.value = false
+  }
+})
 
 const latestNews = computed(() => {
-  return newsData.slice(0, 6)
+  return newsData.value
 })
 
 const formatDate = (dateString) => {
@@ -94,5 +165,29 @@ const formatDate = (dateString) => {
     month: '2-digit',
     day: '2-digit'
   })
+}
+
+const getCategoryShortName = (categoryId) => {
+  const names = {
+    featured: 'Featured',
+    research: 'Research',
+    event: 'Event',
+    other: 'News'
+  }
+  return names[categoryId] || 'News'
+}
+
+const handleImageError = (event) => {
+  // Set a fallback if image fails to load
+  event.target.style.display = 'none'
+  const parent = event.target.parentElement
+  if (parent && !parent.querySelector('.fallback-image')) {
+    const fallback = document.createElement('div')
+    fallback.className = 'fallback-image w-full h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center'
+    fallback.innerHTML = `<div class="text-center text-white">
+      <div class="text-lg font-bold uppercase tracking-wider">${getCategoryShortName('other')}</div>
+    </div>`
+    parent.appendChild(fallback)
+  }
 }
 </script>

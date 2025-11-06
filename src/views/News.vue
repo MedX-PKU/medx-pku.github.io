@@ -31,7 +31,7 @@
                   : 'bg-white text-gray-600 hover:bg-blue-50 hover:text-blue-600 border border-gray-200'
               ]"
             >
-              {{ $t(category.label) }}
+              {{ $t(category.label) }} ({{ category.count }})
             </button>
           </div>
 
@@ -40,28 +40,46 @@
           </div>
         </div>
 
+        <!-- Loading State -->
+        <div v-if="loading" class="text-center py-12">
+          <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+          <p class="mt-4 text-gray-600">{{ $t('news.loading') || 'Loading news...' }}</p>
+        </div>
+
         <!-- News Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div v-if="!loading" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <router-link
             v-for="item in filteredNews"
             :key="item.id"
             :to="`/news/${item.id}`"
             class="group bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer transform hover:scale-105"
           >
-            <!-- News Image -->
-            <div class="aspect-w-16 aspect-h-9 bg-gray-200">
+            <!-- News Image/Thumbnail -->
+            <div class="aspect-w-16 aspect-h-9 bg-gray-200 relative overflow-hidden">
               <img
                 v-if="item.image"
                 :src="item.image"
                 :alt="item.title"
-                class="w-full h-48 object-cover"
+                class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                @error="handleImageError"
               >
               <div
                 v-else
                 class="w-full h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center"
               >
-                <span class="text-white text-2xl font-bold">
-                  {{ $t(item.category.label) }}
+                <div class="text-center text-white">
+                  <div class="text-lg font-bold uppercase tracking-wider">
+                    {{ getCategoryShortName(item.category.id) }}
+                  </div>
+                  <div class="text-xs opacity-75 mt-1" v-if="item.readTime">
+                    {{ item.readTime }} min read
+                  </div>
+                </div>
+              </div>
+              <!-- Featured Badge -->
+              <div v-if="item.featured" class="absolute top-2 right-2">
+                <span class="bg-yellow-500 text-white text-xs px-2 py-1 rounded-full font-semibold">
+                  Featured
                 </span>
               </div>
             </div>
@@ -96,11 +114,14 @@
               <!-- Tags -->
               <div v-if="item.tags && item.tags.length > 0" class="flex flex-wrap gap-2 mb-4">
                 <span
-                  v-for="tag in item.tags"
+                  v-for="tag in item.tags.slice(0, 3)"
                   :key="tag"
                   class="inline-block bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded"
                 >
                   {{ tag }}
+                </span>
+                <span v-if="item.tags.length > 3" class="inline-block bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">
+                  +{{ item.tags.length - 3 }}
                 </span>
               </div>
 
@@ -139,51 +160,46 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { ArrowRightIcon } from '@heroicons/vue/24/outline'
-import { newsData } from '@/data/news.js'
+import { loadAllNews, getNewsCategories } from '@/utils/newsLoader.js'
 
 // Reactive data
 const selectedCategory = ref('all')
 const displayedCount = ref(9)
+const newsData = ref([])
+const newsCategories = ref([])
+const loading = ref(true)
 
-// News categories
-const newsCategories = [
-  { id: 'all', label: 'news.categories.all' },
-  { id: 'featured', label: 'news.categories.featured' },
-  { id: 'research', label: 'news.categories.research' },
-  { id: 'event', label: 'news.categories.event' },
-  { id: 'other', label: 'news.categories.other' }
-]
-
-// Process news data to add categories
-const processedNewsData = newsData.map((item) => ({
-  ...item,
-  category: item.featured
-    ? { id: 'featured', label: 'news.categories.featured' }
-    : item.title.includes('会议') || item.title.includes('访问') || item.title.includes('交流')
-    ? { id: 'event', label: 'news.categories.event' }
-    : item.title.includes('论文') || item.title.includes('NeurIPS') || item.title.includes('WWW')
-    ? { id: 'research', label: 'news.categories.research' }
-    : { id: 'other', label: 'news.categories.other' },
-  summary: item.excerpt,
-  tags: item.featured ? ['Featured'] : ['News'],
-  image: null
-}))
+// Load news data
+onMounted(async () => {
+  try {
+    newsData.value = await loadAllNews()
+    newsCategories.value = await getNewsCategories()
+  } catch (error) {
+    console.error('Error loading news:', error)
+  } finally {
+    loading.value = false
+  }
+})
 
 // Computed properties
 const filteredNews = computed(() => {
+  if (!newsData.value.length) return []
+
   let filtered = selectedCategory.value === 'all'
-    ? processedNewsData
-    : processedNewsData.filter(item => item.category.id === selectedCategory.value)
+    ? newsData.value
+    : newsData.value.filter(item => item.category.id === selectedCategory.value)
 
   return filtered.slice(0, displayedCount.value)
 })
 
 const hasMoreNews = computed(() => {
+  if (!newsData.value.length) return false
+
   let allFiltered = selectedCategory.value === 'all'
-    ? processedNewsData
-    : processedNewsData.filter(item => item.category.id === selectedCategory.value)
+    ? newsData.value
+    : newsData.value.filter(item => item.category.id === selectedCategory.value)
 
   return allFiltered.length > displayedCount.value
 })
@@ -202,6 +218,30 @@ const getCategoryColor = (categoryId) => {
 const formatDate = (dateString) => {
   const options = { year: 'numeric', month: 'long', day: 'numeric' }
   return new Date(dateString).toLocaleDateString(undefined, options)
+}
+
+const getCategoryShortName = (categoryId) => {
+  const names = {
+    featured: 'Featured',
+    research: 'Research',
+    event: 'Event',
+    other: 'News'
+  }
+  return names[categoryId] || 'News'
+}
+
+const handleImageError = (event) => {
+  // Set a fallback image if the main image fails to load
+  event.target.style.display = 'none'
+  const parent = event.target.parentElement
+  if (parent && !parent.querySelector('.fallback-image')) {
+    const fallback = document.createElement('div')
+    fallback.className = 'fallback-image w-full h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center'
+    fallback.innerHTML = `<div class="text-center text-white">
+      <div class="text-lg font-bold uppercase tracking-wider">${getCategoryShortName('other')}</div>
+    </div>`
+    parent.appendChild(fallback)
+  }
 }
 
 const loadMoreNews = () => {

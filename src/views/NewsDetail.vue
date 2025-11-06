@@ -17,6 +17,16 @@
     <section class="py-12 bg-white">
       <div class="max-w-5xl mx-auto px-3 sm:px-5 lg:px-7">
         <article v-if="newsItem" class="prose prose-lg max-w-none">
+          <!-- News Header Image -->
+          <div v-if="newsItem.image" class="mb-8">
+            <img
+              :src="newsItem.image"
+              :alt="newsItem.title"
+              class="w-full h-64 md:h-96 object-cover rounded-lg shadow-lg"
+              @error="handleImageError"
+            >
+          </div>
+
           <!-- News Header -->
           <header class="mb-8">
             <div class="flex items-center gap-3 mb-4">
@@ -28,9 +38,15 @@
               >
                 {{ $t(newsItem.category?.label || 'news.categories.other') }}
               </span>
+              <span v-if="newsItem.featured" class="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full font-medium">
+                Featured
+              </span>
               <time class="text-gray-500 text-sm">
                 {{ formatDate(newsItem.date) }}
               </time>
+              <span v-if="newsItem.readTime" class="text-gray-500 text-sm">
+                {{ newsItem.readTime }} min read
+              </span>
             </div>
 
             <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
@@ -40,19 +56,16 @@
             <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full"></div>
           </header>
 
-          <!-- News Body -->
-          <div class="prose-content text-gray-700 leading-relaxed space-y-6">
-            <p class="text-xl text-gray-600 font-medium">
+          <!-- News Excerpt -->
+          <div v-if="newsItem.excerpt" class="mb-8">
+            <p class="text-xl text-gray-600 font-medium leading-relaxed">
               {{ newsItem.excerpt }}
             </p>
+          </div>
 
-            <div v-if="newsItem.content && newsItem.content !== '详细内容...'" class="text-base">
-              <div v-for="(paragraph, index) in getContentParagraphs(newsItem.content)" :key="index" class="mb-6">
-                <p v-if="paragraph.trim()" class="text-gray-700 leading-relaxed">
-                  {{ paragraph.trim() }}
-                </p>
-              </div>
-            </div>
+          <!-- News Body Content -->
+          <div class="prose-content text-gray-700 leading-relaxed space-y-6">
+            <div v-if="newsItem.content" class="text-base" v-html="newsItem.content"></div>
 
             <div v-else class="text-center py-12 bg-gray-50 rounded-lg">
               <div class="text-gray-400 text-6xl mb-4">📝</div>
@@ -139,42 +152,42 @@
 </template>
 
 <script setup>
-import { ref, computed, watch } from 'vue'
+import { ref, computed, watch, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { ArrowLeftIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/vue/24/outline'
-import { newsData } from '@/data/news.js'
+import { loadNewsById, loadAllNews } from '@/utils/newsLoader.js'
 
 const route = useRoute()
 const newsItem = ref(null)
+const allNews = ref([])
+const loading = ref(true)
+
+// Load all news for navigation
+onMounted(async () => {
+  try {
+    allNews.value = await loadAllNews()
+  } catch (error) {
+    console.error('Error loading all news:', error)
+  } finally {
+    loading.value = false
+  }
+})
 
 // Computed properties for navigation
 const newsIndex = computed(() => {
-  if (!newsItem.value) return -1
-  return processedNewsData.findIndex(item => item.id === newsItem.value.id)
+  if (!newsItem.value || !allNews.value.length) return -1
+  return allNews.value.findIndex(item => item.id === newsItem.value.id)
 })
 
 const previousNews = computed(() => {
   const index = newsIndex.value
-  return index > 0 ? processedNewsData[index - 1] : null
+  return index > 0 ? allNews.value[index - 1] : null
 })
 
 const nextNews = computed(() => {
   const index = newsIndex.value
-  return index < processedNewsData.length - 1 ? processedNewsData[index + 1] : null
+  return index < allNews.value.length - 1 ? allNews.value[index + 1] : null
 })
-
-// Process news data to add categories
-const processedNewsData = newsData.map((item) => ({
-  ...item,
-  category: item.featured
-    ? { id: 'featured', label: 'news.categories.featured' }
-    : item.title.includes('会议') || item.title.includes('访问') || item.title.includes('交流')
-    ? { id: 'event', label: 'news.categories.event' }
-    : item.title.includes('论文') || item.title.includes('NeurIPS') || item.title.includes('WWW')
-    ? { id: 'research', label: 'news.categories.research' }
-    : { id: 'other', label: 'news.categories.other' },
-  tags: item.featured ? ['Featured'] : ['News']
-}))
 
 // Methods
 const getCategoryColor = (categoryId) => {
@@ -192,9 +205,16 @@ const formatDate = (dateString) => {
   return new Date(dateString).toLocaleDateString(undefined, options)
 }
 
-const getContentParagraphs = (content) => {
-  // Split content by double newlines and filter out empty paragraphs
-  return content.split('\n\n').filter(paragraph => paragraph.trim())
+const handleImageError = (event) => {
+  // Hide broken image and show fallback
+  event.target.style.display = 'none'
+  const parent = event.target.parentElement
+  if (parent && !parent.querySelector('.fallback-placeholder')) {
+    const fallback = document.createElement('div')
+    fallback.className = 'fallback-placeholder w-full h-64 md:h-96 bg-gray-200 rounded-lg flex items-center justify-center'
+    fallback.innerHTML = '<div class="text-gray-500 text-center"><div class="text-4xl mb-2">📷</div><div>Image not available</div></div>'
+    parent.appendChild(fallback)
+  }
 }
 
 const getTruncatedTitle = (title) => {
@@ -256,19 +276,22 @@ const getTruncatedTitle = (title) => {
 }
 
 // Method to load news item
-const loadNewsItem = (newsId) => {
-  newsItem.value = processedNewsData.find(item => item.id === newsId)
+const loadNewsItem = async (newsId) => {
+  try {
+    newsItem.value = await loadNewsById(newsId)
 
-  // If news item not found, you could redirect to 404 or news page
-  if (!newsItem.value) {
-    console.warn(`News item with ID ${newsId} not found`)
+    // If news item not found, you could redirect to 404 or news page
+    if (!newsItem.value) {
+      console.warn(`News item with ID ${newsId} not found`)
+    }
+  } catch (error) {
+    console.error(`Error loading news item ${newsId}:`, error)
   }
 }
 
 // Watch for route changes
-watch(() => route.params.id, (newId) => {
-  const newsId = parseInt(newId)
-  loadNewsItem(newsId)
+watch(() => route.params.id, async (newId) => {
+  await loadNewsItem(newId)
 }, { immediate: true })
 </script>
 
@@ -277,25 +300,175 @@ watch(() => route.params.id, (newId) => {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
+/* Headings */
+.prose-content :deep(h1) {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #1f2937;
+  line-height: 1.2;
+}
+
 .prose-content :deep(h2) {
-  font-size: 1.5rem;
+  font-size: 1.875rem;
   font-weight: 600;
   margin-top: 2rem;
   margin-bottom: 1rem;
   color: #1f2937;
+  line-height: 1.3;
 }
 
+.prose-content :deep(h3) {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: #374151;
+  line-height: 1.4;
+}
+
+.prose-content :deep(h4) {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+/* Paragraphs */
 .prose-content :deep(p) {
   margin-bottom: 1.25rem;
   line-height: 1.7;
+  color: #374151;
 }
 
+/* Links */
 .prose-content :deep(a) {
   color: #2563eb;
   text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .prose-content :deep(a:hover) {
   color: #1d4ed8;
+  text-decoration-color: #1d4ed8;
+}
+
+/* Lists */
+.prose-content :deep(ul), .prose-content :deep(ol) {
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+}
+
+.prose-content :deep(li) {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+  color: #374151;
+}
+
+/* Blockquotes */
+.prose-content :deep(blockquote) {
+  margin: 1.5rem 0;
+  padding: 1rem 1.5rem;
+  border-left: 4px solid #3b82f6;
+  background-color: #f8fafc;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.prose-content :deep(blockquote p) {
+  margin-bottom: 0;
+  font-style: italic;
+  color: #475569;
+}
+
+/* Code */
+.prose-content :deep(code) {
+  background-color: #f1f5f9;
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+  color: #e11d48;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+.prose-content :deep(pre) {
+  background-color: #1e293b;
+  color: #f1f5f9;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+.prose-content :deep(pre code) {
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+/* Tables */
+.prose-content :deep(table) {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.875rem;
+}
+
+.prose-content :deep(th), .prose-content :deep(td) {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.prose-content :deep(th) {
+  font-weight: 600;
+  color: #1f2937;
+  background-color: #f9fafb;
+}
+
+.prose-content :deep(tr:hover) {
+  background-color: #f9fafb;
+}
+
+/* Images */
+.prose-content :deep(img) {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Horizontal Rule */
+.prose-content :deep(hr) {
+  margin: 2rem 0;
+  border: none;
+  border-top: 2px solid #e5e7eb;
+}
+
+/* Strong/Bold */
+.prose-content :deep(strong), .prose-content :deep(b) {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+/* Emphasis/Italic */
+.prose-content :deep(em), .prose-content :deep(i) {
+  font-style: italic;
+  color: #4b5563;
+}
+
+/* Footnotes */
+.prose-content :deep(.footnote-ref) {
+  font-size: 0.75rem;
+  vertical-align: super;
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+.prose-content :deep(.footnote-ref:hover) {
+  text-decoration: underline;
 }
 </style>
