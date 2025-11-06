@@ -81,16 +81,38 @@ function parseFrontmatter(content) {
 }
 
 // Direct imports of all markdown files
-import medagentBoard from '../content/news/2025-01-15-medagent-board.md?raw'
-import colacare from '../content/news/2025-01-10-colacare.md?raw'
-import labVisit from '../content/news/2024-12-15-lab-visit.md?raw'
-import workshop from '../content/news/2024-11-20-workshop.md?raw'
+import patternsAicare from '../content/news/2025-02-18-patterns-aicare.md?raw'
+import patternsCovid19benchmark from '../content/news/2025-02-20-patterns-covid19benchmark.md?raw'
+import guangxiMedicalLecture from '../content/news/2025-02-27-guangxi-medical-lecture.md?raw'
+import www2025Act from '../content/news/2025-03-23-www2025-act.md?raw'
+import www2025Colacare from '../content/news/2025-03-27-www2025-colacare.md?raw'
+import kdd2025Pai from '../content/news/2025-04-24-kdd2025-pai.md?raw'
+import www2025Presentation from '../content/news/2025-05-20-www2025-presentation.md?raw'
+import gaojunyiBaiduScholarship from '../content/news/2025-05-29-gaojunyi-baidu-scholarship.md?raw'
+import hdsDietaryIntake from '../content/news/2025-07-09-hds-dietary-intake.md?raw'
+import medAiCourse from '../content/news/2025-07-10-med-ai-course.md?raw'
+import theInnovationFmSurvey from '../content/news/2025-09-01-the-innovation-fm-survey.md?raw'
+import neurips2025Medagentboard from '../content/news/2025-10-30-neurips2025-medagentboard.md?raw'
+import neurips2025Magical from '../content/news/2025-11-02-neurips2025-magical.md?raw'
+import njuFutianfanLecture from '../content/news/2025-11-03-nju-futianfan-lecture.md?raw'
+import beijingHealthLecture from '../content/news/2025-11-05-beijing-health-lecture.md?raw'
 
 const newsFiles = [
-  { id: '2025-01-15-medagent-board', content: medagentBoard },
-  { id: '2025-01-10-colacare', content: colacare },
-  { id: '2024-12-15-lab-visit', content: labVisit },
-  { id: '2024-11-20-workshop', content: workshop }
+  { id: '2025-11-05-beijing-health-lecture', content: beijingHealthLecture },
+  { id: '2025-11-03-nju-futianfan-lecture', content: njuFutianfanLecture },
+  { id: '2025-11-02-neurips2025-magical', content: neurips2025Magical },
+  { id: '2025-10-30-neurips2025-medagentboard', content: neurips2025Medagentboard },
+  { id: '2025-09-01-the-innovation-fm-survey', content: theInnovationFmSurvey },
+  { id: '2025-07-10-med-ai-course', content: medAiCourse },
+  { id: '2025-07-09-hds-dietary-intake', content: hdsDietaryIntake },
+  { id: '2025-05-29-gaojunyi-baidu-scholarship', content: gaojunyiBaiduScholarship },
+  { id: '2025-05-20-www2025-presentation', content: www2025Presentation },
+  { id: '2025-04-24-kdd2025-pai', content: kdd2025Pai },
+  { id: '2025-03-27-www2025-colacare', content: www2025Colacare },
+  { id: '2025-03-23-www2025-act', content: www2025Act },
+  { id: '2025-02-27-guangxi-medical-lecture', content: guangxiMedicalLecture },
+  { id: '2025-02-20-patterns-covid19benchmark', content: patternsCovid19benchmark },
+  { id: '2025-02-18-patterns-aicare', content: patternsAicare }
 ]
 
 /**
