@@ -52,3 +52,42 @@ html {
   border-bottom-color: #1e3a8a;
   border-bottom-style: solid;
 }
+
+/* 统一的邮箱样式 */
+.email-tag {
+  @apply inline-flex items-center px-3 py-1 bg-gray-50 border border-gray-200 rounded-md;
+}
+
+.email-tag svg {
+  @apply w-4 h-4 text-gray-500 mr-2;
+}
+
+.email-tag span {
+  @apply text-xs font-mono text-gray-700 font-medium;
+}
+
+/* 蓝色主题的邮箱样式（用于深色背景） */
+.email-tag--blue {
+  @apply inline-flex items-center px-3 py-1 bg-blue-50 border border-blue-200 rounded-md;
+}
+
+.email-tag--blue svg {
+  @apply w-4 h-4 text-blue-500 mr-2;
+}
+
+.email-tag--blue span {
+  @apply text-sm font-mono text-blue-700 font-medium;
+}
+
+/* 半透明邮箱样式（用于渐变背景） */
+.email-tag--glass {
+  @apply inline-flex items-center px-3 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-md;
+}
+
+.email-tag--glass svg {
+  @apply w-4 h-4 text-blue-200 mr-2;
+}
+
+.email-tag--glass span {
+  @apply text-sm font-mono text-blue-100 font-medium;
+}

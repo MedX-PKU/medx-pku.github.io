@@ -65,9 +65,12 @@
                 {{ $t('home.director.description') }}
               </p>
               <div class="text-center">
-                <p class="text-blue-600 hover:text-blue-700 transition-colors duration-200">
-                  malt [at] pku.edu.cn
-                </p>
+                <div class="email-tag email-tag--blue">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
+                  <span>malt [at] pku.edu.cn</span>
+                </div>
               </div>
             </div>
           </div>

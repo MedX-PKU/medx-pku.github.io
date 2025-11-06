@@ -17,7 +17,7 @@
           </p>
           <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              :href="`mailto:${$t('join.email')}`"
+              href="#"
               class="inline-flex items-center px-8 py-4 bg-white text-blue-700 font-semibold rounded-full hover:bg-blue-50 transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:scale-105"
             >
               <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -118,15 +118,14 @@
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                     </svg>
                   </button>
-                  <a
-                    :href="`mailto:${$t('join.email')}?subject=Application for ${encodeURIComponent($t(position.title))}`"
+                  <button
                     class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white font-medium rounded-lg hover:from-green-600 hover:to-green-700 transition-all duration-200"
                   >
                     <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                     </svg>
                     {{ $t('join.apply') }}
-                  </a>
+                  </button>
                 </div>
               </div>
 
@@ -177,7 +176,7 @@
             {{ $t('join.noPositionsDescription') }}
           </p>
           <a
-            :href="`mailto:${$t('join.email')}`"
+            href="#"
             class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200"
           >
             {{ $t('join.spontaneousApplication') }}
@@ -240,12 +239,12 @@
         <div class="grid md:grid-cols-2 gap-8 mb-8 text-left">
           <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
             <h3 class="font-bold text-lg mb-3">{{ $t('join.contact.emailLabel') }}</h3>
-            <a :href="`mailto:${$t('join.email')}`" class="text-blue-100 hover:text-white text-lg flex items-center">
-              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            <div class="email-tag email-tag--glass">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
               </svg>
-              {{ $t('join.email') }}
-            </a>
+              <span>malt [at] pku.edu.cn</span>
+            </div>
           </div>
           <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
             <h3 class="font-bold text-lg mb-3">{{ $t('join.contact.locationLabel') }}</h3>
@@ -260,7 +259,7 @@
         </div>
 
         <a
-          :href="`mailto:${$t('join.email')}`"
+          href="#"
           class="inline-flex items-center px-8 py-4 bg-white text-blue-700 font-semibold rounded-full hover:bg-blue-50 transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:scale-105"
         >
           {{ $t('join.contact.getInTouch') }}
