@@ -78,7 +78,7 @@
                 <div class="flex flex-col sm:flex-row sm:items-center">
                   <span class="font-medium">{{ $t('news.previous') || 'Previous' }}</span>
                   <span class="text-sm text-gray-500 group-hover:text-gray-700 sm:ml-2 mt-1 sm:mt-0 truncate max-w-[120px] sm:max-w-[180px]">
-                    {{ previousNews.title.length > 15 ? previousNews.title.substring(0, 15) + '...' : previousNews.title }}
+                    {{ getTruncatedTitle(previousNews.title) }}
                   </span>
                 </div>
               </router-link>
@@ -92,7 +92,7 @@
               >
                 <div class="flex flex-col sm:flex-row sm:items-center text-left sm:text-right">
                   <span class="text-sm text-gray-500 group-hover:text-gray-700 sm:mr-2 mb-1 sm:mb-0 truncate max-w-[120px] sm:max-w-[180px]">
-                    {{ nextNews.title.length > 15 ? nextNews.title.substring(0, 15) + '...' : nextNews.title }}
+                    {{ getTruncatedTitle(nextNews.title) }}
                   </span>
                   <span class="font-medium">{{ $t('news.next') || 'Next' }}</span>
                 </div>
@@ -195,6 +195,30 @@ const formatDate = (dateString) => {
 const getContentParagraphs = (content) => {
   // Split content by double newlines and filter out empty paragraphs
   return content.split('\n\n').filter(paragraph => paragraph.trim())
+}
+
+const getTruncatedTitle = (title) => {
+  // Calculate approximate "width" of title (Chinese characters count as 2, English as 1)
+  let width = 0
+  let actualLength = 0
+
+  for (let i = 0; i < title.length; i++) {
+    const char = title[i]
+    // Chinese characters (including punctuation) count as 2 units
+    if (/[\u4e00-\u9fff\u3400-\u4dbf\uf900-\ufaff]/.test(char)) {
+      width += 2
+    } else {
+      width += 1
+    }
+    actualLength = i + 1
+
+    // Stop when we exceed the width limit (around 25-30 units)
+    if (width > 28) {
+      return title.substring(0, actualLength) + '...'
+    }
+  }
+
+  return title
 }
 
 // Method to load news item
