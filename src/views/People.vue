@@ -92,8 +92,7 @@ export default {
           nameEn: member.name.en,
           title: member.title.zh || member.title.en,
           email: member.email,
-          image: member.image,
-          research: member.research
+          image: member.image
         }))
       } catch (error) {
         console.warn('Could not load team data:', error)

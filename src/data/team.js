@@ -44,7 +44,10 @@ export const teamData = [
         description: '计算机科学与技术专业'
       }
     ],
-    researchInterests: ['软件工程', '大数据分析', '人工智能'],
+    researchInterests: {
+      zh: ['软件工程', '大数据分析', '人工智能'],
+      en: ['Software Engineering', 'Big Data Analytics', 'Artificial Intelligence']
+    },
     isCenterDirector: true
   },
   {
@@ -100,7 +103,10 @@ export const teamData = [
         description: '软件工程专业学士'
       }
     ],
-    researchInterests: ['电子病历分析', '医学人工智能', '大语言模型', '智能体'],
+    researchInterests: {
+      zh: ['电子病历分析', '医学人工智能', '大语言模型', '智能体'],
+      en: ['Electronic Health Record Analysis', 'Medical Artificial Intelligence', 'Large Language Models', 'Intelligent Agents']
+    },
     isLabDirector: true
   },
   {
@@ -147,16 +153,28 @@ export const teamData = [
         description: 'Supervised by Prof. Jimeng Sun'
       }
     ],
-    researchInterests: [
-      'Medical foundation models',
-      'Individual-level healthcare modelling',
-      'Population-level epidemiological modelling',
-      'Healthcare toolkits',
-      'Medical LLMs evaluation and alignment',
-      'Clinical predictions with EHR data',
-      'Spatio-temporal predictions for public health',
-      'Open-source packages for AI4Health'
-    ]
+    researchInterests: {
+      zh: [
+        '医学基础模型',
+        '个体级医疗建模',
+        '群体级流行病学建模',
+        '医疗工具包开发',
+        '医学大语言模型评估与对齐',
+        '电子健康记录数据临床预测',
+        '公共卫生时空预测',
+        'AI4Health开源包开发'
+      ],
+      en: [
+        'Medical foundation models',
+        'Individual-level healthcare modelling',
+        'Population-level epidemiological modelling',
+        'Healthcare toolkits',
+        'Medical LLMs evaluation and alignment',
+        'Clinical predictions with EHR data',
+        'Spatio-temporal predictions for public health',
+        'Open-source packages for AI4Health'
+      ]
+    }
   },
   {
     name: {
@@ -198,14 +216,24 @@ export const teamData = [
         description: 'Working with Dr. Liantao Ma'
       }
     ],
-    researchInterests: [
-      'Medical Large Language Models (LLMs)',
-      'Healthcare Modeling with EHR data',
-      'Healthcare Benchmarks and Toolkits',
-      'Trustworthy AI',
-      'Multimodal Medical AI',
-      'Clinical Decision Support Systems'
-    ]
+    researchInterests: {
+      zh: [
+        '医学大语言模型 (LLM)',
+        '电子健康记录数据医疗建模',
+        '医疗基准测试和工具包',
+        '可信人工智能',
+        '多模态医疗AI',
+        '临床决策支持系统'
+      ],
+      en: [
+        'Medical Large Language Models (LLMs)',
+        'Healthcare Modeling with EHR data',
+        'Healthcare Benchmarks and Toolkits',
+        'Trustworthy AI',
+        'Multimodal Medical AI',
+        'Clinical Decision Support Systems'
+      ]
+    }
   },
   {
     name: {
@@ -245,12 +273,20 @@ export const teamData = [
         period: '2019.09 - 2024.06'
       }
     ],
-    researchInterests: [
-      'AI for Healthcare',
-      'Medical Large Language Models (LLMs)',
-      'Clinical predictive modeling',
-      'Electronic health record (EHR) data'
-    ]
+    researchInterests: {
+      zh: [
+        '医疗人工智能',
+        '医学大语言模型 (LLM)',
+        '临床预测建模',
+        '电子健康记录 (EHR) 数据'
+      ],
+      en: [
+        'AI for Healthcare',
+        'Medical Large Language Models (LLMs)',
+        'Clinical predictive modeling',
+        'Electronic health record (EHR) data'
+      ]
+    }
   },
   {
     name: {
@@ -270,6 +306,10 @@ export const teamData = [
       en: 'Dehao Sui is an undergraduate student majoring in Software Engineering at Beihang University.'
     },
     image: '/images/team/dehao-sui.svg',
+    researchInterests: {
+      zh: ['软件工程', '计算机科学'],
+      en: ['Software Engineering', 'Computer Science']
+    },
     timeline: [
       {
         type: 'education',
@@ -297,6 +337,10 @@ export const teamData = [
       en: 'Lei Gu is a master\'s student in Architecture at Tongji University, Shanghai.'
     },
     image: '/images/team/lei-gu.svg',
+    researchInterests: {
+      zh: ['建筑学', '建筑设计', '建筑技术'],
+      en: ['Architecture', 'Architectural Design', 'Building Technology']
+    },
     timeline: [
       {
         type: 'education',

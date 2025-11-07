@@ -51,12 +51,7 @@
         </div>
       </div>
 
-      <div v-if="person.research" class="mt-3">
-        <p class="text-gray-700 text-xs leading-relaxed">
-          {{ person.research }}
-        </p>
-      </div>
-    </div>
+          </div>
   </div>
 </template>
 

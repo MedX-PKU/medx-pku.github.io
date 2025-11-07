@@ -132,31 +132,41 @@
 import { ref, onMounted, computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { teamData } from '@/data/team.js'
+import { useI18n } from 'vue-i18n'
 
 export default {
   name: 'PeopleDetail',
   setup() {
     const route = useRoute()
-    const member = ref({})
+    const { locale } = useI18n()
+    const memberData = ref({})
     const loading = ref(true)
 
     onMounted(() => {
       const memberName = route.params.name
-      const memberData = teamData.find(m => m.name.en.toLowerCase().replace(/\s+/g, '-') === memberName)
+      const foundMember = teamData.find(m => m.name.en.toLowerCase().replace(/\s+/g, '-') === memberName)
 
-      if (memberData) {
-        member.value = {
-          ...memberData,
-          name: memberData.name.zh || memberData.name.en,
-          title: memberData.title.zh || memberData.title.en,
-          bio: memberData.bio.zh || memberData.bio.en,
-          position: memberData.position.zh || memberData.position.en,
-          timeline: memberData.timeline || generateDefaultTimeline(memberData),
-          researchInterests: memberData.researchInterests || []
-        }
+      if (foundMember) {
+        memberData.value = foundMember
       }
-
       loading.value = false
+    })
+
+    const member = computed(() => {
+      if (!memberData.value) return {}
+
+      const currentLocale = locale.value
+      const isZh = currentLocale === 'zh'
+
+      return {
+        ...memberData.value,
+        name: memberData.value.name?.[isZh ? 'zh' : 'en'] || memberData.value.name?.en || memberData.value.name,
+        title: memberData.value.title?.[isZh ? 'zh' : 'en'] || memberData.value.title?.en || memberData.value.title,
+        bio: memberData.value.bio?.[isZh ? 'zh' : 'en'] || memberData.value.bio?.en || memberData.value.bio,
+        position: memberData.value.position?.[isZh ? 'zh' : 'en'] || memberData.value.position?.en || memberData.value.position,
+        timeline: memberData.value.timeline || generateDefaultTimeline(memberData.value),
+        researchInterests: memberData.value.researchInterests?.[isZh ? 'zh' : 'en'] || memberData.value.researchInterests || []
+      }
     })
 
     const getTimelineIcon = (type) => {
