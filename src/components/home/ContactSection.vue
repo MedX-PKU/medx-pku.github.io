@@ -23,74 +23,7 @@
       </div>
 
       <!-- Contact Content -->
-      <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-        <!-- Lab Information -->
-        <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100/50 hover:border-blue-200/50">
-          <div class="p-8">
-            <div class="flex items-center mb-6">
-              <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-500 rounded-full flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                </svg>
-              </div>
-              <h3 class="text-xl font-bold text-gray-900 ml-4">
-                {{ $t('home.contact.lab_info') }}
-              </h3>
-            </div>
-
-            <div class="space-y-6">
-              <div class="group/item flex items-start p-4 rounded-xl bg-gradient-to-r from-gray-50 to-white hover:from-blue-50 hover:to-white transition-all duration-300 border border-gray-100 hover:border-blue-100">
-                <div class="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center group-hover/item:bg-blue-200 transition-colors duration-300">
-                  <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                  </svg>
-                </div>
-                <div class="ml-4">
-                  <h4 class="font-semibold text-gray-900 mb-1">地址</h4>
-                  <p class="text-gray-600 text-sm leading-relaxed">
-                    {{ $t('home.contact.address') }}
-                  </p>
-                </div>
-              </div>
-
-              <div class="group/item flex items-start p-4 rounded-xl bg-gradient-to-r from-gray-50 to-white hover:from-blue-50 hover:to-white transition-all duration-300 border border-gray-100 hover:border-blue-100">
-                <div class="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center group-hover/item:bg-blue-200 transition-colors duration-300">
-                  <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                  </svg>
-                </div>
-                <div class="ml-4">
-                  <h4 class="font-semibold text-gray-900 mb-1">邮箱</h4>
-                  <div class="email-tag">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                    </svg>
-                    <span>malt [at] pku.edu.cn</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="group/item flex items-start p-4 rounded-xl bg-gradient-to-r from-gray-50 to-white hover:from-blue-50 hover:to-white transition-all duration-300 border border-gray-100 hover:border-blue-100">
-                <div class="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center group-hover/item:bg-blue-200 transition-colors duration-300">
-                  <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                  </svg>
-                </div>
-                <div class="ml-4">
-                  <h4 class="font-semibold text-gray-900 mb-1">电话</h4>
-                  <p class="text-gray-600 text-sm leading-relaxed">
-                    {{ $t('home.contact.phone') }}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Decorative bottom gradient -->
-          <div class="h-1 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400"></div>
-        </div>
+      <div class="max-w-2xl mx-auto">
 
         <!-- Join Us -->
         <div class="group bg-gradient-to-br from-blue-600 to-blue-500 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden text-white relative">
@@ -124,17 +57,21 @@
                 <ul class="space-y-2 text-sm text-blue-100">
                   <li class="flex items-center">
                     <div class="w-2 h-2 bg-white/60 rounded-full mr-2"></div>
-                    博士后研究员
+                    研究助理 (本科实习生)
                   </li>
                   <li class="flex items-center">
                     <div class="w-2 h-2 bg-white/60 rounded-full mr-2"></div>
-                    研究助理
-                  </li>
-                  <li class="flex items-center">
-                    <div class="w-2 h-2 bg-white/60 rounded-full mr-2"></div>
-                    访问学生
+                    研究助理 (硕士实习生)
                   </li>
                 </ul>
+                <div class="mt-4 p-3 bg-white/5 rounded-lg">
+                  <p class="text-xs text-blue-100 mb-2">💡 工作模式：Remote 远程</p>
+                  <p class="text-xs text-blue-100">🎯 研究方向：AI for Healthcare</p>
+                </div>
+                <div class="mt-4 p-3 bg-white/5 rounded-lg">
+                  <p class="text-xs text-blue-100 font-semibold mb-1">申请流程：</p>
+                  <p class="text-xs text-blue-100">发送 CV 至邮箱 malt [at] pku.edu.cn</p>
+                </div>
               </div>
 
               <router-link
