@@ -254,19 +254,9 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { ref } from 'vue'
 
-const { locale } = useI18n()
 const expandedPosition = ref(null)
-
-// Force Chinese language on Join page
-onMounted(() => {
-  locale.value = 'zh'
-  if (typeof localStorage !== 'undefined') {
-    localStorage.setItem('language', 'zh')
-  }
-})
 
 // Join reasons
 const joinReasons = [
