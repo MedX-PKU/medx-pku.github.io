@@ -30,8 +30,8 @@
                 : 'bg-white text-gray-700 hover:bg-purple-50 hover:text-purple-600 border border-gray-200'
             ]"
           >
-            <component :is="category.icon" class="w-5 h-5 mr-2" />
-            {{ $t(category.label) }}
+            <component :is="category.icon" class="w-5 h-5 mr-2 inline-flex items-center" />
+            <span class="inline-flex items-center">{{ $t(category.label) }}</span>
           </button>
         </div>
 
@@ -51,8 +51,8 @@
                     getProjectColor(project.category)
                   ]"
                 >
-                  <component :is="getProjectIcon(project.category)" class="w-4 h-4 mr-1" />
-                  {{ $t(getProjectCategoryLabel(project.category)) }}
+                  <component :is="getProjectIcon(project.category)" class="w-4 h-4 mr-1 inline-flex items-center" />
+                  <span class="inline-flex items-center">{{ $t(getProjectCategoryLabel(project.category)) }}</span>
                 </span>
                 <span class="text-sm text-gray-500">
                   {{ formatDate(project.date) }}
