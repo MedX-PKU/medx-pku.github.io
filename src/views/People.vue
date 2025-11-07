@@ -24,16 +24,7 @@
           <PersonCard :person="labDirector" />
         </div>
 
-        <!-- Lab Introduction -->
-        <div class="mt-8 max-w-4xl mx-auto text-center">
-          <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
-            <h3 class="text-lg font-semibold text-blue-900 mb-3">{{ $t('people.labIntro') }}</h3>
-            <p class="text-blue-800 leading-relaxed text-sm">
-              {{ $t('people.labDescription') }}
-            </p>
-          </div>
         </div>
-      </div>
 
       <!-- Team Members -->
       <div>
