@@ -2,7 +2,7 @@
   <div class="member-detail-page">
     <!-- Header Section -->
     <div class="bg-gradient-to-br from-blue-700 to-blue-900 text-white py-16">
-      <div class="max-w-4xl mx-auto px-3 sm:px-5 lg:px-7">
+      <div class="max-w-7xl mx-auto px-3 sm:px-5 lg:px-7">
         <button
           @click="$router.go(-1)"
           class="mb-6 flex items-center text-blue-100 hover:text-white transition-colors"
@@ -61,7 +61,7 @@
     </div>
 
     <!-- Content Section -->
-    <div class="max-w-4xl mx-auto px-3 sm:px-5 lg:px-7 py-12">
+    <div class="max-w-7xl mx-auto px-3 sm:px-5 lg:px-7 py-12">
       <!-- Bio Section -->
       <div v-if="member.bio" class="mb-12">
         <h2 class="text-2xl font-bold text-gray-900 mb-4">{{ $t('member.biography') }}</h2>

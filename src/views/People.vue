@@ -11,7 +11,7 @@
       </div>
     </div>
 
-    <div class="max-w-6xl mx-auto px-3 sm:px-5 lg:px-7 py-12">
+    <div class="max-w-7xl mx-auto px-3 sm:px-5 lg:px-7 py-12">
       <!-- Research Center & Lab Leadership -->
       <div class="mb-12">
         <div class="text-center mb-8">
