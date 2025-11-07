@@ -149,7 +149,7 @@ const projectCategories = [
 // Load projects from JSON
 const loadProjects = async () => {
   try {
-    const response = await fetch('/data/projects.json')
+    const response = await fetch('/src/data/projects.json')
     const data = await response.json()
     // Auto-assign IDs based on array index + 1
     projectsData.value = data.map((project, index) => ({

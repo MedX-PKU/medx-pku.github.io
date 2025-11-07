@@ -5,9 +5,7 @@
     "category": "tool",
     "date": "2024-11-01",
     "technologies": ["Python", "PyTorch"],
-    "github": "https://github.com/yhzhu99/pyehr",
-    "demo": "",
-    "documentation": ""
+    "github": "https://github.com/yhzhu99/pyehr"
   },
   {
     "title": "AICare 小雅医生",
@@ -15,8 +13,6 @@
     "category": "website",
     "date": "2024-11-01",
     "technologies": ["Web"],
-    "github": "",
-    "demo": "http://47.93.42.104/a8",
-    "documentation": ""
+    "demo": "http://47.93.42.104/a8"
   }
 ]

@@ -292,10 +292,10 @@ const openPositions = [
     id: 1,
     type: 'research_assistant',
     typeLabel: 'join.positions.types.research_assistant',
-    locationLabel: 'join.positions.locations.beijing',
+    locationLabel: 'join.positions.locations.remote',
     title: 'join.positions.description',
     description: 'join.positions.description',
-    tags: ['AI for Healthcare', 'Research Assistant', 'Undergraduate', 'Master\'s Student', 'PhD Preparation'],
+    tags: ['AI for Healthcare', 'Research Assistant'],
     requirements: [
       'Undergraduate or Master\'s student in Computer Science, AI, or related fields',
       'Strong interest in AI for Healthcare research',

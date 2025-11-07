@@ -265,59 +265,6 @@
     "noPositionsDescription": "We're always looking for talented individuals. Feel free to reach out with spontaneous applications.",
     "spontaneousApplication": "Send Spontaneous Application"
   },
-    "postdoc_ai": {
-    "title": "Postdoctoral Researcher in Medical AI and NLP",
-    "description": "We're seeking a postdoctoral researcher to work on cutting-edge medical AI projects, focusing on natural language processing of clinical text and medical large language models.",
-    "reqs": {
-      "1": "PhD in Computer Science, AI, NLP, or related field",
-      "2": "Strong publication record in top-tier conferences/journals",
-      "3": "Experience with deep learning frameworks (PyTorch, TensorFlow)",
-      "4": "Background in medical NLP or healthcare AI is preferred"
-    },
-    "responsibilities": {
-      "1": "Lead research projects on medical AI and NLP",
-      "2": "Publish high-quality research papers",
-      "3": "Collaborate with medical professionals and interdisciplinary teams"
-    }
-  },
-  "phd_medical": {
-    "title": "PhD Candidate in Medical AI",
-    "description": "Join our PhD program to conduct innovative research in medical artificial intelligence, working with real clinical data and hospital partnerships.",
-    "reqs": {
-      "1": "Master's degree in Computer Science, AI, or related field",
-      "2": "Strong programming skills and mathematics background",
-      "3": "Research experience in machine learning or AI"
-    },
-    "responsibilities": {
-      "1": "Conduct original research in medical AI",
-      "2": "Publish research findings and present at conferences"
-    }
-  },
-  "master_engineering": {
-    "title": "Master's Student in AI Engineering",
-    "description": "Looking for talented Master's students to work on the engineering aspects of medical AI systems, from data pipelines to model deployment.",
-    "reqs": {
-      "1": "Bachelor's degree in Computer Science or Engineering",
-      "2": "Strong software development skills",
-      "3": "Interest in AI and healthcare applications"
-    },
-    "responsibilities": {
-      "1": "Develop and maintain medical AI systems",
-      "2": "Work on data processing and model deployment"
-    }
-  },
-  "intern_research": {
-    "title": "Research Intern in Medical AI",
-    "description": "Exciting internship opportunity for students to gain hands-on experience in medical AI research and development.",
-    "reqs": {
-      "1": "Currently enrolled in undergraduate or graduate program",
-      "2": "Programming experience and interest in AI/ML"
-    },
-    "responsibilities": {
-      "1": "Assist in research projects and data analysis",
-      "2": "Contribute to AI model development and testing"
-    }
-  },
   "process_steps": {
     "apply": {
       "title": "Submit Application",
