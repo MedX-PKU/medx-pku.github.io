@@ -349,11 +349,10 @@
   },
   "projects": {
     "title": "Team Projects",
-    "subtitle": "Explore our software tools, open-source packages, and websites to understand the technical achievements and innovative practices of the MedX team",
+    "subtitle": "Explore our open-source tools and web applications to understand the technical achievements and innovative practices of the MedX team",
     "categories": {
       "all": "All Projects",
-      "software": "Software Tools",
-      "package": "Open Source Packages",
+      "tool": "Open Source Tools",
       "website": "Web Applications"
     },
     "github": "GitHub Repository",

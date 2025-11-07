@@ -349,11 +349,10 @@
   },
   "projects": {
     "title": "团队项目",
-    "subtitle": "探索我们开发的软件工具、开源包和网站，了解MedX团队的技术成果和创新实践",
+    "subtitle": "探索我们开发的开源工具和网站应用，了解MedX团队的技术成果和创新实践",
     "categories": {
       "all": "全部项目",
-      "software": "软件工具",
-      "package": "开源包",
+      "tool": "开源工具",
       "website": "网站应用"
     },
     "github": "GitHub 仓库",

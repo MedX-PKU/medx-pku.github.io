@@ -154,7 +154,6 @@ import {
   GlobeAltIcon,
   BookOpenIcon,
   CpuChipIcon,
-  ServerIcon,
   ShareIcon
 } from '@heroicons/vue/24/outline'
 
@@ -167,7 +166,7 @@ const projectsData = [
     id: 1,
     title: 'MedX Platform',
     description: '综合性医学AI研究平台，集成大语言模型、数据管理和可视化工具，为医学研究提供一站式解决方案。',
-    category: 'software',
+    category: 'tool',
     date: '2024-11-01',
     status: 'active',
     technologies: ['Vue.js', 'Python', 'FastAPI', 'PostgreSQL', 'Docker'],
@@ -179,7 +178,7 @@ const projectsData = [
     id: 2,
     title: 'MedAgentBoard',
     description: '医疗AI多智能体评测基准，用于系统性评估AI智能体在复杂医疗任务中的表现。',
-    category: 'software',
+    category: 'tool',
     date: '2024-10-15',
     status: 'active',
     technologies: ['Python', 'PyTorch', 'Hugging Face', 'Docker'],
@@ -190,7 +189,7 @@ const projectsData = [
     id: 3,
     title: 'ColaCare',
     description: '协作式医疗AI系统，模拟多学科会诊模式，提高AI在复杂疾病诊断中的准确性。',
-    category: 'software',
+    category: 'tool',
     date: '2024-09-20',
     status: 'active',
     technologies: ['Python', 'LangChain', 'OpenAI GPT', 'FastAPI'],
@@ -201,7 +200,7 @@ const projectsData = [
     id: 4,
     title: 'medx-nlp',
     description: '医学自然语言处理Python包，提供中文医学文本处理、实体识别和关系抽取功能。',
-    category: 'package',
+    category: 'tool',
     date: '2024-08-10',
     status: 'active',
     technologies: ['Python', 'spaCy', 'transformers', 'pandas'],
@@ -212,7 +211,7 @@ const projectsData = [
     id: 5,
     title: 'ehr-analyzer',
     description: '电子病历数据分析工具包，支持医疗数据清洗、特征提取和预测模型训练。',
-    category: 'package',
+    category: 'tool',
     date: '2024-07-05',
     status: 'maintenance',
     technologies: ['Python', 'scikit-learn', 'pandas', 'numpy'],
@@ -223,7 +222,7 @@ const projectsData = [
     id: 6,
     title: 'medx-visualization',
     description: '医学数据可视化库，专为医疗数据设计的图表和可视化组件。',
-    category: 'package',
+    category: 'tool',
     date: '2024-06-15',
     status: 'active',
     technologies: ['JavaScript', 'D3.js', 'React', 'Vue.js'],
@@ -256,7 +255,7 @@ const projectsData = [
     id: 9,
     title: 'Clinical Decision Support System',
     description: '临床决策支持系统原型，为医生提供AI驱动的诊断建议。',
-    category: 'software',
+    category: 'tool',
     date: '2024-03-15',
     status: 'development',
     technologies: ['Python', 'TensorFlow', 'Flask', 'Docker'],
@@ -267,8 +266,7 @@ const projectsData = [
 // Project categories
 const projectCategories = [
   { id: 'all', label: 'projects.categories.all', icon: CpuChipIcon },
-  { id: 'software', label: 'projects.categories.software', icon: CodeBracketIcon },
-  { id: 'package', label: 'projects.categories.package', icon: ServerIcon },
+  { id: 'tool', label: 'projects.categories.tool', icon: CodeBracketIcon },
   { id: 'website', label: 'projects.categories.website', icon: GlobeAltIcon }
 ]
 
@@ -283,8 +281,7 @@ const filteredProjects = computed(() => {
 // Methods
 const getProjectColor = (category) => {
   const colors = {
-    software: 'bg-blue-100 text-blue-800',
-    package: 'bg-green-100 text-green-800',
+    tool: 'bg-blue-100 text-blue-800',
     website: 'bg-purple-100 text-purple-800'
   }
   return colors[category] || 'bg-gray-100 text-gray-800'
@@ -292,8 +289,7 @@ const getProjectColor = (category) => {
 
 const getProjectIcon = (category) => {
   const icons = {
-    software: CodeBracketIcon,
-    package: ServerIcon,
+    tool: CodeBracketIcon,
     website: GlobeAltIcon
   }
   return icons[category] || CpuChipIcon
@@ -301,8 +297,7 @@ const getProjectIcon = (category) => {
 
 const getProjectCategoryLabel = (category) => {
   const labels = {
-    software: 'projects.categories.software',
-    package: 'projects.categories.package',
+    tool: 'projects.categories.tool',
     website: 'projects.categories.website'
   }
   return labels[category] || 'projects.categories.all'
