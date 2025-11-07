@@ -15,17 +15,6 @@
           <p class="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed">
             {{ $t('join.subtitle') }}
           </p>
-          <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="#"
-              class="inline-flex items-center px-8 py-4 bg-white text-blue-700 font-semibold rounded-full hover:bg-blue-50 transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:scale-105"
-            >
-              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-              </svg>
-              {{ $t('join.applyNow') }}
-            </a>
-          </div>
         </div>
       </div>
     </section>
@@ -40,7 +29,7 @@
           <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-blue-400 mx-auto rounded-full"></div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <div
             v-for="reason in joinReasons"
             :key="reason.id"
@@ -117,14 +106,6 @@
                     <svg class="w-4 h-4 ml-2 transition-transform" :class="{ 'rotate-180': expandedPosition === position.id }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                     </svg>
-                  </button>
-                  <button
-                    class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white font-medium rounded-lg hover:from-green-600 hover:to-green-700 transition-all duration-200"
-                  >
-                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                    </svg>
-                    {{ $t('join.apply') }}
                   </button>
                 </div>
               </div>
@@ -273,9 +254,19 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 
+const { locale } = useI18n()
 const expandedPosition = ref(null)
+
+// Force Chinese language on Join page
+onMounted(() => {
+  locale.value = 'zh'
+  if (typeof localStorage !== 'undefined') {
+    localStorage.setItem('language', 'zh')
+  }
+})
 
 // Join reasons
 const joinReasons = [
@@ -293,24 +284,12 @@ const joinReasons = [
   },
   {
     id: 3,
-    icon: 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z',
-    title: 'join.reasons.innovation.title',
-    description: 'join.reasons.innovation.description'
-  },
-  {
-    id: 4,
     icon: 'M13 10V3L4 14h7v7l9-11h-7z',
     title: 'join.reasons.impact.title',
     description: 'join.reasons.impact.description'
   },
   {
-    id: 5,
-    icon: 'M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z',
-    title: 'join.reasons.resources.title',
-    description: 'join.reasons.resources.description'
-  },
-  {
-    id: 6,
+    id: 4,
     icon: 'M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7',
     title: 'join.reasons.growth.title',
     description: 'join.reasons.growth.description'
@@ -321,75 +300,23 @@ const joinReasons = [
 const openPositions = [
   {
     id: 1,
-    type: 'postdoc',
-    typeLabel: 'join.positions.types.postdoc',
+    type: 'research_assistant',
+    typeLabel: 'join.positions.types.research_assistant',
     locationLabel: 'join.positions.locations.beijing',
-    title: 'join.positions.postdoc.ai.title',
-    description: 'join.positions.postdoc.ai.description',
-    tags: ['AI', 'Medical NLP', 'Machine Learning', 'Deep Learning'],
+    title: 'join.positions.description',
+    description: 'join.positions.description',
+    tags: ['AI for Healthcare', 'Research Assistant', 'Undergraduate', 'Master\'s Student', 'PhD Preparation'],
     requirements: [
-      'join.positions.postdoc.ai.reqs.1',
-      'join.positions.postdoc.ai.reqs.2',
-      'join.positions.postdoc.ai.reqs.3',
-      'join.positions.postdoc.ai.reqs.4'
+      'Undergraduate or Master\'s student in Computer Science, AI, or related fields',
+      'Strong interest in AI for Healthcare research',
+      'Programming skills in Python and machine learning frameworks',
+      'Good academic standing and research potential'
     ],
     responsibilities: [
-      'join.positions.postdoc.ai.responsibilities.1',
-      'join.positions.postdoc.ai.responsibilities.2',
-      'join.positions.postdoc.ai.responsibilities.3'
-    ]
-  },
-  {
-    id: 2,
-    type: 'phd',
-    typeLabel: 'join.positions.types.phd',
-    locationLabel: 'join.positions.locations.beijing',
-    title: 'join.positions.phd.medical.title',
-    description: 'join.positions.phd.medical.description',
-    tags: ['Medical AI', 'PhD', 'Research', 'Healthcare'],
-    requirements: [
-      'join.positions.phd.medical.reqs.1',
-      'join.positions.phd.medical.reqs.2',
-      'join.positions.phd.medical.reqs.3'
-    ],
-    responsibilities: [
-      'join.positions.phd.medical.responsibilities.1',
-      'join.positions.phd.medical.responsibilities.2'
-    ]
-  },
-  {
-    id: 3,
-    type: 'master',
-    typeLabel: 'join.positions.types.master',
-    locationLabel: 'join.positions.locations.beijing',
-    title: 'join.positions.master.engineering.title',
-    description: 'join.positions.master.engineering.description',
-    tags: ['Software Engineering', 'AI', 'Development', 'Research'],
-    requirements: [
-      'join.positions.master.engineering.reqs.1',
-      'join.positions.master.engineering.reqs.2',
-      'join.positions.master.engineering.reqs.3'
-    ],
-    responsibilities: [
-      'join.positions.master.engineering.responsibilities.1',
-      'join.positions.master.engineering.responsibilities.2'
-    ]
-  },
-  {
-    id: 4,
-    type: 'intern',
-    typeLabel: 'join.positions.types.intern',
-    locationLabel: 'join.positions.locations.beijing',
-    title: 'join.positions.intern.research.title',
-    description: 'join.positions.intern.research.description',
-    tags: ['Internship', 'Research', 'Medical AI', 'Data Science'],
-    requirements: [
-      'join.positions.intern.research.reqs.1',
-      'join.positions.intern.research.reqs.2'
-    ],
-    responsibilities: [
-      'join.positions.intern.research.responsibilities.1',
-      'join.positions.intern.research.responsibilities.2'
+      'Assist in medical AI research projects',
+      'Data processing and model development',
+      'Literature review and experimental evaluation',
+      'Collaborate with PhD students and postdoctoral researchers'
     ]
   }
 ]
@@ -421,6 +348,7 @@ const applicationProcess = [
 // Methods
 const getPositionTypeColor = (type) => {
   const colors = {
+    research_assistant: 'bg-blue-100 text-blue-800',
     postdoc: 'bg-purple-100 text-purple-800',
     phd: 'bg-blue-100 text-blue-800',
     master: 'bg-green-100 text-green-800',

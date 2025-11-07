@@ -149,17 +149,9 @@
         "title": "专业团队",
         "description": "与来自北京大学、香港大学、爱丁堡大学和顶级医疗机构的研究人员合作。"
       },
-      "innovation": {
-        "title": "创新环境",
-        "description": "在鼓励创造力、实验和突破界限的文化中茁壮成长。"
-      },
       "impact": {
         "title": "实际影响",
         "description": "看到您的工作转化为帮助全世界医生和患者的实际应用。"
-      },
-      "resources": {
-        "title": "丰富资源",
-        "description": "访问最先进的计算资源、大量数据集和现代化实验室设施。"
       },
       "growth": {
         "title": "职业发展",
@@ -168,13 +160,10 @@
     },
     "positions": {
       "title": "开放职位",
-      "subtitle": "探索当前机会，加入我们的团队，为前沿医学AI研究做出贡献。",
+      "subtitle": "我们正在寻找有志于从事AI for Healthcare研究的本科生和硕士生加入我们。",
+      "description": "Research Assistant岗位开放申请，欢迎有志于申请PhD、从事AI for Healthcare研究的学生。",
       "types": {
-        "postdoc": "博士后",
-        "phd": "博士生",
-        "master": "硕士生",
-        "intern": "实习生",
-        "fulltime": "全职"
+        "research_assistant": "研究助理"
       },
       "locations": {
         "beijing": "北京",

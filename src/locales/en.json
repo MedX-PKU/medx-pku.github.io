@@ -149,17 +149,9 @@
         "title": "Expert Team",
         "description": "Collaborate with leading researchers from Peking University, University of Hong Kong, University of Edinburgh, and top medical institutions."
       },
-      "innovation": {
-        "title": "Innovation Environment",
-        "description": "Thrive in a culture that encourages creativity, experimentation, and pushing boundaries."
-      },
       "impact": {
         "title": "Real-world Impact",
         "description": "See your work translate into practical applications that help doctors and patients worldwide."
-      },
-      "resources": {
-        "title": "Abundant Resources",
-        "description": "Access state-of-the-art computing resources, extensive datasets, and modern lab facilities."
       },
       "growth": {
         "title": "Career Growth",
@@ -168,13 +160,10 @@
     },
     "positions": {
       "title": "Open Positions",
-      "subtitle": "Explore current opportunities to join our team and contribute to cutting-edge medical AI research.",
+      "subtitle": "We are looking for undergraduate and master's students passionate about AI for Healthcare research.",
+      "description": "Research Assistant positions are open for students interested in pursuing PhD and AI for Healthcare research.",
       "types": {
-        "postdoc": "Postdoctoral",
-        "phd": "PhD Candidate",
-        "master": "Master's Student",
-        "intern": "Intern",
-        "fulltime": "Full-time"
+        "research_assistant": "Research Assistant"
       },
       "locations": {
         "beijing": "Beijing",
