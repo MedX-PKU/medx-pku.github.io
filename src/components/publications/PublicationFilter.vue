@@ -8,7 +8,7 @@
       >
         <div class="flex items-center gap-2">
           <svg
-            class="w-4 h-4 text-primary-blue transition-transform duration-200"
+            class="w-5 h-5 text-primary-blue transition-transform duration-200"
             :class="{ 'rotate-180': filterExpanded }"
             fill="none"
             stroke="currentColor"
@@ -21,9 +21,9 @@
               d="M19 9l-7 7-7-7"
             />
           </svg>
-          <span class="text-sm font-medium text-text-gray">Filters</span>
+          <span class="text-base font-medium text-text-gray">Filters</span>
         </div>
-        <span class="text-xs text-text-gray-light">
+        <span class="text-sm text-text-gray-light">
           {{ filterExpanded ? "Hide" : "Show" }}
         </span>
       </button>
@@ -34,14 +34,14 @@
       <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
         <div class="flex items-center gap-2 flex-1 min-w-0">
           <input
-            class="flex-1 min-w-[200px] px-3 py-2 border border-primary-blue/30 rounded-md text-sm focus:ring-1 focus:ring-primary-blue focus:border-primary-blue transition-all duration-200"
+            class="flex-1 min-w-[200px] px-3 py-2 border border-primary-blue/30 rounded-md text-base focus:ring-1 focus:ring-primary-blue focus:border-primary-blue transition-all duration-200"
             type="text"
             :value="searchQuery"
             placeholder="Search publications..."
             @input="emit('update:searchQuery', $event.target.value)"
           >
           <select
-            class="px-3 py-2 border border-primary-blue/30 rounded-md text-sm focus:ring-1 focus:ring-primary-blue focus:border-primary-blue transition-all duration-200 flex-shrink-0"
+            class="px-3 py-2 border border-primary-blue/30 rounded-md text-base focus:ring-1 focus:ring-primary-blue focus:border-primary-blue transition-all duration-200 flex-shrink-0"
             :value="selectedYear"
             @change="emit('update:selectedYear', $event.target.value)"
           >
@@ -57,7 +57,7 @@
             </option>
           </select>
         </div>
-        <div class="text-xs text-text-gray-light space-x-3 lg:space-x-4 hidden sm:block">
+        <div class="text-sm text-text-gray-light space-x-3 lg:space-x-4 hidden sm:block">
           <span>
             <sup class="text-text-gray font-bold">*</sup> Co-first author
           </span>
@@ -68,7 +68,7 @@
       </div>
       <div class="flex flex-wrap gap-1.5">
         <button
-          class="px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 interactive-element flex items-center"
+          class="px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 interactive-element flex items-center"
           :class="selectedTag === ''
             ? 'bg-primary-blue text-white'
             : 'bg-bg-light text-text-gray hover:bg-primary-blue/10'"
@@ -78,7 +78,7 @@
           <span class="ml-1 opacity-75">({{ featuredCount }})</span>
         </button>
         <button
-          class="px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 interactive-element flex items-center"
+          class="px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 interactive-element flex items-center"
           :class="selectedTag === 'All'
             ? 'bg-primary-blue text-white'
             : 'bg-bg-light text-text-gray hover:bg-primary-blue/10'"
@@ -90,7 +90,7 @@
         <button
           v-for="tag in publicationTags"
           :key="tag.name"
-          class="px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 interactive-element flex items-center"
+          class="px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 interactive-element flex items-center"
           :class="selectedTag === tag.name
             ? 'bg-primary-blue text-white'
             : 'bg-bg-light text-text-gray hover:bg-primary-blue/10'"
@@ -101,7 +101,7 @@
         </button>
       </div>
       <!-- Mobile legend -->
-      <div class="text-xs text-text-gray-light space-x-3 mt-3 sm:hidden">
+      <div class="text-sm text-text-gray-light space-x-3 mt-3 sm:hidden">
         <span>
           <sup class="text-text-gray font-bold">*</sup> Co-first author
         </span>

@@ -16,7 +16,7 @@
 
     <!-- Publications Content -->
     <section class="py-16 bg-gray-50">
-      <div class="max-w-7xl mx-auto px-3 sm:px-5 lg:px-7">
+      <div class="max-w-7xl mx-auto px-2 sm:px-3 lg:px-4">
         <div class="academic-card rounded-lg flex-1 overflow-hidden flex flex-col animate-scale-in">
           <!-- Filter Section -->
           <PublicationFilter
@@ -30,7 +30,7 @@
           />
 
           <!-- Publication List -->
-          <div class="flex-1 overflow-y-auto scrollable-container p-6 lg:p-8 pt-1 lg:pt-1">
+          <div class="flex-1 overflow-y-auto scrollable-container p-4 lg:p-6 pt-1 lg:pt-1">
             <div v-if="filteredPublications.length > 0" class="space-y-2">
               <PublicationItem
                 v-for="pub in filteredPublications"
