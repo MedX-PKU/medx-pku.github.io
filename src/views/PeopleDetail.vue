@@ -22,11 +22,38 @@
           <div class="text-center md:text-left flex-1">
             <h1 class="text-4xl font-bold mb-2">{{ member.name }}</h1>
             <p class="text-xl text-blue-100 mb-4">{{ member.title }}</p>
-            <div v-if="member.email" class="flex items-center justify-center md:justify-start text-blue-100">
+            <div v-if="member.email" class="flex items-center justify-center md:justify-start text-blue-100 mb-4">
               <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
               </svg>
               <span>{{ member.email }}</span>
+            </div>
+            <!-- Links Section in Header -->
+            <div v-if="member.links && member.links.length > 0" class="flex flex-wrap gap-2 justify-center md:justify-start mb-4">
+              <a
+                v-for="link in member.links"
+                :key="link.url"
+                :href="link.url"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center px-3 py-1.5 bg-white/20 backdrop-blur-sm border border-white/30 text-white rounded-lg hover:bg-white/30 hover:border-white/50 transition-all duration-200 group"
+              >
+                <span class="text-sm mr-1.5 group-hover:scale-110 transition-transform duration-200">
+                  {{ getLinkIcon(link.type) }}
+                </span>
+                <span class="text-xs font-medium">{{ getLinkText(link.type) }}</span>
+              </a>
+            </div>
+
+            <!-- Research Interests Section in Header -->
+            <div v-if="member.researchInterests && member.researchInterests.length > 0" class="flex flex-wrap gap-1.5 justify-center md:justify-start">
+              <span
+                v-for="interest in member.researchInterests"
+                :key="interest"
+                class="inline-flex items-center px-3 py-1 bg-white/10 backdrop-blur-sm border border-white/20 text-white rounded-full text-xs font-medium"
+              >
+                {{ interest }}
+              </span>
             </div>
           </div>
         </div>
@@ -46,7 +73,7 @@
         <h2 class="text-2xl font-bold text-gray-900 mb-8">{{ $t('member.timeline') }}</h2>
         <div class="relative">
           <!-- Timeline line -->
-          <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-blue-200"></div>
+          <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-gray-300"></div>
 
           <!-- Timeline items -->
           <div class="space-y-8">
@@ -57,7 +84,7 @@
             >
               <!-- Timeline dot -->
               <div class="relative z-10 flex-shrink-0">
-                <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold shadow-lg">
+                <div class="w-16 h-16 bg-gradient-to-br from-gray-50 to-gray-100 border-2 border-gray-200 rounded-full flex items-center justify-center text-2xl shadow-lg">
                   {{ getTimelineIcon(item.type) }}
                 </div>
               </div>
@@ -91,40 +118,7 @@
         </div>
       </div>
 
-      <!-- Research Interests Section -->
-      <div v-if="member.researchInterests && member.researchInterests.length > 0" class="mb-12">
-        <h2 class="text-2xl font-bold text-gray-900 mb-4">{{ $t('member.researchInterests') }}</h2>
-        <div class="flex flex-wrap gap-2">
-          <span
-            v-for="interest in member.researchInterests"
-            :key="interest"
-            class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium"
-          >
-            {{ interest }}
-          </span>
-        </div>
       </div>
-
-      <!-- Links Section -->
-      <div v-if="member.links && member.links.length > 0" class="mb-12">
-        <h2 class="text-2xl font-bold text-gray-900 mb-4">{{ $t('member.links') }}</h2>
-        <div class="flex flex-wrap gap-4">
-          <a
-            v-for="link in member.links"
-            :key="link.url"
-            :href="link.url"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-          >
-            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-            </svg>
-            {{ getLinkText(link.type) }}
-          </a>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -245,11 +239,25 @@ export default {
       return texts[isZh ? 'zh' : 'en'][type] || type
     }
 
+    const getLinkIcon = (type) => {
+      const icons = {
+        homepage: '🌐',
+        scholar: '🎓',
+        github: '💻',
+        linkedin: '💼',
+        twitter: '🐦',
+        orcid: '🆔',
+        researchgate: '🔬'
+      }
+      return icons[type] || '🔗'
+    }
+
     return {
       member,
       loading,
       getTimelineIcon,
-      getLinkText
+      getLinkText,
+      getLinkIcon
     }
   }
 }
