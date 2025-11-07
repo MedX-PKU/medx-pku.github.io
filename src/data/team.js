@@ -9,8 +9,8 @@ export const teamData = [
       en: 'Research Center Director'
     },
     title: {
-      zh: '北京大学软件工程国家工程研究中心主任、教授、博士生导师',
-      en: 'Director, Professor and Doctoral Supervisor, National Engineering Research Center for Software Engineering, Peking University'
+      zh: '中心主任、教授、博士生导师',
+      en: 'Director, Professor and Doctoral Supervisor'
     },
     email: 'wangyasha [at] pku.edu.cn',
     bio: {
@@ -24,24 +24,51 @@ export const teamData = [
     timeline: [
       {
         type: 'work',
-        title: '研究中心主任',
-        organization: '北京大学软件工程国家工程研究中心',
+        title: {
+          zh: '研究中心主任',
+          en: 'Research Center Director'
+        },
+        organization: {
+          zh: '北京大学软件工程国家工程研究中心',
+          en: 'National Engineering Research Center for Software Engineering, Peking University'
+        },
         period: '2015 - Present',
-        description: '负责研究中心的整体战略规划，推动医学与人工智能交叉领域的创新发展。'
+        description: {
+          zh: '负责研究中心的整体战略规划，推动医学与人工智能交叉领域的创新发展。',
+          en: 'Responsible for the overall strategic planning of the research center, promoting innovative development in the intersection of medicine and artificial intelligence.'
+        }
       },
       {
         type: 'work',
-        title: '教授、博士生导师',
-        organization: '北京大学',
+        title: {
+          zh: '教授、博士生导师',
+          en: 'Professor and Doctoral Supervisor'
+        },
+        organization: {
+          zh: '北京大学',
+          en: 'Peking University'
+        },
         period: '2010 - Present',
-        description: '从事医学信息学、人工智能在医疗领域的应用等方向的教学和科研工作。'
+        description: {
+          zh: '从事医学信息学、人工智能在医疗领域的应用等方向的教学和科研工作。',
+          en: 'Engaged in teaching and research work in medical informatics and artificial intelligence applications in healthcare.'
+        }
       },
       {
         type: 'education',
-        title: '博士',
-        organization: '东北大学',
+        title: {
+          zh: '博士',
+          en: 'PhD'
+        },
+        organization: {
+          zh: '东北大学',
+          en: 'Northeastern University'
+        },
         period: '2003',
-        description: '计算机科学与技术专业'
+        description: {
+          zh: '计算机科学与技术专业',
+          en: 'Computer Science and Technology'
+        }
       }
     ],
     researchInterests: {
@@ -60,8 +87,8 @@ export const teamData = [
       en: 'Lab Director'
     },
     title: {
-      zh: '北京大学软件工程国家工程研究中心研究型助理教授、硕士生导师',
-      en: 'Research Assistant Professor, Master Supervisor, National Engineering Research Center for Software Engineering, Peking University'
+      zh: '研究型助理教授、硕士生导师',
+      en: 'Research Assistant Professor, Master Supervisor'
     },
     email: 'malt [at] pku.edu.cn',
     bio: {
@@ -76,31 +103,67 @@ export const teamData = [
     timeline: [
       {
         type: 'work',
-        title: '实验室负责人',
-        organization: '医维矩阵实验室',
+        title: {
+          zh: '实验室负责人',
+          en: 'Lab Director'
+        },
+        organization: {
+          zh: '医维矩阵实验室',
+          en: 'MedX Lab'
+        },
         period: '2022 - Present',
-        description: '负责实验室的整体规划和研究方向制定，推动医学信息学和人工智能交叉研究。'
+        description: {
+          zh: '负责实验室的整体规划和研究方向制定，推动医学信息学和人工智能交叉研究。',
+          en: 'Responsible for the overall planning and research direction setting of the lab, promoting interdisciplinary research in medical informatics and artificial intelligence.'
+        }
       },
       {
         type: 'work',
-        title: '研究型助理教授',
-        organization: '北京大学软件工程国家工程研究中心',
+        title: {
+          zh: '研究型助理教授',
+          en: 'Research Assistant Professor'
+        },
+        organization: {
+          zh: '北京大学软件工程国家工程研究中心',
+          en: 'National Engineering Research Center for Software Engineering, Peking University'
+        },
         period: '2023 - Present',
-        description: '从事医学信息学、深度学习在医疗领域应用的研究和教学工作。'
+        description: {
+          zh: '从事医学信息学、深度学习在医疗领域应用的研究和教学工作。',
+          en: 'Engaged in research and teaching work in medical informatics and deep learning applications in healthcare.'
+        }
       },
       {
         type: 'education',
-        title: '博士',
-        organization: '北京大学',
+        title: {
+          zh: '博士',
+          en: 'PhD'
+        },
+        organization: {
+          zh: '北京大学',
+          en: 'Peking University'
+        },
         period: '2016 - 2021',
-        description: '计算机软件与理论专业博士'
+        description: {
+          zh: '计算机软件与理论专业博士',
+          en: 'PhD in Computer Software and Theory'
+        }
       },
       {
         type: 'education',
-        title: '本科',
-        organization: '北京航空航天大学',
+        title: {
+          zh: '本科',
+          en: 'Bachelor\'s Degree'
+        },
+        organization: {
+          zh: '北京航空航天大学',
+          en: 'Beihang University'
+        },
         period: '2012 - 2016',
-        description: '软件工程专业学士'
+        description: {
+          zh: '软件工程专业学士',
+          en: 'Bachelor\'s Degree in Software Engineering'
+        }
       }
     ],
     researchInterests: {

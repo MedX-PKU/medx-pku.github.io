@@ -152,23 +152,6 @@ export default {
       loading.value = false
     })
 
-    const member = computed(() => {
-      if (!memberData.value) return {}
-
-      const currentLocale = locale.value
-      const isZh = currentLocale === 'zh'
-
-      return {
-        ...memberData.value,
-        name: memberData.value.name?.[isZh ? 'zh' : 'en'] || memberData.value.name?.en || memberData.value.name,
-        title: memberData.value.title?.[isZh ? 'zh' : 'en'] || memberData.value.title?.en || memberData.value.title,
-        bio: memberData.value.bio?.[isZh ? 'zh' : 'en'] || memberData.value.bio?.en || memberData.value.bio,
-        position: memberData.value.position?.[isZh ? 'zh' : 'en'] || memberData.value.position?.en || memberData.value.position,
-        timeline: memberData.value.timeline || generateDefaultTimeline(memberData.value),
-        researchInterests: memberData.value.researchInterests?.[isZh ? 'zh' : 'en'] || memberData.value.researchInterests || []
-      }
-    })
-
     const getTimelineIcon = (type) => {
       const icons = {
         education: '🎓',
@@ -181,43 +164,85 @@ export default {
       return icons[type] || icons.default
     }
 
-    const getLinkText = (type) => {
-      const texts = {
-        homepage: '个人主页',
-        scholar: 'Google Scholar',
-        github: 'GitHub',
-        linkedin: 'LinkedIn',
-        twitter: 'Twitter'
-      }
-      return texts[type] || type
-    }
-
     const generateDefaultTimeline = (member) => {
       const timeline = []
+      const currentLocale = locale.value
+      const isZh = currentLocale === 'zh'
 
       // Current position
       if (member.position) {
+        const positionText = member.position?.[isZh ? 'zh' : 'en'] || member.position || member.position?.en
+        const bioText = member.bio?.[isZh ? 'zh' : 'en'] || member.bio || member.bio?.en
+
         timeline.push({
           type: 'work',
-          title: member.position,
-          organization: '北京大学',
+          title: positionText,
+          organization: isZh ? '北京大学' : 'Peking University',
           period: 'Present',
-          description: member.bio.zh || member.bio.en
+          description: bioText
         })
       }
 
       // Add education placeholder if student
-      if (member.position && member.position.includes('学生')) {
+      const positionText = member.position?.[isZh ? 'zh' : 'en'] || member.position || member.position?.en
+      if (positionText && (positionText.includes('学生') || positionText.includes('Student'))) {
         timeline.push({
           type: 'education',
-          title: '在读学位',
-          organization: '北京大学',
+          title: isZh ? '在读学位' : 'Current Degree',
+          organization: isZh ? '北京大学' : 'Peking University',
           period: 'Ongoing',
-          description: '正在攻读相关学位'
+          description: isZh ? '正在攻读相关学位' : 'Currently pursuing relevant degree'
         })
       }
 
       return timeline
+    }
+
+    const member = computed(() => {
+      if (!memberData.value) return {}
+
+      const currentLocale = locale.value
+      const isZh = currentLocale === 'zh'
+
+      return {
+        ...memberData.value,
+        name: memberData.value.name?.[isZh ? 'zh' : 'en'] || memberData.value.name?.en || memberData.value.name,
+        title: memberData.value.title?.[isZh ? 'zh' : 'en'] || memberData.value.title?.en || memberData.value.title,
+        bio: memberData.value.bio?.[isZh ? 'zh' : 'en'] || memberData.value.bio?.en || memberData.value.bio,
+        position: memberData.value.position?.[isZh ? 'zh' : 'en'] || memberData.value.position?.en || memberData.value.position,
+        timeline: (memberData.value.timeline || generateDefaultTimeline(memberData.value)).map(item => ({
+        ...item,
+        title: item.title?.[isZh ? 'zh' : 'en'] || item.title,
+        organization: item.organization?.[isZh ? 'zh' : 'en'] || item.organization,
+        description: item.description?.[isZh ? 'zh' : 'en'] || item.description,
+        achievements: item.achievements
+      })),
+        researchInterests: memberData.value.researchInterests?.[isZh ? 'zh' : 'en'] || memberData.value.researchInterests || []
+      }
+    })
+
+    
+    const getLinkText = (type) => {
+      const currentLocale = locale.value
+      const isZh = currentLocale === 'zh'
+
+      const texts = {
+        zh: {
+          homepage: '个人主页',
+          scholar: 'Google Scholar',
+          github: 'GitHub',
+          linkedin: 'LinkedIn',
+          twitter: 'Twitter'
+        },
+        en: {
+          homepage: 'Homepage',
+          scholar: 'Google Scholar',
+          github: 'GitHub',
+          linkedin: 'LinkedIn',
+          twitter: 'Twitter'
+        }
+      }
+      return texts[isZh ? 'zh' : 'en'][type] || type
     }
 
     return {
