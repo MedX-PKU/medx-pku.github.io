@@ -24,7 +24,7 @@ Medical AI Laboratory at Peking University
 
 ## 🎯 About
 
-MedX Lab (医维矩阵实验室) is a laboratory supported by the National Engineering Research Center for Software Engineering (NERC) at Peking University, led by Professor Yasha Wang and managed by Research Assistant Professor Liantao Ma. The lab collaborates extensively with the University of Hong Kong, the University of Edinburgh, and other institutions. Our collaborating hospitals include Peking University Third Hospital, Peking University Cancer Hospital, and others.
+MedX Lab (医维矩阵实验室) is a laboratory supported by the National Engineering Research Center for Software Engineering at Peking University, led by Professor Yasha Wang and managed by Research Assistant Professor Liantao Ma. The lab collaborates extensively with the University of Hong Kong, the University of Edinburgh, and other institutions. Our collaborating hospitals include Peking University Third Hospital, Peking University Cancer Hospital, and others.
 
 Our research focuses on:
 - 🧠 **Large Language Models** for medical applications
@@ -182,7 +182,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- National Engineering Research Center for Software Engineering (NERC) at Peking University
+- National Engineering Research Center for Software Engineering at Peking University
 - Professor Yasha Wang and the NERC leadership
 - Our collaborating institutions: University of Hong Kong, University of Edinburgh, and others
 - Our collaborating hospitals: Peking University Third Hospital, Peking University Cancer Hospital, and others
