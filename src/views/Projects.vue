@@ -40,10 +40,10 @@
           <div
             v-for="project in filteredProjects"
             :key="project.id"
-            class="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group"
+            class="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden group flex flex-col"
           >
             <!-- Project Header -->
-            <div class="p-6 border-b border-gray-100">
+            <div class="p-6 border-b border-gray-100 flex-grow">
               <div class="flex items-center justify-between mb-4">
                 <span
                   :class="[
@@ -82,51 +82,28 @@
             </div>
 
             <!-- Project Actions -->
-            <div class="px-6 py-4 bg-gray-50 flex items-center justify-between">
+            <div class="px-6 py-4 bg-gray-50 flex items-center justify-between flex-shrink-0">
               <div class="flex space-x-3">
                 <a
-                  v-if="project.github"
+                  v-if="project.category === 'tool' && project.github"
                   :href="project.github"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors duration-200"
-                  :title="$t('projects.github')"
+                  title="GitHub"
                 >
-                  <ShareIcon class="w-5 h-5" />
+                  <CodeBracketSquareIcon class="w-5 h-5" />
                 </a>
                 <a
-                  v-if="project.demo"
+                  v-if="project.category === 'website' && project.demo"
                   :href="project.demo"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors duration-200"
-                  :title="$t('projects.demo')"
+                  title="Website"
                 >
                   <GlobeAltIcon class="w-5 h-5" />
                 </a>
-                <a
-                  v-if="project.documentation"
-                  :href="project.documentation"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors duration-200"
-                  :title="$t('projects.documentation')"
-                >
-                  <BookOpenIcon class="w-5 h-5" />
-                </a>
-              </div>
-
-              <div v-if="project.status" class="flex items-center">
-                <span
-                  :class="[
-                    'inline-flex items-center px-2 py-1 rounded text-xs font-medium',
-                    project.status === 'active' ? 'bg-green-100 text-green-800' :
-                    project.status === 'maintenance' ? 'bg-yellow-100 text-yellow-800' :
-                    'bg-gray-100 text-gray-800'
-                  ]"
-                >
-                  {{ $t(`projects.status.${project.status}`) }}
-                </span>
               </div>
             </div>
           </div>
@@ -148,120 +125,19 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import {
   CodeBracketIcon,
   GlobeAltIcon,
   BookOpenIcon,
   CpuChipIcon,
-  ShareIcon
+  ShareIcon,
+  CodeBracketSquareIcon
 } from '@heroicons/vue/24/outline'
 
 // Reactive data
 const selectedCategory = ref('all')
-
-// Projects data
-const projectsData = [
-  {
-    id: 1,
-    title: 'MedX Platform',
-    description: '综合性医学AI研究平台，集成大语言模型、数据管理和可视化工具，为医学研究提供一站式解决方案。',
-    category: 'tool',
-    date: '2024-11-01',
-    status: 'active',
-    technologies: ['Vue.js', 'Python', 'FastAPI', 'PostgreSQL', 'Docker'],
-    github: 'https://github.com/medx-pku/platform',
-    demo: 'https://demo.medx-pku.com',
-    documentation: 'https://docs.medx-pku.com'
-  },
-  {
-    id: 2,
-    title: 'MedAgentBoard',
-    description: '医疗AI多智能体评测基准，用于系统性评估AI智能体在复杂医疗任务中的表现。',
-    category: 'tool',
-    date: '2024-10-15',
-    status: 'active',
-    technologies: ['Python', 'PyTorch', 'Hugging Face', 'Docker'],
-    github: 'https://github.com/medx-pku/medagentboard',
-    documentation: 'https://github.com/medx-pku/medagentboard/blob/main/README.md'
-  },
-  {
-    id: 3,
-    title: 'ColaCare',
-    description: '协作式医疗AI系统，模拟多学科会诊模式，提高AI在复杂疾病诊断中的准确性。',
-    category: 'tool',
-    date: '2024-09-20',
-    status: 'active',
-    technologies: ['Python', 'LangChain', 'OpenAI GPT', 'FastAPI'],
-    github: 'https://github.com/medx-pku/colacare',
-    demo: 'https://colacare.medx-pku.com'
-  },
-  {
-    id: 4,
-    title: 'medx-nlp',
-    description: '医学自然语言处理Python包，提供中文医学文本处理、实体识别和关系抽取功能。',
-    category: 'tool',
-    date: '2024-08-10',
-    status: 'active',
-    technologies: ['Python', 'spaCy', 'transformers', 'pandas'],
-    github: 'https://github.com/medx-pku/medx-nlp',
-    documentation: 'https://medx-nlp.readthedocs.io'
-  },
-  {
-    id: 5,
-    title: 'ehr-analyzer',
-    description: '电子病历数据分析工具包，支持医疗数据清洗、特征提取和预测模型训练。',
-    category: 'tool',
-    date: '2024-07-05',
-    status: 'maintenance',
-    technologies: ['Python', 'scikit-learn', 'pandas', 'numpy'],
-    github: 'https://github.com/medx-pku/ehr-analyzer',
-    documentation: 'https://ehr-analyzer.readthedocs.io'
-  },
-  {
-    id: 6,
-    title: 'medx-visualization',
-    description: '医学数据可视化库，专为医疗数据设计的图表和可视化组件。',
-    category: 'tool',
-    date: '2024-06-15',
-    status: 'active',
-    technologies: ['JavaScript', 'D3.js', 'React', 'Vue.js'],
-    github: 'https://github.com/medx-pku/medx-visualization',
-    documentation: 'https://medx-visualization.readthedocs.io'
-  },
-  {
-    id: 7,
-    title: 'MedX Lab Website',
-    description: '实验室官方网站，展示研究成果、团队信息和最新动态。',
-    category: 'website',
-    date: '2024-05-01',
-    status: 'active',
-    technologies: ['Vue.js', 'Tailwind CSS', 'Vite', 'Netlify'],
-    github: 'https://github.com/medx-pku/website',
-    demo: 'https://medx-pku.github.io'
-  },
-  {
-    id: 8,
-    title: 'Medical AI Benchmark Dashboard',
-    description: '医疗AI评测结果可视化仪表板，实时显示各种模型的性能指标。',
-    category: 'website',
-    date: '2024-04-10',
-    status: 'active',
-    technologies: ['React', 'TypeScript', 'Chart.js', 'Node.js'],
-    github: 'https://github.com/medx-pku/benchmark-dashboard',
-    demo: 'https://benchmark.medx-pku.com'
-  },
-  {
-    id: 9,
-    title: 'Clinical Decision Support System',
-    description: '临床决策支持系统原型，为医生提供AI驱动的诊断建议。',
-    category: 'tool',
-    date: '2024-03-15',
-    status: 'development',
-    technologies: ['Python', 'TensorFlow', 'Flask', 'Docker'],
-    github: 'https://github.com/medx-pku/cdss'
-  }
-]
+const projectsData = ref([])
 
 // Project categories
 const projectCategories = [
@@ -270,12 +146,32 @@ const projectCategories = [
   { id: 'website', label: 'projects.categories.website', icon: GlobeAltIcon }
 ]
 
+// Load projects from JSON
+const loadProjects = async () => {
+  try {
+    const response = await fetch('/data/projects.json')
+    const data = await response.json()
+    // Auto-assign IDs based on array index + 1
+    projectsData.value = data.map((project, index) => ({
+      ...project,
+      id: index + 1
+    }))
+  } catch (error) {
+    console.error('Error loading projects:', error)
+  }
+}
+
+// Load projects on component mount
+onMounted(() => {
+  loadProjects()
+})
+
 // Computed properties
 const filteredProjects = computed(() => {
   if (selectedCategory.value === 'all') {
-    return projectsData
+    return projectsData.value
   }
-  return projectsData.filter(project => project.category === selectedCategory.value)
+  return projectsData.value.filter(project => project.category === selectedCategory.value)
 })
 
 // Methods
