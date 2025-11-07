@@ -64,6 +64,7 @@ export default {
         const centerDirectorData = teamData.find(member => member.isCenterDirector)
         if (centerDirectorData) {
           centerDirector.value = {
+            id: centerDirectorData.id,
             name: centerDirectorData.name.zh || centerDirectorData.name.en,
             title: centerDirectorData.title.zh || centerDirectorData.title.en,
             email: centerDirectorData.email,
@@ -76,6 +77,7 @@ export default {
         const labDirectorData = teamData.find(member => member.isLabDirector)
         if (labDirectorData) {
           labDirector.value = {
+            id: labDirectorData.id,
             name: labDirectorData.name.zh || labDirectorData.name.en,
             title: labDirectorData.title.zh || labDirectorData.title.en,
             email: labDirectorData.email,
@@ -86,6 +88,7 @@ export default {
 
         // Set team members (excluding directors)
         teamMembers.value = teamData.filter(member => !member.isCenterDirector && !member.isLabDirector).map(member => ({
+          id: member.id,
           name: member.name.zh || member.name.en,
           title: member.title.zh || member.title.en,
           email: member.email,

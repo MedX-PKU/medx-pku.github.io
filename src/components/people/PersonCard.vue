@@ -1,5 +1,9 @@
 <template>
-  <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 relative" :class="{'border-2 border-purple-500': person.isCenterDirector, 'border-2 border-blue-500': person.isLabDirector, 'border border-gray-200': !person.isCenterDirector && !person.isLabDirector}">
+  <div
+    @click="goToDetail"
+    class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 relative cursor-pointer hover:scale-105"
+    :class="{'border-2 border-purple-500': person.isCenterDirector, 'border-2 border-blue-500': person.isLabDirector, 'border border-gray-200': !person.isCenterDirector && !person.isLabDirector}"
+  >
     <!-- Research Center Director Badge -->
     <div v-if="person.isCenterDirector" class="absolute -top-3 left-1/2 transform -translate-x-1/2">
       <span class="bg-purple-600 text-white px-4 py-1 rounded-full text-xs font-bold shadow-md">
@@ -57,12 +61,27 @@
 </template>
 
 <script>
+import { useRouter } from 'vue-router'
+
 export default {
   name: 'PersonCard',
   props: {
     person: {
       type: Object,
       required: true
+    }
+  },
+  setup(props) {
+    const router = useRouter()
+
+    const goToDetail = () => {
+      if (props.person.id) {
+        router.push(`/people/${props.person.id}`)
+      }
+    }
+
+    return {
+      goToDetail
     }
   }
 }

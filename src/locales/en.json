@@ -367,6 +367,13 @@
     "noProjects": "No Projects Found",
     "noProjectsDescription": "There are no projects in this category at the moment. Please check back later."
   },
+  "member": {
+    "detail": "Member Detail",
+    "biography": "Biography",
+    "timeline": "Timeline",
+    "researchInterests": "Research Interests",
+    "links": "Links"
+  },
   "common": {
     "readMore": "Read More",
     "viewAll": "View All",
@@ -374,6 +381,7 @@
     "paper": "Paper",
     "code": "Code",
     "demo": "Demo",
-    "slides": "Slides"
+    "slides": "Slides",
+    "back": "Back"
   }
 }
