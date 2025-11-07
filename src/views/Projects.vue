@@ -125,7 +125,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed } from 'vue'
 import {
   CodeBracketIcon,
   GlobeAltIcon,
@@ -134,10 +134,16 @@ import {
   ShareIcon,
   CodeBracketSquareIcon
 } from '@heroicons/vue/24/outline'
+import { projects as projectsDataRaw } from '@/data/projects.js'
 
 // Reactive data
 const selectedCategory = ref('all')
-const projectsData = ref([])
+
+// Initialize projects data with imported data and auto-assign IDs
+const projectsData = ref(projectsDataRaw.map((project, index) => ({
+  ...project,
+  id: index + 1
+})))
 
 // Project categories
 const projectCategories = [
@@ -145,26 +151,6 @@ const projectCategories = [
   { id: 'tool', label: 'projects.categories.tool', icon: CodeBracketIcon },
   { id: 'website', label: 'projects.categories.website', icon: GlobeAltIcon }
 ]
-
-// Load projects from JSON
-const loadProjects = async () => {
-  try {
-    const response = await fetch('/src/data/projects.json')
-    const data = await response.json()
-    // Auto-assign IDs based on array index + 1
-    projectsData.value = data.map((project, index) => ({
-      ...project,
-      id: index + 1
-    }))
-  } catch (error) {
-    console.error('Error loading projects:', error)
-  }
-}
-
-// Load projects on component mount
-onMounted(() => {
-  loadProjects()
-})
 
 // Computed properties
 const filteredProjects = computed(() => {
