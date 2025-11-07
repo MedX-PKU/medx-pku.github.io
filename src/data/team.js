@@ -98,7 +98,7 @@ export const teamData = [
     image: '/images/team/ma-liantao.svg',
     links: [
       { type: 'homepage', url: 'http://scholar.pku.edu.cn/malt/' },
-      { type: 'scholar', url: 'https://scholar.google.com/citations?user=LYrsSoEAAAAJ' }
+      { type: 'scholar', url: 'https://scholar.google.com/citations?user=necbkJkAAAAJ' }
     ],
     timeline: [
       {
