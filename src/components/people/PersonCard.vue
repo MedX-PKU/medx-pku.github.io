@@ -75,8 +75,9 @@ export default {
     const router = useRouter()
 
     const goToDetail = () => {
-      if (props.person.id) {
-        router.push(`/people/${props.person.id}`)
+      if (props.person.nameEn) {
+        const nameParam = props.person.nameEn.toLowerCase().replace(/\s+/g, '-')
+        router.push(`/people/${nameParam}`)
       }
     }
 

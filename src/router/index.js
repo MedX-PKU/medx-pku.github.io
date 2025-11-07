@@ -59,9 +59,9 @@ const routes = [
     }
   },
   {
-    path: '/people/:id',
-    name: 'MemberDetail',
-    component: () => import('@/views/MemberDetail.vue'),
+    path: '/people/:name',
+    name: 'PeopleDetail',
+    component: () => import('@/views/PeopleDetail.vue'),
     meta: {
       title: 'member.detail'
     }

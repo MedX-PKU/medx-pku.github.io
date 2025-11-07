@@ -1,6 +1,5 @@
 export const teamData = [
   {
-    id: 1,
     name: {
       zh: '王亚沙',
       en: 'Yasha Wang'
@@ -50,7 +49,6 @@ export const teamData = [
     isCenterDirector: true
   },
   {
-    id: 2,
     name: {
       zh: '马连韬',
       en: 'Liantao Ma'
@@ -100,7 +98,6 @@ export const teamData = [
     isLabDirector: true
   },
   {
-    id: 3,
     name: {
       zh: '张三',
       en: 'San Zhang'
@@ -142,115 +139,5 @@ export const teamData = [
     ],
     researchInterests: ['医学图像处理', '深度学习', '计算机视觉', '医疗诊断', '图像分割'],
     research: 'Medical image processing, deep learning in diagnosis'
-  },
-  {
-    id: 4,
-    name: {
-      zh: '李四',
-      en: 'Si Li'
-    },
-    position: {
-      zh: '硕士研究生',
-      en: 'Master Student'
-    },
-    title: {
-      zh: '2022级硕士研究生',
-      en: 'Master Student, Class of 2022'
-    },
-    email: 'lisi [at] pku.edu.cn',
-    bio: {
-      zh: '研究方向：自然语言处理在电子病历分析中的应用。',
-      en: 'Research interests: Natural language processing in electronic medical record analysis.'
-    },
-    image: '/images/team/li-si.svg',
-    research: 'NLP in electronic medical record analysis'
-  },
-  {
-    id: 5,
-    name: {
-      zh: '王五',
-      en: 'Wu Wang'
-    },
-    position: {
-      zh: '博士研究生',
-      en: 'PhD Student'
-    },
-    title: {
-      zh: '2020级博士研究生',
-      en: 'PhD Student, Class of 2020'
-    },
-    email: 'wangwu [at] pku.edu.cn',
-    bio: {
-      zh: '研究方向：医疗知识图谱构建与应用、药物推荐系统。',
-      en: 'Research interests: Medical knowledge graph construction and applications, drug recommendation systems.'
-    },
-    image: '/images/team/wang-wu.svg',
-    research: 'Medical knowledge graphs, drug recommendation systems'
-  },
-  {
-    id: 6,
-    name: {
-      zh: '赵六',
-      en: 'Liu Zhao'
-    },
-    position: {
-      zh: '硕士研究生',
-      en: 'Master Student'
-    },
-    title: {
-      zh: '2023级硕士研究生',
-      en: 'Master Student, Class of 2023'
-    },
-    email: 'zhaoliu [at] pku.edu.cn',
-    bio: {
-      zh: '研究方向：医疗大数据分析、疾病预测模型。',
-      en: 'Research interests: Medical big data analysis, disease prediction models.'
-    },
-    image: '/images/team/zhao-liu.svg',
-    research: 'Medical big data analysis, disease prediction'
-  },
-  {
-    id: 7,
-    name: {
-      zh: '陈七',
-      en: 'Qi Chen'
-    },
-    position: {
-      zh: '研究助理',
-      en: 'Research Assistant'
-    },
-    title: {
-      zh: '研究助理',
-      en: 'Research Assistant'
-    },
-    email: 'chenqi [at] pku.edu.cn',
-    bio: {
-      zh: '负责实验室数据管理与维护，参与医疗数据标准化项目。',
-      en: 'Responsible for laboratory data management and maintenance, participating in medical data standardization projects.'
-    },
-    image: '/images/team/chen-qi.svg',
-    research: 'Data management, medical data standardization'
-  },
-  {
-    id: 8,
-    name: {
-      zh: '孙八',
-      en: 'Ba Sun'
-    },
-    position: {
-      zh: '访问学生',
-      en: 'Visiting Student'
-    },
-    title: {
-      zh: '访问研究生',
-      en: 'Visiting Graduate Student'
-    },
-    email: 'sunba [at] pku.edu.cn',
-    bio: {
-      zh: '研究方向：医疗机器人、智能手术辅助系统。',
-      en: 'Research interests: Medical robotics, intelligent surgical assistance systems.'
-    },
-    image: '/images/team/sun-ba.svg',
-    research: 'Medical robotics, surgical assistance systems'
   }
 ]

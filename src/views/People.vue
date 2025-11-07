@@ -64,8 +64,8 @@ export default {
         const centerDirectorData = teamData.find(member => member.isCenterDirector)
         if (centerDirectorData) {
           centerDirector.value = {
-            id: centerDirectorData.id,
             name: centerDirectorData.name.zh || centerDirectorData.name.en,
+            nameEn: centerDirectorData.name.en,
             title: centerDirectorData.title.zh || centerDirectorData.title.en,
             email: centerDirectorData.email,
             image: centerDirectorData.image,
@@ -77,8 +77,8 @@ export default {
         const labDirectorData = teamData.find(member => member.isLabDirector)
         if (labDirectorData) {
           labDirector.value = {
-            id: labDirectorData.id,
             name: labDirectorData.name.zh || labDirectorData.name.en,
+            nameEn: labDirectorData.name.en,
             title: labDirectorData.title.zh || labDirectorData.title.en,
             email: labDirectorData.email,
             image: labDirectorData.image,
@@ -88,8 +88,8 @@ export default {
 
         // Set team members (excluding directors)
         teamMembers.value = teamData.filter(member => !member.isCenterDirector && !member.isLabDirector).map(member => ({
-          id: member.id,
           name: member.name.zh || member.name.en,
+          nameEn: member.name.en,
           title: member.title.zh || member.title.en,
           email: member.email,
           image: member.image,
@@ -101,6 +101,7 @@ export default {
         // Fallback data
         centerDirector.value = {
           name: 'Yasha Wang',
+          nameEn: 'Yasha Wang',
           title: 'Research Center Director',
           email: 'wangyasha [at] pku.edu.cn',
           image: '/images/team/wang-yasha.svg',
@@ -109,6 +110,7 @@ export default {
 
         labDirector.value = {
           name: 'Liantao Ma',
+          nameEn: 'Liantao Ma',
           title: 'Lab Director',
           email: 'malt [at] pku.edu.cn',
           image: '/images/team/ma-liantao.svg',

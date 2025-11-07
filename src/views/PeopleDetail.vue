@@ -134,15 +134,15 @@ import { useRoute } from 'vue-router'
 import { teamData } from '@/data/team.js'
 
 export default {
-  name: 'MemberDetail',
+  name: 'PeopleDetail',
   setup() {
     const route = useRoute()
     const member = ref({})
     const loading = ref(true)
 
     onMounted(() => {
-      const memberId = parseInt(route.params.id)
-      const memberData = teamData.find(m => m.id === memberId)
+      const memberName = route.params.name
+      const memberData = teamData.find(m => m.name.en.toLowerCase().replace(/\s+/g, '-') === memberName)
 
       if (memberData) {
         member.value = {
