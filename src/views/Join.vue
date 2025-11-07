@@ -187,8 +187,7 @@
               <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-600 text-white text-xl font-bold rounded-full mb-6 shadow-lg">
                 {{ index + 1 }}
               </div>
-              <div v-if="index < applicationProcess.length - 1" class="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-gradient-to-r from-blue-200 to-blue-400" style="transform: translateX(50%);"></div>
-            </div>
+                          </div>
 
             <!-- Step content -->
             <h3 class="text-xl font-bold text-gray-900 mb-3">
