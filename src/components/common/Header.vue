@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-white shadow-lg sticky top-0 z-50">
+  <header class="bg-white shadow-lg sticky top-0 z-50 w-full flex-shrink-0">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center py-4">
         <!-- Logo and Title -->
@@ -28,7 +28,7 @@
             v-for="item in navigationItems"
             :key="item.name"
             :to="item.path"
-            class="text-gray-600 hover:text-blue-600 font-medium transition-colors duration-200 border-b-2 border-transparent hover:border-blue-400"
+            class="text-gray-600 hover:text-blue-600 font-medium transition-colors duration-200 hover:border-blue-400"
             active-class="text-blue-600 border-blue-600"
           >
             {{ $t(item.label) }}

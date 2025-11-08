@@ -1,5 +1,51 @@
 @import "tailwindcss";
 
+/* 防止页面抖动的基础样式 */
+html {
+  scroll-behavior: smooth;
+  /* 防止滚动条出现/消失导致的页面偏移 */
+  overflow-y: scroll;
+  /* 确保100vh包含地址栏 */
+  height: -webkit-fill-available;
+  height: 100vh;
+}
+
+body {
+  /* 防止布局偏移 */
+  margin: 0;
+  padding: 0;
+  /* 防止移动端 bounce 效果 */
+  overscroll-behavior: none;
+}
+
+/* 确保应用容器占满可用空间 */
+#app {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+
+/* 防止导航链接激活状态变化时的布局偏移 */
+nav a {
+  position: relative;
+  /* 为边框预留空间，防止激活时出现偏移 */
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: transparent;
+  /* 确保尺寸一致 */
+  box-sizing: border-box;
+}
+
+/* 防止内容区域在路由切换时的跳动 */
+.router-view-transition-enter-active,
+.router-view-transition-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.router-view-transition-enter-from,
+.router-view-transition-leave-to {
+  opacity: 0;
+}
+
 /* 自定义样式 */
 @layer components {
   .line-clamp-1 {
@@ -22,11 +68,6 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
-}
-
-/* 平滑滚动 */
-html {
-  scroll-behavior: smooth;
 }
 
 /* 自定义滚动条 */
