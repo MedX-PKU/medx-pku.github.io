@@ -35,6 +35,20 @@ nav a {
   box-sizing: border-box;
 }
 
+/* 桌面端导航链接的增强样式 */
+nav.hidden-md-flex a {
+  padding-bottom: 0.25rem;
+  padding-top: 0.25rem;
+}
+
+/* 移动端导航链接的特殊样式 */
+.md\:hidden nav a {
+  border-left-width: 4px;
+  border-left-style: solid;
+  border-left-color: transparent;
+  border-bottom: none !important;
+}
+
 /* 防止内容区域在路由切换时的跳动 */
 .router-view-transition-enter-active,
 .router-view-transition-leave-active {

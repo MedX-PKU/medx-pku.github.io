@@ -28,8 +28,9 @@
             v-for="item in navigationItems"
             :key="item.name"
             :to="item.path"
-            class="text-gray-600 hover:text-blue-600 font-medium transition-colors duration-200 hover:border-blue-400"
-            active-class="text-blue-600 border-blue-600"
+            class="text-gray-600 hover:text-blue-600 font-medium transition-all duration-200 hover:border-blue-400 py-1 relative"
+            active-class="text-blue-600 border-blue-600 font-semibold"
+            exact-active-class="text-blue-600 border-blue-600 font-semibold"
           >
             {{ $t(item.label) }}
           </router-link>
@@ -53,12 +54,14 @@
         v-if="mobileMenuOpen"
         class="md:hidden border-t border-gray-200 py-4"
       >
-        <nav class="flex flex-col space-y-2">
+        <nav class="flex flex-col space-y-1">
           <router-link
             v-for="item in navigationItems"
             :key="item.name"
             :to="item.path"
-            class="block px-3 py-2 text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200"
+            class="block px-4 py-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-all duration-200 border-l-4 border-transparent"
+            active-class="text-blue-600 bg-blue-50 border-blue-600 font-semibold"
+            exact-active-class="text-blue-600 bg-blue-50 border-blue-600 font-semibold"
             @click="mobileMenuOpen = false"
           >
             {{ $t(item.label) }}
