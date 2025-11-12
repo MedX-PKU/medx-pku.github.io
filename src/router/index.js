@@ -59,7 +59,7 @@ const routes = [
     }
   },
   {
-    path: '/people/:name',
+    path: '/~:name',
     name: 'PeopleDetail',
     component: () => import('@/views/PeopleDetail.vue'),
     meta: {
